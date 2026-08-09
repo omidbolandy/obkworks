@@ -127,7 +127,7 @@
 
         <!-- Temperature + unit toggle -->
         <div class="mt-6 flex flex-col items-center gap-3">
-          <span class="text-5xl font-extrabold text-gray-900 dark:text-white">
+          <span dir="ltr" class="text-5xl font-extrabold text-gray-900 dark:text-white">
             {{ formatNumber(displayedTemp) }}°{{ tempUnit }}
           </span>
           <div
@@ -148,7 +148,7 @@
             </button>
           </div>
           <p class="text-xs text-gray-400 dark:text-gray-500">
-            {{ $t("weather.feelsLike") }}: {{ formatNumber(feelsLikeInSelectedUnit) }}°{{ tempUnit }}
+            {{ $t("weather.feelsLike") }}: <span dir="ltr">{{ formatNumber(feelsLikeInSelectedUnit) }}°{{ tempUnit }}</span>
           </p>
         </div>
 
@@ -232,23 +232,17 @@ export default {
       loading: false,
       errorMessage: "",
       tempUnit: "C",
-      resetSearch() {
-      this.query = "";
-      this.weather = null;
-      this.errorMessage = "";
-    },
     };
-  
   },
   computed: {
     isRtl() {
       return this.$i18n.locale === "fa";
     },
-    tempKelvin() {
+    tempCelsius() {
       return this.weather?.main?.temp ?? 0;
     },
-    tempCelsius() {
-      return this.tempKelvin - 273.15;
+    tempKelvin() {
+      return this.tempCelsius + 273.15;
     },
     tempFahrenheit() {
       return this.tempCelsius * 9 / 5 + 32;
@@ -259,9 +253,8 @@ export default {
       return this.tempCelsius;
     },
     feelsLikeInSelectedUnit() {
-      const feelsKelvin = this.weather?.main?.feels_like ?? 0;
-      if (this.tempUnit === "K") return feelsKelvin;
-      const feelsCelsius = feelsKelvin - 273.15;
+      const feelsCelsius = this.weather?.main?.feels_like ?? 0;
+      if (this.tempUnit === "K") return feelsCelsius + 273.15;
       if (this.tempUnit === "F") return feelsCelsius * 9 / 5 + 32;
       return feelsCelsius;
     },
@@ -311,6 +304,11 @@ formattedDate() {
 }
   },
   methods: {
+    resetSearch() {
+      this.query = "";
+      this.weather = null;
+      this.errorMessage = "";
+    },
     onKeydown(e) {
       if (e.key === "Enter") this.fetchWeather();
     },

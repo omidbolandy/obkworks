@@ -11,13 +11,13 @@ A modern bilingual portfolio website built to showcase my IT skills, projects, a
 
 ## 🚀 Live Demo
 
-Coming Soon
+https://obkworks.pages.dev
 
 ---
 
 ## ℹ️ Project Information
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Status:** Stable
 - **License:** © 2026 obk Portfolio. All rights reserved.
 
@@ -153,7 +153,7 @@ GitHub:
 https://github.com/omidbolandy
 
 Website:
-Coming Soon
+https://obkworks.pages.dev
 
 LinkedIn:
 [(Omid Bolandy Natag)](https://www.linkedin.com/in/omid-bolandy/)
