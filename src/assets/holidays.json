@@ -1,0 +1,87 @@
+[
+  {
+    "name": "New Year's Day",
+    "date": "01-01",
+    "reason": "Celebration of the first day of the year."
+  },
+  {
+    "name": "Martin Luther King Jr. Day",
+    "date": "01-15",
+    "reason": "Commemoration of the civil rights leader's birthday."
+  },
+  {
+    "name": "Presidents' Day",
+    "date": "02-19",
+    "reason": "Honoring all U.S. presidents."
+  },
+  {
+    "name": "Memorial Day",
+    "date": "05-29",
+    "reason": "Honoring the men and women who have died in military service."
+  },
+  {
+    "name": "Independence Day",
+    "date": "07-04",
+    "reason": "Celebrating the adoption of the Declaration of Independence."
+  },
+  {
+    "name": "Labor Day",
+    "date": "09-04",
+    "reason": "Celebrating the achievements of workers."
+  },
+  {
+    "name": "Columbus Day",
+    "date": "10-09",
+    "reason": "Commemorating Christopher Columbus's landing in the Americas."
+  },
+  {
+    "name": "Veterans Day",
+    "date": "11-11",
+    "reason": "Honoring military veterans."
+  },
+  {
+    "name": "Thanksgiving Day",
+    "date": "11-23",
+    "reason": "A day of giving thanks for the harvest and blessings of the year."
+  },
+  {
+    "name": "Christmas Day",
+    "date": "12-25",
+    "reason": "Celebration of the birth of Jesus Christ."
+  },
+  {
+    "name": "Good Friday",
+    "date": "04-14",
+    "reason": "Commemoration of the crucifixion of Jesus Christ."
+  },
+  {
+    "name": "Easter Monday",
+    "date": "04-17",
+    "reason": "Celebration of the resurrection of Jesus Christ."
+  },
+  {
+    "name": "Patriots' Day",
+    "date": "04-19",
+    "reason": "Commemoration of the battles of Lexington and Concord."
+  },
+  {
+    "name": "Juneteenth",
+    "date": "06-19",
+    "reason": "Commemoration of the end of slavery in the United States."
+  },
+  {
+    "name": "Halloween",
+    "date": "10-31",
+    "reason": "Celebration of All Hallows' Eve."
+  },
+  {
+    "name": "Black Friday",
+    "date": "11-24",
+    "reason": "Day after Thanksgiving, known for shopping deals."
+  },
+  {
+    "name": "New Year's Eve",
+    "date": "12-31",
+    "reason": "Celebration of the last day of the year."
+  }
+]
