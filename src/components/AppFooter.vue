@@ -50,7 +50,7 @@
             </svg>
             <span class="sr-only">{{ $t("home.contact.gmail") }}</span>
           </a>
-          <a href="https://www.github.com/omidbolandy" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+          <a href="https://www.github.com/omidbolandy" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
               viewBox="0 0 20 20">
               <path fill-rule="evenodd"
