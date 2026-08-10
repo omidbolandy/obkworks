@@ -17,7 +17,7 @@ https://obkworks.pages.dev
 
 ## ℹ️ Project Information
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Status:** Stable
 - **License:** © 2026 obk Portfolio. All rights reserved.
 
