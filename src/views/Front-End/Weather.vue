@@ -1,23 +1,23 @@
 <template>
-    <!-- Link to return to projects -->
-    <div class="max-w-2xl py-2 sm:py-8 mx-6 sm:mx-auto">
-      <router-link
-        to="/Projects"
-        class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
-        <svg
-          class="h-4 w-4 transition-transform ltr:rotate-0 rtl:rotate-180"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-        </svg>
-        <span>{{ $t("projectsPage.backToProjects") }}</span>
-      </router-link>
-    </div>
+  <!-- Link to return to projects -->
+  <div class="max-w-2xl py-2 sm:py-8 mx-6 sm:mx-auto">
+    <router-link
+      to="/Projects"
+      class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+      <svg
+        class="h-4 w-4 transition-transform ltr:rotate-0 rtl:rotate-180"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+      </svg>
+      <span>{{ $t("projectsPage.backToProjects") }}</span>
+    </router-link>
+  </div>
 
   <section
     class="mx-auto max-w-2xl px-4 py-10 sm:pb-10"
@@ -30,20 +30,18 @@
     <div
       class="mt-8 rounded-3xl border border-gray-200/70 bg-white/80 p-6 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30 sm:p-8">
       <!-- Search bar -->
-      <div class="flex gap-2">
+      <div class="flex gap-2 [@media(max-width:425px)]:flex-col">
         <div class="relative flex-1">
           <svg
             class="pointer-events-none absolute top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 ltr:left-3 rtl:right-3"
             fill="none"
             stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
+              d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
           <input
             type="text"
@@ -51,23 +49,23 @@
             v-model="query"
             @keydown="onKeydown"
             maxlength="80"
-            class="w-full rounded-xl border border-gray-200 bg-gray-50/70 py-2.5 text-sm font-medium text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800/60 dark:text-white ltr:pl-9 ltr:pr-3 rtl:pr-9 rtl:pl-3"
-          />
+            class="w-full rounded-xl border border-gray-200 bg-gray-50/70 py-2.5 text-sm font-medium text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800/60 dark:text-white ltr:pl-9 ltr:pr-3 rtl:pr-9 rtl:pl-3"/>
         </div>
-        <button
-          type="button"
-          @click="fetchWeather"
-          :disabled="loading || !query.trim()"
-          class="shrink-0 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-600 dark:hover:bg-blue-700"
-        >
-          {{ $t("weather.searchButton") }}
-        </button>
-        <button
-          type="button"
-          @click="resetSearch"
-          class="shrink-0 rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-semibold text-gray-600 transition hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800">
-          {{ $t("weather.resetButton") }}
-        </button>
+        <div class="flex gap-2 [@media(max-width:425px)]:w-full">
+          <button
+            type="button"
+            @click="fetchWeather"
+            :disabled="loading || !query.trim()"
+            class="shrink-0 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-600 dark:hover:bg-blue-700 [@media(max-width:425px)]:flex-1">
+            {{ $t("weather.searchButton") }}
+          </button>
+          <button
+            type="button"
+            @click="resetSearch"
+            class="shrink-0 rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-semibold text-red-600 transition hover:bg-gray-100 dark:border-gray-700 dark:text-red-500 dark:hover:bg-gray-800 [@media(max-width:425px)]:flex-1">
+            {{ $t("weather.resetButton") }}
+          </button>
+        </div>
       </div>
 
       <!-- Loading state -->
@@ -83,8 +81,7 @@
       <!-- Error state -->
       <div
         v-else-if="errorMessage"
-        class="mt-8 flex flex-col items-center gap-2 py-10 text-center"
-      >
+        class="mt-8 flex flex-col items-center gap-2 py-10 text-center">
         <span class="text-4xl">⚠️</span>
         <p class="font-semibold text-gray-800 dark:text-gray-100">
           {{ errorMessage }}
@@ -119,8 +116,7 @@
         <div class="mt-6 flex flex-col items-center">
           <span class="text-6xl leading-none">{{ weatherEmoji }}</span>
           <span
-            class="mt-2 rounded-full bg-blue-50 px-3 py-1 text-sm font-medium capitalize text-blue-700 dark:bg-blue-500/10 dark:text-blue-300"
-          >
+            class="mt-2 rounded-full bg-blue-50 px-3 py-1 text-sm font-medium capitalize text-blue-700 dark:bg-blue-500/10 dark:text-blue-300">
             {{ weather.weather[0].description }}
           </span>
         </div>
@@ -131,8 +127,7 @@
             {{ formatNumber(displayedTemp) }}°{{ tempUnit }}
           </span>
           <div
-            class="inline-flex overflow-hidden rounded-full border border-gray-200 dark:border-gray-700"
-          >
+            class="inline-flex overflow-hidden rounded-full border border-gray-200 dark:border-gray-700">
             <button
               v-for="unit in ['C', 'K', 'F']"
               :key="unit"
@@ -142,8 +137,7 @@
               class="px-3 py-1 text-xs font-semibold transition"
               :class="tempUnit === unit
                 ? 'bg-blue-600 text-white'
-                : 'bg-gray-50/70 text-gray-600 hover:bg-gray-100 dark:bg-gray-800/60 dark:text-gray-300 dark:hover:bg-gray-800'"
-            >
+                : 'bg-gray-50/70 text-gray-600 hover:bg-gray-100 dark:bg-gray-800/60 dark:text-gray-300 dark:hover:bg-gray-800'">
               °{{ unit }}
             </button>
           </div>
@@ -155,8 +149,7 @@
         <!-- Stat tiles -->
         <div class="mt-8 grid grid-cols-2 gap-3 text-start">
           <div
-            class="rounded-xl border border-gray-200/70 bg-gray-50/70 p-3 dark:border-gray-700 dark:bg-gray-800/60"
-          >
+            class="rounded-xl border border-gray-200/70 bg-gray-50/70 p-3 dark:border-gray-700 dark:bg-gray-800/60">
             <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -170,8 +163,7 @@
           </div>
 
           <div
-            class="rounded-xl border border-gray-200/70 bg-gray-50/70 p-3 dark:border-gray-700 dark:bg-gray-800/60"
-          >
+            class="rounded-xl border border-gray-200/70 bg-gray-50/70 p-3 dark:border-gray-700 dark:bg-gray-800/60">
             <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -185,8 +177,7 @@
           </div>
 
           <div
-            class="col-span-2 rounded-xl border border-gray-200/70 bg-gray-50/70 p-3 dark:border-gray-700 dark:bg-gray-800/60"
-          >
+            class="col-span-2 rounded-xl border border-gray-200/70 bg-gray-50/70 p-3 dark:border-gray-700 dark:bg-gray-800/60">
             <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
