@@ -1,6 +1,6 @@
 <template>
     <!-- Link to return to projects -->
-    <div class="max-w-4xl pt-8 mx-6 sm:mx-auto">
+  <div class="max-w-4xl pt-8 mx-6 sm:mx-auto">
     <router-link
       to="/Projects"
       class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
@@ -17,85 +17,71 @@
       </svg>
       <span>{{ $t("projectsPage.backToProjects") }}</span>
     </router-link>
-    </div>
+  </div>
 
   <!-- Calendar_Project -->
   <div
     id="calendar"
-    class="w-[92%] max-w-4xl mt-8 mb-11 sm:mt-16 pb-10 sm:pb-[3.75rem] p-4 sm:p-6 bg-white rounded-2xl shadow-xl flex flex-col items-center mx-auto dark:bg-gray-600 dark:text-white text-gray-800"
-  >
+    class="w-[92%] max-w-4xl mt-8 mb-11 sm:mt-16 pb-10 sm:pb-[3.75rem] p-4 sm:p-6 bg-white rounded-2xl shadow-xl flex flex-col items-center mx-auto dark:bg-gray-600 dark:text-white text-gray-800">
     <!-- Title -->
     <h1
-      class="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mt-4 dark:text-white"
-    >
+      class="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mt-4 dark:text-white">
       {{ $t("calendar.title") }}
     </h1>
 
     <!-- Calendar -->
     <div
-      class="w-[100%] max-w-lg bg-white rounded-2xl shadow-xl mt-6 p-4 sm:p-6 dark:bg-gray-800 dark:text-white text-gray-800"
-    >
+      class="w-[100%] max-w-lg bg-white rounded-2xl shadow-xl mt-6 p-4 sm:p-6 dark:bg-gray-800 dark:text-white text-gray-800">
       <!-- Calendar-Navbar-Buttons -->
       <div
         :dir="calcDir"
-        class="flex items-center bg-blue-600 text-white px-4 sm:px-6 py-3 rounded-t-2xl gap-2 dark:bg-gray-700 dark:text-white"
-      >
+        class="cal-navbar flex items-center bg-blue-600 text-white px-4 sm:px-6 py-3 rounded-t-2xl gap-2 dark:bg-gray-700 dark:text-white">
         <button
           @click="previousMonth"
-          class="p-1 rounded-full hover:bg-blue-700 transition dark:hover:bg-gray-600"
-          :title="$t('calendar.previousMonth')"
-        >
+          class="cal-nav-btn p-1 rounded-full hover:bg-blue-700 transition dark:hover:bg-gray-600 shrink-0"
+          :title="$t('calendar.previousMonth')">
           <img
             src="../../assets/Icons/chevron_left.png"
             :alt="$t('calendar.previousMonth')"
-            class="w-9 h-9"
-            :class="{ 'scale-x-[-1]': isPersianLocale }"
-          />
+            class="cal-nav-icon"
+            :class="{ 'scale-x-[-1]': isPersianLocale }"/>
         </button>
         <h2
           dir="ltr"
-          class="text-lg font-semibold flex-1 text-center min-w-[160px] text-white dark:text-white"
-        >
+          class="cal-navbar-title text-lg font-semibold flex-1 text-center text-white dark:text-white">
           {{ currentMonthLabel }}
         </h2>
         <button
           @click="nextMonth"
-          class="p-1 rounded-full hover:bg-blue-700 transition dark:hover:bg-gray-600"
-          :title="$t('calendar.nextMonth')"
-        >
+          class="cal-nav-btn p-1 rounded-full hover:bg-blue-700 transition dark:hover:bg-gray-600 shrink-0"
+          :title="$t('calendar.nextMonth')">
           <img
             src="../../assets/Icons/chevron_right.png"
             :alt="$t('calendar.nextMonth')"
-            class="w-9 h-9"
-            :class="{ 'scale-x-[-1]': isPersianLocale }"
-          />
-          
+            class="cal-nav-icon"
+            :class="{ 'scale-x-[-1]': isPersianLocale }"/>
         </button>
 
         <button
           @click="goToCurrentMonth"
-          class="h-12 w-12 p-2 ms-8 rounded-full hover:bg-blue-700 transition dark:hover:bg-gray-600"
-          :title="$t('calendar.currentMonth')"
-        >
+          class="cal-today-btn h-12 w-12 p-2 ms-8 rounded-full hover:bg-blue-700 transition dark:hover:bg-gray-600 shrink-0"
+          :title="$t('calendar.currentMonth')">
           <img
             src="../../assets/Icons/history.svg"
             :alt="$t('calendar.currentMonth')"
-          />
+            class="cal-today-icon"/>
         </button>
       </div>
 
       <table
-        class="w-full text-center border-collapse table-fixed dark:text-white text-gray-800"
-      >
+        class="w-full text-center border-collapse table-fixed dark:text-white text-gray-800">
         <thead
-          class="bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white"
-        >
+          class="bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white">
           <tr>
             <th
               v-for="day in weekDays"
               :key="day"
-              class="py-2 font-medium dark:text-white text-gray-800"
-            >
+              class="py-2 font-medium dark:text-white text-gray-800">
               {{ day }}
             </th>
           </tr>
@@ -106,16 +92,14 @@
             <td
               v-for="day in week"
               :key="`${day.year}-${day.month}-${day.date}`"
-              class="p-[2px] sm:p-1 dark:text-white text-gray-800"
-            >
+              class="p-[2px] sm:p-1 dark:text-white text-gray-800">
               <div
                 class="w-full aspect-square flex items-center justify-center text-sm sm:text-base font-semibold rounded-md transition dark:text-white text-gray-800"
                 :class="[
                   dayStateClass(day),
                   { 'hover:bg-gray-300 hover:text-black cursor-pointer': isCurrentMonth(day) },
                 ]"
-                @click="toggleSelect(day)"
-              >
+                @click="toggleSelect(day)">
                 {{ isCurrentMonth(day) ? formatDisplayNumber(day.date) : "" }}
               </div>
             </td>
@@ -125,63 +109,56 @@
 
       <!-- A three-panel display showing the Solar Hijri, Gregorian, and Lunar Hijri dates. -->
       <div
-        class="mt-6 grid grid-cols-3 divide-x rtl:divide-x-reverse divide-gray-300 dark:divide-gray-600 bg-gray-100 rounded-lg w-full dark:bg-gray-700 dark:text-white text-gray-800 overflow-hidden"
-      >
+        class="mt-6 grid grid-cols-3 divide-x rtl:divide-x-reverse divide-gray-300 dark:divide-gray-600 bg-gray-100 rounded-lg w-full dark:bg-gray-700 dark:text-white text-gray-800 overflow-hidden">
         <div
-          class="flex flex-col items-center justify-center py-3 px-2"
-          dir="ltr"
-        >
-          <span class="text-xs text-gray-500 dark:text-gray-300">{{
+          class="cal-datebox-cell flex flex-col items-center justify-center py-3 px-2"
+          dir="ltr">
+          <span class="cal-datebox-label text-xs text-gray-500 dark:text-gray-300 text-center">{{
             dateBoxLabels.gregorian
           }}</span>
-          <span class="text-sm font-bold mt-1">{{ gregorianDisplay }}</span>
+          <span class="cal-datebox-value text-sm font-bold mt-1 text-center break-words">{{ gregorianDisplay }}</span>
         </div>
         <div
-          class="flex flex-col items-center justify-center py-3 px-2"
-          dir="rtl"
-        >
-          <span class="text-xs text-gray-500 dark:text-gray-300">{{
+          class="cal-datebox-cell flex flex-col items-center justify-center py-3 px-2"
+          dir="rtl">
+          <span class="cal-datebox-label text-xs text-gray-500 dark:text-gray-300 text-center">{{
             dateBoxLabels.jalali
           }}</span>
-          <span class="text-sm font-bold mt-1">{{ jalaliDisplay }}</span>
+          <span class="cal-datebox-value text-sm font-bold mt-1 text-center break-words">{{ jalaliDisplay }}</span>
         </div>
-        <div class="flex flex-col items-center justify-center py-3 px-2">
-          <span class="text-xs text-gray-500 dark:text-gray-300">{{
+        <div class="cal-datebox-cell flex flex-col items-center justify-center py-3 px-2">
+          <span class="cal-datebox-label text-xs text-gray-500 dark:text-gray-300 text-center">{{
             dateBoxLabels.hijri
           }}</span>
-          <span class="text-sm font-bold mt-1">{{ hijriDisplay }}</span>
+          <span class="cal-datebox-value text-sm font-bold mt-1 text-center break-words">{{ hijriDisplay }}</span>
         </div>
       </div>
 
       <!-- The moment of the turn of the year -->
       <div
-        class="mt-6 p-4 bg-gray-100 rounded-lg w-full dark:bg-gray-700 dark:text-white text-gray-800"
-      >
+        class="mt-6 p-4 bg-gray-100 rounded-lg w-full dark:bg-gray-700 dark:text-white text-gray-800">
         <h3 class="text-lg font-bold text-gray-800 dark:text-white">
           {{ $t("calendar.nowruz.title") }}
         </h3>
         <div
-          class="mt-2 grid grid-cols-2 divide-x rtl:divide-x-reverse divide-gray-300 dark:divide-gray-600 bg-white rounded-lg dark:bg-gray-800 overflow-hidden"
-        >
+          class="mt-2 grid grid-cols-2 divide-x rtl:divide-x-reverse divide-gray-300 dark:divide-gray-600 bg-white rounded-lg dark:bg-gray-800 overflow-hidden">
           <div
             dir="rtl"
-            class="flex flex-col items-center justify-center py-3 px-2"
-          >
-            <span class="text-xs text-gray-500 dark:text-gray-300">{{
+            class="cal-datebox-cell flex flex-col items-center justify-center py-3 px-2">
+            <span class="cal-datebox-label text-xs text-gray-500 dark:text-gray-300 text-center">{{
               $t("calendar.nowruz.jalali")
             }}</span>
-            <span class="text-sm font-bold mt-1">{{
+            <span class="cal-datebox-value text-sm font-bold mt-1 text-center break-words">{{
               nowruzPersianDisplay
             }}</span>
           </div>
           <div
-            class="flex flex-col items-center justify-center py-3 px-2"
-            dir="ltr"
-          >
-            <span class="text-xs text-gray-500 dark:text-gray-300">{{
+            class="cal-datebox-cell flex flex-col items-center justify-center py-3 px-2"
+            dir="ltr">
+            <span class="cal-datebox-label text-xs text-gray-500 dark:text-gray-300 text-center">{{
               $t("calendar.nowruz.gregorian")
             }}</span>
-            <span class="text-sm font-bold mt-1">{{
+            <span class="cal-datebox-value text-sm font-bold mt-1 text-center break-words">{{
               nowruzGregorianDisplay
             }}</span>
           </div>
@@ -190,23 +167,19 @@
 
       <!-- Holiday Box -->
       <div
-        class="mt-6 p-4 bg-gray-100 rounded-lg w-full dark:bg-gray-700 dark:text-white text-gray-800"
-      >
+        class="mt-6 p-4 bg-gray-100 rounded-lg w-full dark:bg-gray-700 dark:text-white text-gray-800">
         <h3 class="text-lg font-bold text-gray-800 dark:text-white">
           {{ $t("calendar.holidays") }}
         </h3>
         <ul
           v-if="holidaysList.length > 0"
-          class="mt-2 space-y-2 dark:text-white text-gray-800"
-        >
+          class="mt-2 space-y-2 dark:text-white text-gray-800">
           <li
             v-for="holiday in holidaysList"
             :key="holiday.name"
-            class="bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-all dark:bg-gray-800 dark:text-white text-gray-800"
-          >
+            class="bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-all dark:bg-gray-800 dark:text-white text-gray-800">
             <div
-              class="flex items-center space-x-2 dark:text-white text-gray-800"
-            >
+              class="flex items-center space-x-2 dark:text-white text-gray-800">
               <span class="font-bold text-blue-600 dark:text-blue-400">{{
                 holiday.name
               }}</span>
@@ -229,8 +202,7 @@
     <!-- Date Converter -->
     <div
       :dir="calcDir"
-      class="mt-6 p-4 bg-gray-100 rounded-lg w-full max-w-2xl dark:bg-gray-700 dark:text-white text-gray-800"
-    >
+      class="mt-6 p-4 bg-gray-100 rounded-lg w-full max-w-2xl dark:bg-gray-700 dark:text-white text-gray-800">
       <h3 class="text-lg font-bold text-gray-800 dark:text-white">
         {{ converterTitle }}
       </h3>
@@ -243,8 +215,7 @@
             converterMode === 'toGregorian'
               ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm'
               : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white',
-          ]"
-        >
+          ]">
           {{ $t("converterLabels.titleToGregorian") }}
         </button>
         <button
@@ -254,8 +225,7 @@
             converterMode === 'toJalali'
               ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm'
               : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white',
-          ]"
-        >
+          ]">
           {{ $t("converterLabels.titleToJalali") }}
         </button>
       </div>
@@ -268,17 +238,14 @@
           :max="converterMaxYear"
           @input="clampConverterYear"
           :placeholder="converterLabels.year"
-          class="w-full p-2 rounded-md border border-gray-300 text-center dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-        />
+          class="cal-converter-input w-full p-2 rounded-md border border-gray-300 text-center dark:bg-gray-800 dark:border-gray-600 dark:text-white"/>
         <select
           v-model="converterMonth"
-          class="w-full p-2 rounded-md border border-gray-300 text-center dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-        >
+          class="cal-converter-input w-full p-2 rounded-md border border-gray-300 text-center dark:bg-gray-800 dark:border-gray-600 dark:text-white">
           <option
             v-for="(name, index) in converterMonthNames"
             :key="index"
-            :value="index + 1"
-          >
+            :value="index + 1">
             {{ name }}
           </option>
         </select>
@@ -289,29 +256,25 @@
           max="31"
           @input="clampConverterDay"
           :placeholder="converterLabels.day"
-          class="w-full p-2 rounded-md border border-gray-300 text-center dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-        />
+          class="cal-converter-input w-full p-2 rounded-md border border-gray-300 text-center dark:bg-gray-800 dark:border-gray-600 dark:text-white"/>
       </div>
 
       <div class="mt-3 flex gap-2">
         <button
           @click="convertDate"
-          class="flex-1 py-2 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 transition dark:bg-gray-600 dark:hover:bg-gray-500"
-        >
+          class="flex-1 py-2 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 transition dark:bg-gray-600 dark:hover:bg-gray-500">
           {{ converterLabels.button }}
         </button>
         <button
           @click="resetConverter"
-          class="flex-1 py-2 rounded-md bg-gray-300 text-gray-800 font-semibold hover:bg-gray-400 transition dark:bg-gray-800 dark:text-white dark:hover:bg-gray-900"
-        >
+          class="flex-1 py-2 rounded-md bg-gray-300 text-gray-800 font-semibold hover:bg-gray-400 transition dark:bg-gray-800 dark:text-white dark:hover:bg-gray-900">
           {{ converterLabels.reset }}
         </button>
       </div>
       <p
         v-if="converterResult"
         :dir="converterResultDir"
-        class="mt-3 text-center font-bold bg-white p-3 rounded-lg shadow dark:bg-gray-800 dark:text-white"
-      >
+        class="mt-3 text-center font-bold bg-white p-3 rounded-lg shadow dark:bg-gray-800 dark:text-white">
         {{ converterResult }}
       </p>
       <p v-if="converterError" class="mt-3 text-center text-red-500 text-sm">
@@ -607,6 +570,7 @@ export default {
       return weeks;
     },
     isToday(day) {
+      if (!day.isCurrentMonth) return false;
       const today = new Date();
       if (this.isPersianLocale) {
         const persianToday = this.getPersianParts(today);
@@ -825,6 +789,7 @@ export default {
       }
     },
     isSelected(day) {
+      if (!day.isCurrentMonth) return false;
       return `${day.year}-${day.month}-${day.date}` === this.selectedDate;
     },
     normalizeHoliday(holiday) {
@@ -1045,3 +1010,101 @@ export default {
   },
 };
 </script>
+<style scoped>
+.cal-nav-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: block;
+}
+
+.cal-navbar-title {
+  min-width: 160px;
+}
+
+@media (max-width: 425px) {
+  .cal-nav-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .cal-navbar-title {
+    min-width: 0;
+    font-size: 1rem;
+  }
+
+  .cal-today-btn {
+    margin-inline-start: 0.75rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0.375rem;
+  }
+
+  .cal-datebox-cell {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .cal-datebox-value {
+    font-size: 0.75rem;
+  }
+
+  .cal-datebox-label {
+    font-size: 0.65rem;
+  }
+
+  .cal-converter-input {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+
+  .cal-converter-input::placeholder {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .cal-nav-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .cal-navbar {
+    gap: 0.25rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .cal-navbar-title {
+    font-size: 0.875rem;
+  }
+
+  .cal-today-btn {
+    margin-inline-start: 0.5rem;
+    height: 2.25rem;
+    width: 2.25rem;
+    padding: 0.3rem;
+  }
+
+  .cal-datebox-cell {
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+  }
+
+  .cal-datebox-value {
+    font-size: 0.7rem;
+  }
+
+  .cal-datebox-label {
+    font-size: 0.6rem;
+  }
+
+  .cal-converter-input {
+    font-size: 0.75rem;
+    padding: 0.3rem;
+  }
+
+  .cal-converter-input::placeholder {
+    font-size: 0.7rem;
+  }
+}
+</style>
