@@ -296,7 +296,19 @@ export default {
       seconds: 0,
       timer: null,
       secondHandRotation: 0,
+      inputsDirty: false,
     };
+  },
+  watch: {
+    inputHours() {
+      this.inputsDirty = true;
+    },
+    inputMinutes() {
+      this.inputsDirty = true;
+    },
+    inputSeconds() {
+      this.inputsDirty = true;
+    },
   },
   methods: {
     toLocaleDigits(str) {
@@ -332,10 +344,14 @@ export default {
     },
     startCountdownTimer() {
       this.stopCountdownTimer();
-      if (this.hours === 0 && this.minutes === 0 && this.seconds === 0) {
+      if (
+        this.inputsDirty ||
+        (this.hours === 0 && this.minutes === 0 && this.seconds === 0)
+      ) {
         this.hours = this.inputHours;
         this.minutes = this.inputMinutes;
         this.seconds = this.inputSeconds;
+        this.inputsDirty = false;
         if (this.hours === 0 && this.minutes === 0 && this.seconds === 0) {
           alert(this.$t("timeDate.countdown.setTimeAlert"));
           return;
