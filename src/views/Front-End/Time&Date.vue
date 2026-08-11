@@ -211,26 +211,41 @@
           {{ $t("timeDate.countdown.title") }}
         </p>
         <div class="flex justify-center gap-3">
-          <input
-            type="number"
-            v-model="inputHours"
-            :placeholder="$t('timeDate.countdown.hoursPlaceholder')"
-            min="0"
-            class="w-20 rounded-xl border border-gray-300 bg-white px-3 py-2 text-center text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white"/>
-          <input
-            type="number"
-            v-model="inputMinutes"
-            :placeholder="$t('timeDate.countdown.minutesPlaceholder')"
-            min="0"
-            max="59"
-            class="w-20 rounded-xl border border-gray-300 bg-white px-3 py-2 text-center text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white"/>
-          <input
-            type="number"
-            v-model="inputSeconds"
-            :placeholder="$t('timeDate.countdown.secondsPlaceholder')"
-            min="0"
-            max="59"
-            class="w-20 rounded-xl border border-gray-300 bg-white px-3 py-2 text-center text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white"/>
+          <label class="flex flex-col items-center gap-1">
+            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">
+              {{ $t('timeDate.countdown.hoursLabel') }}
+            </span>
+            <input
+              type="number"
+              v-model="inputHours"
+              :placeholder="$t('timeDate.countdown.hoursPlaceholder')"
+              min="0"
+              class="w-20 rounded-xl border border-gray-300 bg-white px-3 py-2 text-center text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white"/>
+          </label>
+          <label class="flex flex-col items-center gap-1">
+            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">
+              {{ $t('timeDate.countdown.minutesLabel') }}
+            </span>
+            <input
+              type="number"
+              v-model="inputMinutes"
+              :placeholder="$t('timeDate.countdown.minutesPlaceholder')"
+              min="0"
+              max="59"
+              class="w-20 rounded-xl border border-gray-300 bg-white px-3 py-2 text-center text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white"/>
+          </label>
+          <label class="flex flex-col items-center gap-1">
+            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">
+              {{ $t('timeDate.countdown.secondsLabel') }}
+            </span>
+            <input
+              type="number"
+              v-model="inputSeconds"
+              :placeholder="$t('timeDate.countdown.secondsPlaceholder')"
+              min="0"
+              max="59"
+              class="w-20 rounded-xl border border-gray-300 bg-white px-3 py-2 text-center text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white"/>
+          </label>
         </div>
         <div class="flex flex-wrap gap-3 justify-center">
           <button
@@ -316,12 +331,15 @@ export default {
         .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
     },
     startCountdownTimer() {
-      this.hours = this.inputHours;
-      this.minutes = this.inputMinutes;
-      this.seconds = this.inputSeconds;
+      this.stopCountdownTimer();
       if (this.hours === 0 && this.minutes === 0 && this.seconds === 0) {
-        alert(this.$t("timeDate.countdown.setTimeAlert"));
-        return;
+        this.hours = this.inputHours;
+        this.minutes = this.inputMinutes;
+        this.seconds = this.inputSeconds;
+        if (this.hours === 0 && this.minutes === 0 && this.seconds === 0) {
+          alert(this.$t("timeDate.countdown.setTimeAlert"));
+          return;
+        }
       }
       this.timer = setInterval(() => {
         if (this.seconds === 0) {
@@ -429,6 +447,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .clock-colon {
   animation: clock-blink 1s steps(1) infinite;

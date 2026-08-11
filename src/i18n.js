@@ -925,7 +925,10 @@ const messages = {
                 stop: "Stop",
                 reset: "Reset",
                 setTimeAlert: "Please set the reverse time.",
-                timeUpAlert: "Time is up!"
+                timeUpAlert: "Time is up!",
+                hoursLabel: "Hours",
+                minutesLabel: "Minutes",
+                secondsLabel: "Seconds"
             },
             fullDate: "Full Date:",
             time24h: "Time (24h):",
@@ -2848,7 +2851,10 @@ const messages = {
                 stop: "توقف",
                 reset: "بازنشانی",
                 setTimeAlert: "لطفاً زمان شمارش معکوس را تنظیم کنید.",
-                timeUpAlert: "زمان به پایان رسید!"
+                timeUpAlert: "زمان به پایان رسید!",
+                hoursLabel: "ساعت",
+                minutesLabel: "دقیقه",
+                secondsLabel: "ثانیه"
             },
             fullDate: "تاریخ کامل:",
             time24h: "ساعت (۲۴ ساعته):"
