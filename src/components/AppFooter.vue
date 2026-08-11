@@ -5,30 +5,30 @@
         <div class="mb-12 md:mb-0 md:max-w-xs">
 
           <!-- obk Icon -->
-          <router-link class="flex items-center self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          <router-link class="flex items-center self-center text-2xl max-[425px]:text-xl max-[320px]:text-lg font-semibold whitespace-nowrap dark:text-white"
             to="/">
             <img src="/src/assets/obk-Logo-2.webp" class="w-10 h-10 mx-2 sm:h-16 sm:w-16 rounded-full"
               alt="obkProject Logo" />
             {{ $t("appName") }}
           </router-link>
-          <p class="text-justify leading-relaxed mt-3 max-sm:text-xs text-sm text-gray-500 dark:text-gray-400">
+          <p class="text-start leading-relaxed mt-3 max-sm:text-xs text-sm text-gray-500 dark:text-gray-400">
             {{ $t("footer.tagline") }}
           </p>
         </div>
 
         <!-- quickAccess -->
         <div class="flex flex-col items-center text-center md:items-start md:text-start md:ms-20">
-          <h2 class="mb-4 md:mb-6 text-md font-bold text-gray-900 uppercase dark:text-white">
+          <h2 class="mb-2 md:mb-3 text-md font-bold text-gray-900 uppercase dark:text-white">
             {{ $t("footer.quickAccess") }}
           </h2>
           <ul class="text-gray-500 dark:text-gray-400 font-medium">
-            <li class="mb-3 md:mb-4">
+            <li class="mb-1.5 md:mb-2">
               <router-link class="hover:underline" to="/">{{ $t("nav.home") }}</router-link>
             </li>
-            <li class="mb-3 md:mb-4">
+            <li class="mb-1.5 md:mb-2">
               <router-link class="hover:underline" to="/Projects">{{ $t("nav.projects") }}</router-link>
             </li>
-            <li class="mb-3 md:mb-4">
+            <li class="mb-1.5 md:mb-2">
               <router-link class="hover:underline" to="/Articles">{{ $t("nav.articles") }}</router-link>
             </li>
           </ul>
@@ -38,7 +38,7 @@
 
       <!-- copyright & contact -->
       <div class="sm:flex sm:items-center sm:justify-between sm:mx-3 mx-3">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+        <span class="text-sm max-[425px]:text-xs max-[375px]:text-[11px] text-gray-500 sm:text-center dark:text-gray-400">
           {{ $t("footer.copyright") }}
         </span>
         <div class="flex mt-4 sm:justify-center sm:mt-0">
@@ -50,7 +50,7 @@
             </svg>
             <span class="sr-only">{{ $t("home.contact.gmail") }}</span>
           </a>
-          <a href="https://www.github.com/omidbolandy" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+          <a href="https://www.github.com/omidbolandy" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-7">
             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
               viewBox="0 0 20 20">
               <path fill-rule="evenodd"
@@ -63,7 +63,7 @@
             href="https://www.linkedin.com/in/omid-bolandy"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+            class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-7">
             <svg
               class="w-4 h-4"
               aria-hidden="true"
