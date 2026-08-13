@@ -53,7 +53,7 @@
         </div>
 
         <!-- Summary of article content (Added flex-1 / grow) -->
-        <p class="mb-4 flex-1 text-justify text-xs text-gray-600 line-clamp-3 dark:text-gray-300 sm:text-sm">
+        <p class="mb-4 flex-1 text-xs text-gray-600 line-clamp-3 dark:text-gray-300 sm:text-sm">
           {{ articleExcerpt(article) }}
         </p>
 

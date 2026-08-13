@@ -7,7 +7,7 @@
     </h4>
 
     <!-- description -->
-    <p class="mt-2 text-sm text-justify  leading-6 text-gray-600 dark:text-gray-300">
+    <p class="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
       {{ description }}
     </p>
 

@@ -15,7 +15,7 @@
           {{ $t("home.hero.title") }}
         </h2>
         <p
-          class="text-base text-justify leading-relaxed text-gray-600 dark:text-gray-400 max-w-2xl mx-auto md:mx-0">
+          class="text-base leading-relaxed text-gray-600 dark:text-gray-400 max-w-2xl mx-auto md:mx-0">
           {{ $t("home.hero.description") }}
         </p>
         <div
@@ -66,7 +66,7 @@
         </svg>
         {{ $t("aboutWebsite.title") }}
       </h2>
-      <p class="text-justify leading-relaxed text-gray-700 dark:text-gray-300">
+      <p class="leading-relaxed text-gray-700 dark:text-gray-300">
           {{ $t("aboutWebsite.part1") }}
         <span class="font-semibold text-green-500">{{ $t("aboutWebsite.vue") }}</span>
           {{ $t("aboutWebsite.part2") }}
@@ -95,7 +95,7 @@
         <span>{{ $t("home.about.title") }}</span>
       </h3>
       <p
-        class="text-base leading-relaxed text-gray-600 dark:text-gray-300 text-justify">
+        class="text-base leading-relaxed text-gray-600 dark:text-gray-300">
         {{ $t("home.about.textPart1") }}
         <span class="text-blue-500 font-semibold">Cisco</span>
         {{ $t("home.about.textPart2") }}

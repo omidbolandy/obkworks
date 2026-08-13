@@ -25,7 +25,7 @@
       <template v-for="(block, index) in localizedContentBlocks" :key="index">
         <!-- text-->
         <p v-if="block.type === 'text'"
-          class="text-justify text-gray-700 dark:text-gray-300 mb-6 leading-relaxed transition-colors duration-300 whitespace-pre-line">
+          class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed transition-colors duration-300 whitespace-pre-line">
           {{ block.text }}
         </p>
 

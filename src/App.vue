@@ -121,7 +121,3 @@ export default {
   display: none;
 }
 </style>
-
-<!-- //////////////////////////////////// -->
-<!-- cd F:\obk -->
-<!-- npm run dev -->
