@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="bg-white border-gray-200 py-2.5 dark:bg-gray-900 rounded-2xl mx-2 mb-2 min-[375px]:mx-3 min-[375px]:mb-3 min-[450px]:mx-4 min-[450px]:mb-4">
+    class="bg-white border-gray-200 py-2.5 dark:bg-gray-900 rounded-2xl mx-2 mb-2 min-[375px]:mx-3 min-[375px]:mb-3 min-[450px]:mx-4 min-[450px]:mb-4 sticky top-2 min-[375px]:top-3 min-[450px]:top-4 z-50">
     <div
       class="flex flex-wrap items-center justify-between max-w-screen-xl px-2 min-[375px]:px-3 min-[450px]:px-4 mx-auto">
 
