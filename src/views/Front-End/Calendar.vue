@@ -97,7 +97,7 @@
                 class="w-full aspect-square flex items-center justify-center text-sm sm:text-base font-semibold rounded-md transition dark:text-white text-gray-800"
                 :class="[
                   dayStateClass(day),
-                  { 'hover:bg-gray-300 hover:text-black cursor-pointer': isCurrentMonth(day) },
+                  { 'cal-day-hoverable cursor-pointer': isCurrentMonth(day) },
                 ]"
                 @click="toggleSelect(day)">
                 {{ isCurrentMonth(day) ? formatDisplayNumber(day.date) : "" }}
@@ -357,34 +357,14 @@ export default {
     },
     englishMonthNames() {
       return [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
+        "January","February","March","April","May","June","July"
+        ,"August","September","October","November","December",
       ];
     },
     persianMonthNames() {
       return [
-        "فروردین",
-        "اردیبهشت",
-        "خرداد",
-        "تیر",
-        "مرداد",
-        "شهریور",
-        "مهر",
-        "آبان",
-        "آذر",
-        "دی",
-        "بهمن",
-        "اسفند",
+        "فروردین","اردیبهشت","خرداد","تیر","مرداد"
+        ,"شهریور","مهر","آبان","آذر","دی","بهمن","اسفند",
       ];
     },
     activeDate() {
@@ -408,7 +388,7 @@ export default {
       } ${this.formatDisplayNumber(parts.year)}`;
     },
     hijriDisplay() {
-      const formatter = new Intl.DateTimeFormat("fa-IR-u-ca-islamic-umalqura", {
+      const formatter = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -1010,6 +990,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .cal-nav-icon {
   width: 2.25rem;
@@ -1105,6 +1086,13 @@ export default {
 
   .cal-converter-input::placeholder {
     font-size: 0.7rem;
+  }
+}
+
+@media (hover: hover) {
+  .cal-day-hoverable:not(.bg-blue-500):not(.bg-red-500):not(.bg-black):hover {
+    background-color: #d1d5db;
+    color: #000;
   }
 }
 </style>
