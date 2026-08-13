@@ -2,16 +2,16 @@
 
 A modern bilingual portfolio website built to showcase my IT skills, projects, and technical articles.
 
-![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Cloudflare](https://img.shields.io/badge/Cloudflare_Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
-![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
+[![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://obkworks.tr)
+[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](#)
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Live Portfolio
 
-https://obkworks.pages.dev
+https://obkworks.tr
 
 ---
 
@@ -153,7 +153,7 @@ GitHub:
 https://github.com/omidbolandy
 
 Website:
-https://obkworks.pages.dev
+https://obkworks.tr
 
 LinkedIn:
 [(Omid Bolandy Natag)](https://www.linkedin.com/in/omid-bolandy/)
