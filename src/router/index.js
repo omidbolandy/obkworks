@@ -12,11 +12,7 @@ import Calculator from '../views/Front-End/Calculator.vue'
 import TodoList from '../views/Front-End/TodoList.vue'
 import UnitConversion from '../views/Front-End/Unit-Conversion.vue'
 import BMICalculator from '../views/Front-End/BMICalculator.vue'
-import TimeAndDate from '../views/Front-End/Time&Date.vue'
-import Calendar from '../views/Front-End/Calendar.vue'
-import Modals from '../views/Front-End/Modals.vue'
 import FinancialCalculator from '../views/Front-End/FinancialCalculator.vue'
-import QRBarcodeGenerator from '../views/Front-End/QR-Barcode-Generator.vue'
 // Networking
 import VLANLab from '../views/networking/VLANLab.vue'
 import OSPFLab from '../views/networking/OSPFLab.vue'
@@ -48,11 +44,11 @@ const routes = [
     { path: '/Projects/Front-End/TodoList', name: 'TodoList', component: TodoList },
     { path: '/Projects/Front-End/UnitConversion', name: 'UnitConversion', component: UnitConversion },
     { path: '/Projects/Front-End/BMICalculator', name: 'BMICalculator', component: BMICalculator },
-    { path: '/Projects/Front-End/TimeAndDate', name: 'TimeAndDate', component: TimeAndDate },
-    { path: '/Projects/Front-End/Calendar', name: 'Calendar', component: Calendar },
-    { path: '/Projects/Front-End/Modals', name: 'Modals', component: Modals },
+    { path: '/Projects/Front-End/TimeAndDate', name: 'TimeAndDate', component: () => import('../views/Front-End/Time&Date.vue') },
+    { path: '/Projects/Front-End/Calendar', name: 'Calendar', component: () => import('../views/Front-End/Calendar.vue') },
+    { path: '/Projects/Front-End/Modals', name: 'Modals', component: () => import('../views/Front-End/Modals.vue') },
     { path: '/Projects/Front-End/FinancialCalculator', name: 'FinancialCalculator', component: FinancialCalculator },
-    { path: '/Projects/Front-End/QR-Barcode-Generator', name: 'QRBarcodeGenerator', component: QRBarcodeGenerator },
+    { path: '/Projects/Front-End/QR-Barcode-Generator', name: 'QRBarcodeGenerator', component: () => import('../views/Front-End/QR-Barcode-Generator.vue') },
     // Networking Projects
     { path: '/Projects/Networking/VLAN-lab', name: 'VLANLab', component: VLANLab },
     { path: '/Projects/Networking/OSPF-lab', name: 'OSPFLab', component: OSPFLab },
