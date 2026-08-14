@@ -30,7 +30,7 @@
     <div class="grid items-start gap-3 lg:grid-cols-3">
       <!-- frontEnd Projects -->
       <div :class="activeTab === 'frontEnd' ? 'block' : 'hidden'"
-        class="lg:block rounded-3xl border border-gray-200/70 bg-white/80 p-4 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
+        class="lg:block rounded-3xl border border-gray-200/70 bg-gray-200 p-4 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
         <div class="flex items-center gap-3.5">
           <div
             class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-300">
@@ -76,7 +76,7 @@
 
       <!-- networking Projects -->
       <div :class="activeTab === 'networking' ? 'block' : 'hidden'"
-        class="lg:block rounded-3xl border border-gray-200/70 bg-white/80 p-4 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
+        class="lg:block rounded-3xl border border-gray-200/70 bg-gray-200 p-4 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
         <div class="flex items-center gap-3.5">
           <div
             class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-300">
@@ -128,7 +128,7 @@
 
       <!-- itInfrastructureTools Projects -->
       <div :class="activeTab === 'itInfrastructureTools' ? 'block' : 'hidden'"
-        class="lg:block rounded-3xl border border-gray-200/70 bg-white/80 p-4 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
+        class="lg:block rounded-3xl border border-gray-200/70 bg-gray-200 p-4 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
         <div class="flex items-center gap-3.5">
           <div
             class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-300">

@@ -164,7 +164,7 @@
         </form>
 
         <!--  Results  -->
-        <div class="lg:sticky lg:top-6 lg:col-span-2">
+        <div class="lg:top-6 lg:col-span-2">
           <div class="rounded-2xl border border-gray-200/70 bg-gray-50/70 p-6 dark:border-gray-700 dark:bg-gray-800/60">
             <!-- Invalid configuration warning -->
             <div

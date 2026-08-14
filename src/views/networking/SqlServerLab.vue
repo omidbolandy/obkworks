@@ -15,7 +15,7 @@
   <div class="mx-auto max-w-6xl px-6 pb-14 sm:px-10 lg:px-12">
     <!-- Main Outer Container Box -->
     <div
-      class="mt-6 mx-0 sm:mx-10 lg:mx-20 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 p-5 sm:p-8 shadow-lg backdrop-blur">
+      class="mt-6 mx-0 sm:mx-10 lg:mx-20 rounded-2xl border border-gray-200 dark:border-gray-900 bg-white/80 dark:bg-gray-900 p-5 sm:p-8 shadow-lg backdrop-blur">
       <!-- Header / Hero Section -->
       <div>
         <div class="flex flex-wrap items-center gap-3">

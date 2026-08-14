@@ -238,7 +238,7 @@
         </p>
       </div>
       <div
-        class="relative border-l-2 border-gray-200 dark:border-gray-700 ml-4 md:ml-6 rtl:border-l-0 rtl:border-r-2 rtl:mr-4 rtl:md:mr-6 rtl:ml-0 pl-6 rtl:pl-0 rtl:pr-6 space-y-8">
+        class="relative border-l-2 border-gray-200 dark:border-gray-600 ml-4 md:ml-6 rtl:border-l-0 rtl:border-r-2 rtl:mr-4 rtl:md:mr-6 rtl:ml-0 pl-6 rtl:pl-0 rtl:pr-6 space-y-8">
         <div class="relative">
           <span
             class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 dark:bg-blue-900/50 rounded-full -left-[37px] rtl:-right-[37px] rtl:left-auto top-1.5 ring-4 ring-white dark:ring-gray-900">

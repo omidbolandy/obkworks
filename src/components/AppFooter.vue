@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-white dark:bg-gray-900 rounded-2xl mx-4">
+  <footer class="bg-gray-100 dark:bg-[#1a2030] rounded-2xl mx-4">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
       <div class="md:flex md:justify-between mx-5 mb-8">
         <div class="mb-12 md:mb-0 md:max-w-xs">
@@ -11,7 +11,7 @@
               alt="obkProject Logo" />
             {{ $t("appName") }}
           </router-link>
-          <p class="text-start leading-relaxed mt-3 max-sm:text-xs text-sm text-gray-500 dark:text-gray-400">
+          <p class="text-start leading-6 mt-3 max-sm:text-sm text-[0.9375rem] text-gray-500 dark:text-gray-400">
             {{ $t("footer.tagline") }}
           </p>
         </div>

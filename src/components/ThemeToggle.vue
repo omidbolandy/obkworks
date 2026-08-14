@@ -4,7 +4,7 @@
     <button
       @click="toggleTheme"
       :aria-pressed="isDark"
-      class="h-9 w-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white hover:scale-105 transition"
+      class="h-9 w-9 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:scale-105 transition"
       title="Toggle theme">
       <span v-if="isDark">🌙</span>
       <span v-else>☀️</span>

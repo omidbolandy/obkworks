@@ -12,7 +12,7 @@
       </router-link>
 
       <div
-        class="mt-6 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 p-8 shadow-lg backdrop-blur">
+        class="mt-6 rounded-2xl border border-gray-200 dark:border-gray-900 bg-white/80 dark:bg-gray-900 p-8 shadow-lg backdrop-blur">
         <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
           {{ $t("networkingLabs.pages.etherchannelLacp.badge") }}
         </p>

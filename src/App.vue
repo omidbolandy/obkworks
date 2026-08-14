@@ -2,7 +2,7 @@
   <div
     id="app"
     :dir="isRtl ? 'rtl' : 'ltr'"
-    class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-400 dark:from-gray-600 dark:to-gray-950 text-gray-800 dark:text-white transition-colors duration-300 ease-in-out px-2">
+    class="min-h-screen bg-gradient-to-br bg-gray-300 dark:bg-gray-700  text-gray-800 dark:text-white transition-colors duration-300 ease-in-out px-2">
     <br />
     <!-- Navbar -->
     <AppNavbar />

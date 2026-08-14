@@ -11,7 +11,7 @@
       </router-link>
 
 
-    <div class="space-y-8 relative rounded-3xl p-6 sm:p-8 border border-gray-200/80 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm overflow-hidden transition-colors">
+    <div class="space-y-8 relative rounded-3xl p-6 sm:p-8 border border-gray-200/80 dark:border-gray-900 bg-white dark:bg-gray-900 shadow-sm overflow-hidden transition-colors">
       <!-- 1. HEADER SECTION -->
       <header
         class="relative rounded-3xl p-6 sm:p-8 border border-gray-200/80 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm overflow-hidden transition-colors">
