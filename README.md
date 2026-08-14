@@ -17,7 +17,7 @@ https://obkworks.tr
 
 ## ℹ️ Project Information
 
-- **Version:** 1.0.4
+- **Version:** 1.0.5
 - **Status:** Stable
 - **License:** © 2026 obk Portfolio. All rights reserved.
 
