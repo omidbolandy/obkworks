@@ -69,7 +69,7 @@
             @keyup.enter="addTodo"/>
           <button
             @click="addTodo"
-            class="shrink-0 border border-sky-500 rounded text-white font-bold bg-sky-500 px-4 text-sm max-[375px]:text-xs sm:text-base hover:bg-sky-600 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            class="shrink-0 not-disabled:active:opacity-100 border border-sky-500 rounded text-white font-bold bg-sky-500 px-4 text-sm max-[375px]:text-xs sm:text-base hover:bg-sky-600 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             :disabled="!newTodo.trim() || todos.length >= maxTodos">
             {{ $t("todo.add") }}
           </button>

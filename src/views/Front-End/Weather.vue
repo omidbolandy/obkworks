@@ -56,7 +56,7 @@
             type="button"
             @click="fetchWeather"
             :disabled="loading || !query.trim()"
-            class="shrink-0 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-600 dark:hover:bg-blue-700 [@media(max-width:425px)]:flex-1">
+            class="shrink-0 not-disabled:active:opacity-100 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-600 dark:hover:bg-blue-700 [@media(max-width:425px)]:flex-1">
             {{ $t("weather.searchButton") }}
           </button>
           <button
