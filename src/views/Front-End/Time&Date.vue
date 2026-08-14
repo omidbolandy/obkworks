@@ -220,6 +220,7 @@
               v-model="inputHours"
               :placeholder="$t('timeDate.countdown.hoursPlaceholder')"
               min="0"
+              max="99"
               class="w-20 rounded-xl border border-gray-300 bg-white px-3 py-2 text-center text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white"/>
           </label>
           <label class="flex flex-col items-center gap-1">
@@ -344,13 +345,21 @@ export default {
     },
     startCountdownTimer() {
       this.stopCountdownTimer();
+    
+      const h = Math.max(0, Math.min(99, parseInt(this.inputHours) || 0));
+      const m = Math.max(0, Math.min(59, parseInt(this.inputMinutes) || 0));
+      const s = Math.max(0, Math.min(59, parseInt(this.inputSeconds) || 0));
+      this.inputHours = h;
+      this.inputMinutes = m;
+      this.inputSeconds = s;
+    
       if (
         this.inputsDirty ||
         (this.hours === 0 && this.minutes === 0 && this.seconds === 0)
       ) {
-        this.hours = this.inputHours;
-        this.minutes = this.inputMinutes;
-        this.seconds = this.inputSeconds;
+        this.hours = h;
+        this.minutes = m;
+        this.seconds = s;
         this.inputsDirty = false;
         if (this.hours === 0 && this.minutes === 0 && this.seconds === 0) {
           alert(this.$t("timeDate.countdown.setTimeAlert"));
@@ -366,6 +375,7 @@ export default {
             } else {
               this.hours--;
               this.minutes = 59;
+              this.seconds = 59;
             }
           } else {
             this.minutes--;

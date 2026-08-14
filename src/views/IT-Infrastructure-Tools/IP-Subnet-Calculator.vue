@@ -150,23 +150,23 @@
                 }}
               </button>
               <div v-if="showBinary"
-                class="mt-3 space-y-2 rounded-xl border border-gray-200 bg-white/70 p-4 font-mono text-xs dark:border-gray-700 dark:bg-gray-900/50">
-                <p class="text-gray-700 dark:text-gray-300">
-                  <span class="text-gray-500 dark:text-gray-400">{{
-                    $t(
-                      "itInfrastructureTools.pages.ipSubnetCalculator.calc.ipLabel"
-                    )
-                  }}:</span>
-                  {{ results.ipBinary }}
-                </p>
-                <p class="text-gray-700 dark:text-gray-300">
-                  <span class="text-gray-500 dark:text-gray-400">{{
-                    $t(
-                      "itInfrastructureTools.pages.ipSubnetCalculator.calc.subnetMask"
-                    )
-                  }}:</span>
-                  {{ results.maskBinary }}
-                </p>
+                class="mt-3 space-y-3 rounded-xl border border-gray-200 bg-white/70 p-4 dark:border-gray-700 dark:bg-gray-900/50">
+                <div>
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400 block mb-1">
+                    {{ $t("itInfrastructureTools.pages.ipSubnetCalculator.calc.ipLabel") }}:
+                  </span>
+                  <span class="font-mono text-xs text-gray-700 dark:text-gray-300 break-all leading-relaxed">
+                    {{ results.ipBinary }}
+                  </span>
+                </div>
+                <div>
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400 block mb-1">
+                    {{ $t("itInfrastructureTools.pages.ipSubnetCalculator.calc.subnetMask") }}:
+                  </span>
+                  <span class="font-mono text-xs text-gray-700 dark:text-gray-300 break-all leading-relaxed">
+                    {{ results.maskBinary }}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -180,83 +180,48 @@
           <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
             {{ $t("subnetCalculator.ipv4Classes.title") }}
           </h2>
-          <div class="overflow-x-auto">
-            <table class="min-w-full border-collapse text-start">
+          <div class="overflow-x-auto -mx-2 sm:mx-0">
+            <table class="min-w-full border-collapse text-start text-sm">
               <thead>
                 <tr class="border-b border-gray-200 dark:border-gray-700">
-                  <th class="px-4 py-3 text-start text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th class="px-3 py-2.5 text-start text-xs font-semibold text-gray-700 dark:text-gray-300">
                     {{ $t("subnetCalculator.ipv4Classes.class") }}
                   </th>
-                  <th class="px-4 py-3 text-start text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th class="px-3 py-2.5 text-start text-xs font-semibold text-gray-700 dark:text-gray-300">
                     {{ $t("subnetCalculator.ipv4Classes.firstOctet") }}
                   </th>
-                  <th class="px-4 py-3 text-start text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th class="px-3 py-2.5 text-start text-xs font-semibold text-gray-700 dark:text-gray-300">
                     {{ $t("subnetCalculator.ipv4Classes.defaultMask") }}
                   </th>
-                  <th class="px-4 py-3 text-start text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th class="px-3 py-2.5 text-start text-xs font-semibold text-gray-700 dark:text-gray-300">
                     {{ $t("subnetCalculator.ipv4Classes.cidr") }}
                   </th>
-                  <th class="px-4 py-3 text-start text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <th class="px-3 py-2.5 text-start text-xs font-semibold text-gray-700 dark:text-gray-300">
                     {{ $t("subnetCalculator.ipv4Classes.usableHosts") }}
                   </th>
                 </tr>
               </thead>
-
               <tbody>
-                <tr
-                  class="border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/40">
-                  <td class="px-4 py-3 text-start font-medium text-gray-900 dark:text-white">
-                    A
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    1 – 126
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    255.0.0.0
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    /8
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    16,777,214
-                  </td>
+                <tr class="border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/40">
+                  <td class="px-3 py-2.5 text-start font-semibold text-gray-900 dark:text-white">A</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">1 – 126</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">255.0.0.0</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">/8</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">16,777,214</td>
                 </tr>
-
-                <tr
-                  class="border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/40">
-                  <td class="px-4 py-3 text-start font-medium text-gray-900 dark:text-white">
-                    B
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    128 – 191
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    255.255.0.0
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    /16
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    65,534
-                  </td>
+                <tr class="border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/40">
+                  <td class="px-3 py-2.5 text-start font-semibold text-gray-900 dark:text-white">B</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">128 – 191</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">255.255.0.0</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">/16</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">65,534</td>
                 </tr>
-
                 <tr class="transition-colors hover:bg-gray-50 dark:hover:bg-gray-700/40">
-                  <td class="px-4 py-3 text-start font-medium text-gray-900 dark:text-white">
-                    C
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    192 – 223
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    255.255.255.0
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    /24
-                  </td>
-                  <td class="px-4 py-3 text-start text-gray-600 dark:text-gray-300 font-mono">
-                    254
-                  </td>
+                  <td class="px-3 py-2.5 text-start font-semibold text-gray-900 dark:text-white">C</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">192 – 223</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">255.255.255.0</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">/24</td>
+                  <td class="px-3 py-2.5 text-start text-gray-600 dark:text-gray-300 font-mono text-xs">254</td>
                 </tr>
               </tbody>
             </table>
@@ -294,14 +259,14 @@ const ResultField = {
         "div",
         {
           class:
-            "rounded-xl border border-gray-200 bg-white/70 p-3 dark:border-gray-700 dark:bg-gray-900/50",
+            "rounded-xl border border-gray-200 bg-white/70 p-2.5 dark:border-gray-700 dark:bg-gray-900/50",
         },
         [
           h(
             "p",
             {
               class:
-                "text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400",
+                "text-[10px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400",
             },
             props.label
           ),
@@ -310,7 +275,7 @@ const ResultField = {
               "p",
               {
                 class:
-                  "truncate font-mono text-sm text-gray-900 dark:text-white",
+                  "truncate font-mono text-xs text-gray-900 dark:text-white",
                 title: props.value,
               },
               props.value
