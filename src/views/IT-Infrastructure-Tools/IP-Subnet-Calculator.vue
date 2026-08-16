@@ -155,7 +155,7 @@
                   <span class="text-xs font-medium text-gray-500 dark:text-gray-400 block mb-1">
                     {{ $t("itInfrastructureTools.pages.ipSubnetCalculator.calc.ipLabel") }}:
                   </span>
-                  <span class="font-mono text-xs text-gray-700 dark:text-gray-300 break-all leading-relaxed">
+                  <span class="font-mono text-base binary-text text-gray-700 dark:text-gray-300 break-all leading-relaxed">
                     {{ results.ipBinary }}
                   </span>
                 </div>
@@ -163,7 +163,7 @@
                   <span class="text-xs font-medium text-gray-500 dark:text-gray-400 block mb-1">
                     {{ $t("itInfrastructureTools.pages.ipSubnetCalculator.calc.subnetMask") }}:
                   </span>
-                  <span class="font-mono text-xs text-gray-700 dark:text-gray-300 break-all leading-relaxed">
+                  <span class="font-mono text-base binary-text text-gray-700 dark:text-gray-300 break-all leading-relaxed">
                     {{ results.maskBinary }}
                   </span>
                 </div>
@@ -180,7 +180,7 @@
           <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
             {{ $t("subnetCalculator.ipv4Classes.title") }}
           </h2>
-          <div class="overflow-x-auto -mx-2 sm:mx-0">
+          <div class="hidden sm:block overflow-x-auto -mx-2 sm:mx-0">
             <table class="min-w-full border-collapse text-start text-sm">
               <thead>
                 <tr class="border-b border-gray-200 dark:border-gray-700">
@@ -226,6 +226,29 @@
               </tbody>
             </table>
           </div>
+
+            <!-- Mobile IPv4 Classes (Below 425px) -->
+            <div class="mt-6 block sm:hidden space-y-3">
+              <div v-for="row in ipv4Rows" :key="row.class"
+                class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-800">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-bold text-gray-900 dark:text-white">{{ $t("subnetCalculator.ipv4Classes.class") }} {{ row.class }}</span>
+                </div>
+                <div class="grid grid-cols-2 gap-1 text-xs">
+                  <span class="text-gray-500 dark:text-gray-400">{{ $t("subnetCalculator.ipv4Classes.firstOctet") }}</span>
+                  <span class="font-mono text-gray-700 dark:text-gray-300">{{ row.firstOctet }}</span>
+                  <hr class="col-span-2 border-gray-100 dark:border-gray-700">
+                  <span class="text-gray-500 dark:text-gray-400">{{ $t("subnetCalculator.ipv4Classes.defaultMask") }}</span>
+                  <span class="font-mono text-gray-700 dark:text-gray-300">{{ row.mask }}</span>
+                  <hr class="col-span-2 border-gray-100 dark:border-gray-700">
+                  <span class="text-gray-500 dark:text-gray-400">{{ $t("subnetCalculator.ipv4Classes.cidr") }}</span>
+                  <span class="font-mono text-gray-700 dark:text-gray-300">{{ row.cidr }}</span>
+                  <hr class="col-span-2 border-gray-100 dark:border-gray-700">
+                  <span class="text-gray-500 dark:text-gray-400">{{ $t("subnetCalculator.ipv4Classes.usableHosts") }}</span>
+                  <span class="font-mono text-gray-700 dark:text-gray-300">{{ row.hosts }}</span>
+                </div>
+              </div>
+            </div>
         </div>
         <div
           class="mt-6 rounded-xl border border-blue-200 bg-blue-50/70 p-4 dark:border-blue-900/60 dark:bg-blue-950/30">
@@ -257,27 +280,19 @@ const ResultField = {
     return () =>
       h(
         "div",
-        {
-          class:
-            "rounded-xl border border-gray-200 bg-white/70 p-2.5 dark:border-gray-700 dark:bg-gray-900/50",
-        },
+        {class:"rounded-xl border border-gray-200 bg-white/70 p-2.5 dark:border-gray-700 dark:bg-gray-900/50",},
         [
           h(
             "p",
-            {
-              class:
-                "text-[10px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400",
-            },
+            {class:"text-[10px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400",},
             props.label
           ),
           h("div", { class: "mt-1 flex items-center justify-between gap-2" }, [
             h(
               "p",
               {
-                class:
-                  "truncate font-mono text-xs text-gray-900 dark:text-white",
-                title: props.value,
-              },
+                class:"font-mono text-xs result-value text-gray-900 dark:text-white break-all min-w-0",
+                title: props.value,},
               props.value
             ),
             h(
@@ -292,10 +307,7 @@ const ResultField = {
               props.copied
                 ? h(
                   "span",
-                  { class: "text-xs text-green-600 dark:text-green-400" },
-                  "✓"
-                )
-                : h("span", { "aria-hidden": "true" }, "⧉")
+                  { class: "text-xs text-green-600 dark:text-green-400" }, "✓" ) : h("span", { "aria-hidden": "true" }, "⧉")
             ),
           ]),
         ]
@@ -503,4 +515,17 @@ function resetForm() {
   hasCalculated.value = false;
   showBinary.value = false;
 }
+
+const ipv4Rows = [
+  { class: 'A', firstOctet: '1 – 126', mask: '255.0.0.0', cidr: '/8', hosts: '16,777,214' },
+  { class: 'B', firstOctet: '128 – 191', mask: '255.255.0.0', cidr: '/16', hosts: '65,534' },
+  { class: 'C', firstOctet: '192 – 223', mask: '255.255.255.0', cidr: '/24', hosts: '254' },
+]
 </script>
+
+<style scoped>
+@media (max-width: 425px) {
+  .binary-text { font-size: 0.625rem; }
+  .result-value { font-size: 0.625rem; }
+}
+</style>
