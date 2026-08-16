@@ -56,7 +56,7 @@
             type="button"
             @click="fetchWeather"
             :disabled="loading || !query.trim()"
-            class="shrink-0 not-disabled:active:opacity-100 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-600 dark:hover:bg-blue-700 [@media(max-width:425px)]:flex-1">
+            class="shrink-0 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-600 dark:hover:bg-blue-700 [@media(max-width:425px)]:flex-1">
             {{ $t("weather.searchButton") }}
           </button>
           <button
@@ -219,6 +219,7 @@ export default {
   data() {
     return {
       query: "",
+      lastCity: "",
       weather: null,
       loading: false,
       errorMessage: "",
@@ -252,21 +253,10 @@ export default {
     weatherEmoji() {
       const condition = this.weather?.weather?.[0]?.main ?? "";
       const map = {
-        Clear: "☀️",
-        Clouds: "☁️",
-        Rain: "🌧️",
-        Drizzle: "🌦️",
-        Thunderstorm: "⛈️",
-        Snow: "❄️",
-        Mist: "🌫️",
-        Fog: "🌫️",
-        Haze: "🌫️",
-        Smoke: "🌫️",
-        Dust: "🌪️",
-        Sand: "🌪️",
-        Ash: "🌋",
-        Squall: "💨",
-        Tornado: "🌪️",
+        Clear: "☀️", Clouds: "☁️", Rain: "🌧️", Drizzle: "🌦️",
+        Thunderstorm: "⛈️", Snow: "❄️", Mist: "🌫️", Fog: "🌫️",
+        Haze: "🌫️", Smoke: "🌫️", Dust: "🌪️", Sand: "🌪️", Ash: "🌋",
+        Squall: "💨", Tornado: "🌪️",
       };
       return map[condition] || "🌡️";
     },
@@ -294,9 +284,17 @@ formattedDate() {
   return `${get("weekday")} ${get("day")} ${get("month")} ${get("year")}`;
 }
   },
+  watch: {
+    "$i18n.locale"() {
+      if (this.weather && this.lastCity) {
+        this.fetchWeatherForCity(this.lastCity);
+      }
+    },
+  },
   methods: {
     resetSearch() {
       this.query = "";
+      this.lastCity = "";
       this.weather = null;
       this.errorMessage = "";
     },
@@ -306,12 +304,15 @@ formattedDate() {
     async fetchWeather() {
       const city = this.query.trim();
       if (!city || this.loading) return;
+      await this.fetchWeatherForCity(city);
+    },
+    async fetchWeatherForCity(city) {
+      if (!city || this.loading) return;
 
       this.loading = true;
       this.errorMessage = "";
 
       try {
-
         const res = await fetch(
           `/api/weather?city=${encodeURIComponent(city)}&lang=${this.$i18n.locale}`
         );
@@ -326,6 +327,7 @@ formattedDate() {
           return;
         }
 
+        this.lastCity = city;
         this.weather = data;
       } catch {
         this.weather = null;
