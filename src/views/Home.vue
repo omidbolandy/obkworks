@@ -274,14 +274,14 @@
             </div>
             <div class="space-y-3">
               <h5
-                class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                 {{ $t("experience.tasksTitle") }}
               </h5>
               <ul class="space-y-2.5">
                 <li
                   v-for="(task, index) in $tm('experience.tasks')"
                   :key="index"
-                  class="text-sm text-gray-600 dark:text-gray-300 flex items-start gap-2 text-justify">
+                  class="text-sm text-gray-600 dark:text-gray-300 flex items-start gap-2">
                   <span class="text-blue-500 mt-0.5 select-none">•</span>
                   <span class="flex-1">{{ task }}</span>
                 </li>

@@ -538,11 +538,11 @@ const messages = {
                     },
                     virtualization: {
                         title: "Virtualization & OS",
-                        text: "ESXi, Hyper-V, VMware Workstation, Oracle Virtual Box, Windows Server, Linux Essentials"
+                        text: "ESXi, Hyper-V, VMware Workstation, Oracle Virtual Box, Windows Server"
                     },
                     web: {
                         title: "Web Development",
-                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS"
+                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, SEO Fundamentals"
                     },
                     tools: {
                         title: "Tools & Application Software",
@@ -2458,11 +2458,11 @@ const messages = {
                     },
                     virtualization: {
                         title: "مجازی‌سازی و سیستم‌عامل",
-                        text: "ESXi, Hyper-V, VMware Workstation, Oracle Virtual Box, Windows Server, Linux Essentials"
+                        text: "ESXi, Hyper-V, VMware Workstation, Oracle Virtual Box, Windows Server"
                     },
                     web: {
                         title: "توسعه وب",
-                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS"
+                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, SEO Fundamentals"
                     },
                     tools: {
                         title: "ابزارها و نرم‌افزارهای کاربردی",
