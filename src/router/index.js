@@ -66,7 +66,7 @@ const routes = [
     { path: '/Projects/IT-Infrastructure-Tools/cctv-storage-calculator', name: 'CctvStorageCalculator', component: CctvStorageCalculator },
     { path: '/Projects/IT-Infrastructure-Tools/raid-calculator', name: 'RaidCalculator', component: RaidCalculator },
     { path: '/Projects/IT-Infrastructure-Tools/vm-resource-allocator', name: 'VmResourceAllocator', component: VmResourceAllocator },
-    { path: '/Projects/IT-Infrastructure-Tools/data-unit-converter', name: 'DataUnitConverter', component: DataUnitConverter }
+    { path: '/Projects/IT-Infrastructure-Tools/data-unit-converter', name: 'DataUnitConverter', component: DataUnitConverter },
     // 404 Page
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
