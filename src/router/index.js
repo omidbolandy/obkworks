@@ -29,6 +29,8 @@ import CctvStorageCalculator from '../views/IT-Infrastructure-Tools/CCTV-Storage
 import RaidCalculator from '../views/IT-Infrastructure-Tools/RAID-Calculator.vue'
 import VmResourceAllocator from '../views/IT-Infrastructure-Tools/VM-Resource-Allocator.vue'
 import DataUnitConverter from '../views/IT-Infrastructure-Tools/Data-Unit-Converter.vue'
+// 404 Page
+import NotFound from '@/views/NotFound.vue'
 
 const routes = [
     // Home
@@ -65,6 +67,8 @@ const routes = [
     { path: '/Projects/IT-Infrastructure-Tools/raid-calculator', name: 'RaidCalculator', component: RaidCalculator },
     { path: '/Projects/IT-Infrastructure-Tools/vm-resource-allocator', name: 'VmResourceAllocator', component: VmResourceAllocator },
     { path: '/Projects/IT-Infrastructure-Tools/data-unit-converter', name: 'DataUnitConverter', component: DataUnitConverter }
+    // 404 Page
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 const router = createRouter({
     history: createWebHistory(),
