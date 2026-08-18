@@ -1930,6 +1930,14 @@ const messages = {
                 },
             },
         },
+        // notFound page en language
+        notFound: {
+            badge: "Error Code",
+            title: "404",
+            subtitle: "Page Not Found",
+            description: "The page you are looking for does not exist or has been moved.",
+            backHome: "Back to Home"
+        },
     },
     // fa language
     fa: {
@@ -3912,6 +3920,14 @@ const messages = {
                     }
                 },
             },
+        },
+        // notFound page fa language
+        notFound: {
+            badge: "کد خطا",
+            title: "۴۰۴",
+            subtitle: "صفحه مورد نظر پیدا نشد",
+            description: "صفحه‌ای که به دنبال آن هستید وجود ندارد یا آدرس آن تغییر کرده است.",
+            backHome: "بازگشت به صفحه اصلی"
         },
     },
 }
