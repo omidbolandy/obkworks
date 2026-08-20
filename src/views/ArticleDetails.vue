@@ -1,6 +1,5 @@
 <template>
-  <div
-    class="p-4 m-4 sm:p-6 sm:m-6 md:p-8 md:m-10 rounded-md mt-6 flex justify-center text-gray-900 dark:text-gray-100">
+  <div class="p-4 m-4 sm:p-6 sm:m-6 md:p-8 md:m-10 rounded-md mt-6 flex justify-center text-gray-900 dark:text-gray-100">
     <div v-if="article" :dir="$i18n.locale === 'fa' ? 'rtl' : 'ltr'"
       class="bg-white dark:bg-gray-900 rounded-lg shadow-md dark:shadow-gray-950/50 p-5 sm:p-8 md:p-12 lg:p-16 max-w-5xl w-full mx-auto border border-transparent dark:border-gray-800 transition-colors duration-300">
       <img :src="article.image" :alt="articleTitle"
@@ -25,7 +24,7 @@
       <template v-for="(block, index) in localizedContentBlocks" :key="index">
         <!-- text-->
         <p v-if="block.type === 'text'"
-          class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed transition-colors duration-300 whitespace-pre-line">
+          class=" text-gray-700 dark:text-gray-300 mb-6 leading-relaxed transition-colors duration-300 whitespace-pre-line">
           {{ block.text }}
         </p>
 
@@ -194,13 +193,18 @@ export default {
       return this.article ? formatArticleDate(this.article.date, this.locale) : "";
     },
   },
-watch: {
+  watch: {
     id: {
       immediate: true,
-      handler(newId) {
-        this.article = articles.find((a) => a.id === parseInt(newId)) || null;
+      handler(newId) { this.article = articles.find((a) => a.id === parseInt(newId)) || null;
+        if (this.article) {
+          this.$nextTick(() => { document.title = `${this.articleTitle} | obkworks`; });
+        } else { document.title = 'Article Not Found | obkworks';}
       },
     },
+    locale() {
+      if (this.article) { document.title = `${this.articleTitle} | obkworks`; }
+    }
   },
 };
 </script>

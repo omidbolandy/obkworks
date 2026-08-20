@@ -34,42 +34,130 @@ import NotFound from '@/views/NotFound.vue'
 
 const routes = [
     // Home
-    { path: '/', name: 'home', component: Home, },
+    {
+        path: '/', name: 'home', component: Home,
+        meta: { title: 'Home | obkworks' }
+    },
     // Articles
-    { path: '/Articles', name: 'Articles', component: Articles, },
-    { path: '/Articles/:id', name: 'ArticleDetails', component: ArticleDetails, props: true, },
+    {
+        path: '/Articles', name: 'Articles', component: Articles,
+        meta: { title: 'Articles | obkworks' }
+    },
+    {
+        path: '/Articles/:id', name: 'ArticleDetails', component: ArticleDetails, props: true,
+        meta: { title: 'Article Details | obkworks' }
+    },
     // Projects
-    { path: '/Projects', name: 'Projects', component: Projects },
+    {
+        path: '/Projects', name: 'Projects', component: Projects,
+        meta: { title: 'Projects | obkworks' }
+    },
     // Front-End Projects
-    { path: '/Projects/Front-End/Weather', name: 'Weather', component: Weather },
-    { path: '/Projects/Front-End/Calculator', name: 'Calculator', component: Calculator },
-    { path: '/Projects/Front-End/TodoList', name: 'TodoList', component: TodoList },
-    { path: '/Projects/Front-End/UnitConversion', name: 'UnitConversion', component: UnitConversion },
-    { path: '/Projects/Front-End/BMICalculator', name: 'BMICalculator', component: BMICalculator },
-    { path: '/Projects/Front-End/TimeAndDate', name: 'TimeAndDate', component: () => import('../views/Front-End/Time&Date.vue') },
-    { path: '/Projects/Front-End/Calendar', name: 'Calendar', component: () => import('../views/Front-End/Calendar.vue') },
-    { path: '/Projects/Front-End/Modals', name: 'Modals', component: () => import('../views/Front-End/Modals.vue') },
-    { path: '/Projects/Front-End/FinancialCalculator', name: 'FinancialCalculator', component: FinancialCalculator },
-    { path: '/Projects/Front-End/QR-Barcode-Generator', name: 'QRBarcodeGenerator', component: () => import('../views/Front-End/QR-Barcode-Generator.vue') },
+    {
+        path: '/Projects/Front-End/FinancialCalculator', name: 'FinancialCalculator', component: FinancialCalculator,
+        meta: { title: 'Financial Calculator | obkworks' }
+    },
+    {
+        path: '/Projects/Front-End/Weather', name: 'Weather', component: Weather,
+        meta: { title: 'Weather App | obkworks' }
+    },
+    {
+        path: '/Projects/Front-End/TodoList', name: 'TodoList', component: TodoList,
+        meta: { title: 'Todo List App | obkworks' }
+    },
+    {
+        path: '/Projects/Front-End/Calendar', name: 'Calendar', component: () => import('../views/Front-End/Calendar.vue'),
+        meta: { title: 'Calendar App | obkworks' }
+    },
+    {
+        path: '/Projects/Front-End/UnitConversion', name: 'UnitConversion', component: UnitConversion,
+        meta: { title: 'Unit Conversion | obkworks' }
+    },
+    {
+        path: '/Projects/Front-End/QR-Barcode-Generator', name: 'QRBarcodeGenerator', component: () => import('../views/Front-End/QR-Barcode-Generator.vue'),
+        meta: { title: 'QR & Barcode Generator | obkworks' }
+    },
+    {
+        path: '/Projects/Front-End/BMICalculator', name: 'BMICalculator', component: BMICalculator,
+        meta: { title: 'BMI Calculator | obkworks' }
+    },
+    {
+        path: '/Projects/Front-End/Calculator', name: 'Calculator', component: Calculator,
+        meta: { title: 'Calculator App | obkworks' }
+    },
+    {
+        path: '/Projects/Front-End/TimeAndDate', name: 'TimeAndDate', component: () => import('../views/Front-End/Time&Date.vue'),
+        meta: { title: 'Time & Date Tool | obkworks' }
+    },
+    {
+        path: '/Projects/Front-End/Modals', name: 'Modals', component: () => import('../views/Front-End/Modals.vue'),
+        meta: { title: 'Modal Examples | obkworks' }
+    },
     // Networking Projects
-    { path: '/Projects/Networking/VLAN-lab', name: 'VLANLab', component: VLANLab },
-    { path: '/Projects/Networking/OSPF-lab', name: 'OSPFLab', component: OSPFLab },
-    { path: '/Projects/Networking/EigrpLab', name: 'EigrpLab', component: EigrpLab },
-    { path: '/Projects/Networking/EtherChannel-lab', name: 'EtherChannelLab', component: EtherChannelLab },
-    { path: '/Projects/Networking/Acl-Lab', name: 'Acl-Lab', component: AclLab },
-    { path: '/Projects/Networking/PortSecurityDHCPSnooping', name: 'PortSecurityDHCPSnooping', component: PortSecurityDHCPSnooping },
-    { path: '/Projects/Networking/ActiveDirectoryGpoLab', name: 'ActiveDirectoryGpoLab', component: ActiveDirectoryGpoLab },
-    { path: '/Projects/Networking/DnsDhcpLabView', name: 'DnsDhcpLabView', component: DnsDhcpLabView },
-    { path: '/Projects/Networking/SqlServerLab', name: 'SqlServerLab', component: SqlServerLab },
+    {
+        path: '/Projects/Networking/VLAN-lab', name: 'VLANLab', component: VLANLab,
+        meta: { title: 'VLAN Lab | obkworks' }
+    },
+    {
+        path: '/Projects/Networking/OSPF-lab', name: 'OSPFLab', component: OSPFLab,
+        meta: { title: 'OSPF Lab | obkworks' }
+    },
+    {
+        path: '/Projects/Networking/EigrpLab', name: 'EigrpLab', component: EigrpLab,
+        meta: { title: 'EIGRP Lab | obkworks' }
+    },
+    {
+        path: '/Projects/Networking/EtherChannel-lab', name: 'EtherChannelLab', component: EtherChannelLab,
+        meta: { title: 'EtherChannel Lab | obkworks' }
+    },
+    {
+        path: '/Projects/Networking/Acl-Lab', name: 'Acl-Lab', component: AclLab,
+        meta: { title: 'ACL Lab | obkworks' }
+    },
+    {
+        path: '/Projects/Networking/PortSecurityDHCPSnooping', name: 'PortSecurityDHCPSnooping', component: PortSecurityDHCPSnooping,
+        meta: { title: 'Port Security & DHCP Snooping | obkworks' }
+    },
+    {
+        path: '/Projects/Networking/ActiveDirectoryGpoLab', name: 'ActiveDirectoryGpoLab', component: ActiveDirectoryGpoLab,
+        meta: { title: 'Active Directory & GPO Lab | obkworks' }
+    },
+    {
+        path: '/Projects/Networking/DnsDhcpLabView', name: 'DnsDhcpLabView', component: DnsDhcpLabView,
+        meta: { title: 'DNS & DHCP Lab | obkworks' }
+    },
+    {
+        path: '/Projects/Networking/SqlServerLab', name: 'SqlServerLab', component: SqlServerLab,
+        meta: { title: 'SQL Server Lab | obkworks' }
+    },
     // IT Infrastructure Tools
-    { path: '/Projects/IT-Infrastructure-Tools/ip-subnet-calculator', name: 'IpSubnetCalculator', component: IpSubnetCalculator },
-    { path: '/Projects/IT-Infrastructure-Tools/cctv-storage-calculator', name: 'CctvStorageCalculator', component: CctvStorageCalculator },
-    { path: '/Projects/IT-Infrastructure-Tools/raid-calculator', name: 'RaidCalculator', component: RaidCalculator },
-    { path: '/Projects/IT-Infrastructure-Tools/vm-resource-allocator', name: 'VmResourceAllocator', component: VmResourceAllocator },
-    { path: '/Projects/IT-Infrastructure-Tools/data-unit-converter', name: 'DataUnitConverter', component: DataUnitConverter },
+    {
+        path: '/Projects/IT-Infrastructure-Tools/ip-subnet-calculator', name: 'IpSubnetCalculator', component: IpSubnetCalculator,
+        meta: { title: 'IP Subnet Calculator | obkworks' }
+    },
+    {
+        path: '/Projects/IT-Infrastructure-Tools/cctv-storage-calculator', name: 'CctvStorageCalculator', component: CctvStorageCalculator,
+        meta: { title: 'CCTV Storage Calculator | obkworks' }
+    },
+    {
+        path: '/Projects/IT-Infrastructure-Tools/raid-calculator', name: 'RaidCalculator', component: RaidCalculator,
+        meta: { title: 'RAID Calculator | obkworks' }
+    },
+    {
+        path: '/Projects/IT-Infrastructure-Tools/vm-resource-allocator', name: 'VmResourceAllocator', component: VmResourceAllocator,
+        meta: { title: 'VM Resource Allocator | obkworks' }
+    },
+    {
+        path: '/Projects/IT-Infrastructure-Tools/data-unit-converter', name: 'DataUnitConverter', component: DataUnitConverter,
+        meta: { title: 'Data Unit Converter | obkworks' }
+    },
     // 404 Page
-    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+    {
+        path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound,
+        meta: { title: '404 - Page Not Found | obkworks' }
+    },
 ]
+
 const router = createRouter({
     history: createWebHistory(),
     routes,
@@ -79,6 +167,7 @@ const router = createRouter({
 })
 
 router.afterEach((to) => {
+    document.title = to.meta.title || 'obkworks';
     let canonical = document.querySelector("link[rel='canonical']");
     if (!canonical) {
         canonical = document.createElement('link');
