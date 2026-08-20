@@ -125,6 +125,16 @@ export default {
     };
   },
   methods: {
+    updateMetaDescription() {
+      if (!this.article) return;
+      let metaDescription = document.querySelector("meta[name='description']");
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta');
+        metaDescription.setAttribute('name', 'description');
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.setAttribute('content', this.articleExcerpt);
+    },
     copyToClipboard(text, index) {
       if (!text) return;
 
@@ -144,6 +154,10 @@ export default {
     },
     articleTitle() {
       return this.article ? localizeField(this.article.title, this.locale) : "";
+    },
+
+    articleExcerpt() {
+      return this.article ? localizeField(this.article.excerpt, this.locale) : "";
     },
 
     localizedContentBlocks() {
@@ -196,14 +210,23 @@ export default {
   watch: {
     id: {
       immediate: true,
-      handler(newId) { this.article = articles.find((a) => a.id === parseInt(newId)) || null;
+      handler(newId) { 
+        this.article = articles.find((a) => a.id === parseInt(newId)) || null;
         if (this.article) {
-          this.$nextTick(() => { document.title = `${this.articleTitle} | obkworks`; });
-        } else { document.title = 'Article Not Found | obkworks';}
+          this.$nextTick(() => { 
+            document.title = `${this.articleTitle} | obkworks`; 
+            this.updateMetaDescription();
+          });
+        } else { 
+          document.title = 'Article Not Found | obkworks';
+        }
       },
     },
     locale() {
-      if (this.article) { document.title = `${this.articleTitle} | obkworks`; }
+      if (this.article) { 
+        document.title = `${this.articleTitle} | obkworks`; 
+        this.updateMetaDescription();
+      }
     }
   },
 };
