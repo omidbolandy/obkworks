@@ -39,7 +39,7 @@ const routes = [
         meta: {
             title: 'Home | obkworks',
             description: {
-                fa: 'پورتفولیوی شخصی obkworks شامل ابزارهای فرانت‌اند، سناریوهای شبکه سیسکو، مقالات تخصصی و محاسبه‌گرهای زیرساخت IT.',
+                fa: 'پورتفولیوی شخصی obkworks شامل ابزارهای فرانت اند، سناریو های شبکه سیسکو، مقالات تخصصی و محاسبه گرهای زیر ساخت IT.',
                 en: 'Personal portfolio of obkworks featuring front-end web tools, Cisco networking labs, technical articles, and IT infrastructure calculators.'
             }
         }
@@ -50,7 +50,7 @@ const routes = [
         meta: {
             title: 'Articles | obkworks',
             description: {
-                fa: 'مجموعه مقالات تخصصی شبکه، مفاهیم فرانت‌اند، امنیت لایه ۲ سیسکو، ویندوز سرور و مدیریت سیستم‌ها.',
+                fa: 'مجموعه مقالات تخصصی شبکه، مفاهیم فرانت اند، امنیت لایه ۲ سیسکو، ویندوز سرور و مدیریت سیستم ها.',
                 en: 'Technical articles covering front-end development, Cisco networking, Layer 2 security, Windows Server, and system administration.'
             }
         }
@@ -60,7 +60,7 @@ const routes = [
         meta: {
             title: 'Article Details | obkworks',
             description: {
-                fa: 'جزئیات و آموزش‌های تخصصی مقالات توسعه وب، شبکه‌های سیسکو، ویندوز سرور و زیرساخت IT در obkworks.',
+                fa: 'جزئیات و آموزش های تخصصی مقالات توسعه وب، شبکه های سیسکو، ویندوز سرور و زیرساخت IT در obkworks.',
                 en: 'Detailed technical guides and insights on web development, Cisco networking, Windows Server, and IT infrastructure by obkworks.'
             }
         }
@@ -71,7 +71,7 @@ const routes = [
         meta: {
             title: 'Projects | obkworks',
             description: {
-                fa: 'مشاهده و بررسی تمام پروژه‌ها، اپلیکیشن‌های تحت وب، لابراتوارهای شبکه و ابزارهای محاسباتی زیرساخت IT.',
+                fa: 'مشاهده و بررسی تمام پروژه ها، اپلیکیشن های تحت وب، لابراتوارهای شبکه و ابزارهای محاسباتی زیر ساخت IT.',
                 en: 'Explore interactive web apps, hands-on network lab configurations, and IT infrastructure tools.'
             }
         }
@@ -82,7 +82,7 @@ const routes = [
         meta: {
             title: 'Financial Calculator | obkworks',
             description: {
-                fa: 'محاسبه‌گر مالی آنلاین برای محاسبه اقساط وام، سود سپرده و مدیریت پروژه‌های مالی با رابط کاربری ساده.',
+                fa: 'محاسبه گر مالی آنلاین برای محاسبه اقساط وام، سود سپرده و مدیریت پروژه های مالی با رابط کاربری ساده.',
                 en: 'Online financial calculator for loan installment, interest calculation, and quick financial planning.'
             }
         }
@@ -92,7 +92,7 @@ const routes = [
         meta: {
             title: 'Weather App | obkworks',
             description: {
-                fa: 'برنامه هواشناسی آنلاین برای مشاهده وضعیت آب‌وهوا و پیش‌بینی دما در شهرهای مختلف.',
+                fa: 'برنامه هواشناسی آنلاین برای مشاهده وضعیت آب و هوا و پیش بینی دما در شهرهای مختلف.',
                 en: 'Real-time weather application to check temperature, forecast, and atmospheric conditions globally.'
             }
         }
@@ -102,7 +102,7 @@ const routes = [
         meta: {
             title: 'Todo List App | obkworks',
             description: {
-                fa: 'ابزار مدیریت کارهای روزانه برای ثبت، ویرایش و دسته‌بندی لیست وظایف.',
+                fa: 'ابزار مدیریت کارهای روزانه برای ثبت، ویرایش و دسته بندی لیست وظایف.',
                 en: 'A clean todo list application for organizing daily tasks, tracking progress, and managing activities.'
             }
         }
@@ -112,7 +112,7 @@ const routes = [
         meta: {
             title: 'Calendar App | obkworks',
             description: {
-                fa: 'تقویم تعاملی آنلاین برای بررسی رویدادها، تاریخ‌ها و برنامه‌ریزی زمان.',
+                fa: 'تقویم تعاملی آنلاین برای بررسی رویداد ها، تاریخ ها و برنامه ریزی زمان.',
                 en: 'Interactive web calendar app for checking dates, planning schedules, and organizing tasks.'
             }
         }
@@ -122,7 +122,7 @@ const routes = [
         meta: {
             title: 'Unit Conversion | obkworks',
             description: {
-                fa: 'ابزار چندمنظوره تبدیل واحدهای اندازه‌گیری (طول، وزن و...)، نرخ آنلاین ارز با Exchange Rate API و تبدیل اعداد به حروف.',
+                fa: 'ابزار چند منظوره تبدیل واحدهای اندازه گیری (طول، وزن و...)، نرخ آنلاین ارز با Exchange Rate API و تبدیل اعداد به حروف.',
                 en: 'Multi-purpose converter for measurement units (length, weight, etc.), live currency exchange rates, and number-to-words.'
             }
         }
@@ -132,7 +132,7 @@ const routes = [
         meta: {
             title: 'QR & Barcode Generator | obkworks',
             description: {
-                fa: 'ابزار ساخت کد QR و بارکد آنلاین با قابلیت سفارشی‌سازی و دانلود فایل خروجی.',
+                fa: 'ابزار ساخت کد QR و بارکد آنلاین با قابلیت سفارشی سازی و دانلود فایل خروجی.',
                 en: 'Online QR code and barcode generator with customization options and instant image download.'
             }
         }
@@ -142,7 +142,7 @@ const routes = [
         meta: {
             title: 'BMI Calculator | obkworks',
             description: {
-                fa: 'محاسبه‌گر شاخص توده بدنی (BMI) برای سنجش تناسب اندام بر اساس قد و وزن.',
+                fa: 'محاسبه گر شاخص توده بدنی (BMI) برای سنجش تناسب اندام بر اساس قد و وزن.',
                 en: 'Calculate Body Mass Index (BMI) instantly to monitor weight status and health metrics.'
             }
         }
@@ -162,7 +162,7 @@ const routes = [
         meta: {
             title: 'Time & Date Tool | obkworks',
             description: {
-                fa: 'ابزار محاسبه تاریخ و زمان، اختلاف زمانی ساعت‌ها و نمایش زمان جهانی.',
+                fa: 'ابزار محاسبه تاریخ و زمان، اختلاف زمانی ساعت ها و نمایش زمان جهانی.',
                 en: 'Utility tool for calculating date intervals, time differences, and comparing global time zones.'
             }
         }
@@ -172,7 +172,7 @@ const routes = [
         meta: {
             title: 'Modal Examples | obkworks',
             description: {
-                fa: 'نمونه‌کارهای طراحی پاپ‌آپ و مودال‌های تعاملی در فرانت‌اند.',
+                fa: 'نمونه کارهای طراحی پاپ آپ و مودال های تعاملی در فرانت اند.',
                 en: 'Demonstration of responsive UI modal dialogs and interactive popup components.'
             }
         }
@@ -184,7 +184,7 @@ const routes = [
         meta: {
             title: 'VLAN Lab | obkworks',
             description: {
-                fa: 'سناریوی پیکربندی VLAN، ترانکینگ 802.1Q و روتینگ بین شبکه ای (Inter-VLAN Routing) در سوئیچ‌های سیسکو.',
+                fa: 'سناریوی پیکر بندی VLAN، ترانکینگ 802.1Q و روتینگ بین شبکه ای (Inter-VLAN Routing) در سوئیچ های سیسکو.',
                 en: 'Hands-on Cisco lab for configuring VLANs, 802.1Q trunking, and Inter-VLAN routing.'
             }
         }
@@ -194,7 +194,7 @@ const routes = [
         meta: {
             title: 'OSPF Lab | obkworks',
             description: {
-                fa: 'پیاده‌سازی و پیکربندی پروتکل مسیریابی پویا OSPF در شبکه‌های Single-Area و Multi-Area سیسکو.',
+                fa: 'پیاده سازی و پیکربندی پروتکل مسی یابی پویا OSPF در شبکه های Single-Area و Multi-Area سیسکو.',
                 en: 'Cisco OSPF dynamic routing protocol configuration lab covering single-area and multi-area setups.'
             }
         }
@@ -214,7 +214,7 @@ const routes = [
         meta: {
             title: 'EtherChannel Lab | obkworks',
             description: {
-                fa: 'تجمیع پهنای باند و پیکربندی EtherChannel با پروتکل‌های LACP و PAgP در سوئیچ‌های سیسکو.',
+                fa: 'تجمیع پهنای باند و پیکربندی EtherChannel با پروتکل های LACP و PAgP در سوئیچ های سیسکو.',
                 en: 'Link aggregation configuration lab using LACP (802.3ad) and PAgP EtherChannel on Cisco switches.'
             }
         }
@@ -224,7 +224,7 @@ const routes = [
         meta: {
             title: 'ACL Lab | obkworks',
             description: {
-                fa: 'کنترل ترافیک شبکه با پیکربندی Access Control List (ACL) استاندارد و گسترش‌یافته سیسکو.',
+                fa: 'کنترل ترافیک شبکه با پیکربندی Access Control List (ACL) استاندارد و گسترش یافته سیسکو.',
                 en: 'Network traffic control lab featuring Cisco Standard and Extended Access Control Lists (ACL).'
             }
         }
@@ -234,7 +234,7 @@ const routes = [
         meta: {
             title: 'Port Security & DHCP Snooping | obkworks',
             description: {
-                fa: 'افزایش امنیت لایه ۲ شبکه با پیاده‌سازی Port Security و جلوگیری از حملات با DHCP Snooping.',
+                fa: 'افزایش امنیت لایه ۲ شبکه با پیاده سازی Port Security و جلوگیری از حملات با DHCP Snooping.',
                 en: 'Layer 2 security lab implementing Port Security rules and DHCP Snooping protection on Cisco switches.'
             }
         }
@@ -244,7 +244,7 @@ const routes = [
         meta: {
             title: 'Active Directory & GPO Lab | obkworks',
             description: {
-                fa: 'راه اندازی Active Directory Domain Services و اعمال سیاست‌های گروهی (GPO) در ویندوز سرور.',
+                fa: 'راه اندازی Active Directory Domain Services و اعمال سیاست های گروهی (GPO) در ویندوز سرور.',
                 en: 'Windows Server Active Directory Domain Services setup and Group Policy Management (GPO) lab.'
             }
         }
@@ -254,7 +254,7 @@ const routes = [
         meta: {
             title: 'DNS & DHCP Lab | obkworks',
             description: {
-                fa: 'سناریوی عملی راه اندازی و مدیریت سرویس‌های زیرساختی DNS و DHCP در شبکه.',
+                fa: 'سناریوی عملی راه اندازی و مدیریت سرویس های زیرساختی DNS و DHCP در شبکه.',
                 en: 'Infrastructure services lab covering DNS resolution setup and DHCP scope management.'
             }
         }
@@ -264,7 +264,7 @@ const routes = [
         meta: {
             title: 'SQL Server Lab | obkworks',
             description: {
-                fa: 'طراحی پایگاه داده رابطه‌ای، کوئری‌نویسی T-SQL و مدیریت بانک‌های اطلاعاتی SQL Server.',
+                fa: 'طراحی پایگاه داده رابطه ای، کوئری نویسی T-SQL و مدیریت بانک های اطلاعاتی SQL Server.',
                 en: 'Relational database design, T-SQL query optimization, and SQL Server administration lab.'
             }
         }
@@ -276,7 +276,7 @@ const routes = [
         meta: {
             title: 'IP Subnet Calculator | obkworks',
             description: {
-                fa: 'محاسبه‌گر سابنت IP و CIDR برای تعیین محدوده آدرس‌ها، نت‌ماسک، آدرس شبکه و Broadcast.',
+                fa: 'محاسبه گر سابنت IP و CIDR برای تعیین محدوده آدرس ها، نت ماسک، آدرس شبکه و Broadcast.',
                 en: 'Calculate CIDR subnet masks, network ranges, broadcast addresses, and usable host IPs.'
             }
         }
@@ -286,7 +286,7 @@ const routes = [
         meta: {
             title: 'CCTV Storage Calculator | obkworks',
             description: {
-                fa: 'محاسبه‌گر هارد دوربین مداربسته جهت تخمین حجم ذخیره‌سازی و پهنای باند NVR/DVR بر اساس رزولوشن و تعداد دوربین.',
+                fa: 'محاسبه گر هارد دوربین مداربسته جهت تخمین حجم ذخیره سازی و پهنای باند NVR/DVR بر اساس رزولوشن و تعداد دوربین.',
                 en: 'Calculate required hard drive storage capacity and bandwidth for CCTV cameras and NVR/DVR systems.'
             }
         }
@@ -296,7 +296,7 @@ const routes = [
         meta: {
             title: 'RAID Calculator | obkworks',
             description: {
-                fa: 'محاسبه ظرفیت قابل استفاده، تحمل خطا و کارایی انواع آرایه‌های RAID (0, 1, 5, 6, 10).',
+                fa: 'محاسبه ظرفیت قابل استفاده، تحمل خطا و کارایی انواع آرایه های RAID (0, 1, 5, 6, 10).',
                 en: 'Calculate usable disk space, fault tolerance, and efficiency for RAID 0, 1, 5, 6, and 10 arrays.'
             }
         }
@@ -306,7 +306,7 @@ const routes = [
         meta: {
             title: 'VM Resource Allocator | obkworks',
             description: {
-                fa: 'ابزار تخمین و تخصیص منابع CPU، رم و دیسک برای سرورهای مجازی‌سازی VMware ESXi.',
+                fa: 'ابزار تخمین و تخصیص منابع CPU، رم و دیسک برای سرورهای مجازی سازی VMware ESXi.',
                 en: 'Plan and allocate CPU, RAM, and storage resources for virtual machines on VMware ESXi hosts.'
             }
         }
@@ -316,7 +316,7 @@ const routes = [
         meta: {
             title: 'Data Unit Converter | obkworks',
             description: {
-                fa: 'مبدل واحدهای ذخیره‌سازی و سرعت شبکه شامل بایت، کیلوبایت، مگابایت، گیگابایت و نرخ انتقال داده.',
+                fa: 'مبدل واحدهای ذخیره سازی و سرعت شبکه شامل بایت، کیلوبایت، مگابایت، گیگابایت و نرخ انتقال داده.',
                 en: 'Convert digital storage units and data transfer rates between Bytes, KB, MB, GB, TB, and bitrates.'
             }
         }
@@ -361,7 +361,7 @@ router.afterEach((to) => {
             : to.meta.description;
     } else {
         descText = currentLang === 'fa'
-            ? 'نمونه‌کار شخصی obkworks شامل ابزارهای توسعه وب، آزمایشگاه‌های شبکه سیسکو و ویندوز سرور، ابزارهای محاسباتی زیرساخت فناوری اطلاعات و مقالات فنی.'
+            ? 'نمونه کار شخصی obkworks شامل ابزارهای توسعه وب، آزمایشگاه های شبکه سیسکو و ویندوز سرور، ابزارهای محاسباتی زیرساخت فناوری اطلاعات و مقالات فنی.'
             : 'Personal portfolio of obkworks featuring web development tools, Cisco & Windows Server networking labs, IT infrastructure calculators, and technical articles.';
     }
     metaDescription.setAttribute('content', descText);
