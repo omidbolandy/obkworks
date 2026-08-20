@@ -77,4 +77,18 @@ const router = createRouter({
         return { top: 0 }
     },
 })
+
+router.afterEach((to) => {
+    let canonical = document.querySelector("link[rel='canonical']");
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+    }
+    const cleanPath = to.path.endsWith('/')
+        && to.path !== '/'
+        ? to.path.slice(0, -1) : to.path;
+    canonical.setAttribute('href', `https://obkworks.tr${cleanPath}`);
+});
+
 export default router
