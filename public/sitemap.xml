@@ -3,130 +3,130 @@
 
   <!-- Home -->
   <url>
-    <loc>https://obkworks.pages.dev/</loc>
+    <loc>https://obkworks.tr/</loc>
   </url>
 
   <!-- Articles -->
   <url>
-    <loc>https://obkworks.pages.dev/Articles</loc>
+    <loc>https://obkworks.tr/Articles</loc>
   </url>
 
   <!-- Article Details -->
   <url>
-    <loc>https://obkworks.pages.dev/Articles/1</loc>
+    <loc>https://obkworks.tr/Articles/1</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/2</loc>
+    <loc>https://obkworks.tr/Articles/2</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/3</loc>
+    <loc>https://obkworks.tr/Articles/3</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/4</loc>
+    <loc>https://obkworks.tr/Articles/4</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/5</loc>
+    <loc>https://obkworks.tr/Articles/5</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/6</loc>
+    <loc>https://obkworks.tr/Articles/6</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/7</loc>
+    <loc>https://obkworks.tr/Articles/7</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/8</loc>
+    <loc>https://obkworks.tr/Articles/8</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/9</loc>
+    <loc>https://obkworks.tr/Articles/9</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/10</loc>
+    <loc>https://obkworks.tr/Articles/10</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Articles/11</loc>
+    <loc>https://obkworks.tr/Articles/11</loc>
   </url>
 
   <!-- Projects -->
   <url>
-    <loc>https://obkworks.pages.dev/Projects</loc>
+    <loc>https://obkworks.tr/Projects</loc>
   </url>
 
   <!-- Front-End Projects -->
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/FinancialCalculator</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/FinancialCalculator</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/Weather</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/Weather</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/TodoList</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/TodoList</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/Calendar</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/Calendar</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/UnitConversion</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/UnitConversion</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/QR-Barcode-Generator</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/QR-Barcode-Generator</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/BMICalculator</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/BMICalculator</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/Calculator</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/Calculator</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/TimeAndDate</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/TimeAndDate</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Front-End/Modals</loc>
+    <loc>https://obkworks.tr/Projects/Front-End/Modals</loc>
   </url>
 
   <!-- Networking Projects -->
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Networking/VLAN-lab</loc>
+    <loc>https://obkworks.tr/Projects/Networking/VLAN-lab</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Networking/OSPF-lab</loc>
+    <loc>https://obkworks.tr/Projects/Networking/OSPF-lab</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Networking/EigrpLab</loc>
+    <loc>https://obkworks.tr/Projects/Networking/EigrpLab</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Networking/EtherChannel-lab</loc>
+    <loc>https://obkworks.tr/Projects/Networking/EtherChannel-lab</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Networking/Acl-Lab</loc>
+    <loc>https://obkworks.tr/Projects/Networking/Acl-Lab</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Networking/PortSecurityDHCPSnooping</loc>
+    <loc>https://obkworks.tr/Projects/Networking/PortSecurityDHCPSnooping</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Networking/ActiveDirectoryGpoLab</loc>
+    <loc>https://obkworks.tr/Projects/Networking/ActiveDirectoryGpoLab</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Networking/DnsDhcpLabView</loc>
+    <loc>https://obkworks.tr/Projects/Networking/DnsDhcpLabView</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/Networking/SqlServerLab</loc>
+    <loc>https://obkworks.tr/Projects/Networking/SqlServerLab</loc>
   </url>
 
   <!-- IT Infrastructure Tools -->
   <url>
-    <loc>https://obkworks.pages.dev/Projects/IT-Infrastructure-Tools/ip-subnet-calculator</loc>
+    <loc>https://obkworks.tr/Projects/IT-Infrastructure-Tools/ip-subnet-calculator</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/IT-Infrastructure-Tools/cctv-storage-calculator</loc>
+    <loc>https://obkworks.tr/Projects/IT-Infrastructure-Tools/cctv-storage-calculator</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/IT-Infrastructure-Tools/raid-calculator</loc>
+    <loc>https://obkworks.tr/Projects/IT-Infrastructure-Tools/raid-calculator</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/IT-Infrastructure-Tools/vm-resource-allocator</loc>
+    <loc>https://obkworks.tr/Projects/IT-Infrastructure-Tools/vm-resource-allocator</loc>
   </url>
   <url>
-    <loc>https://obkworks.pages.dev/Projects/IT-Infrastructure-Tools/data-unit-converter</loc>
+    <loc>https://obkworks.tr/Projects/IT-Infrastructure-Tools/data-unit-converter</loc>
   </url>
 
 </urlset>
