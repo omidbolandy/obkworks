@@ -1,7 +1,7 @@
 <template>
   <section class="mx-auto max-w-7xl px-4 pt-8 pb-16 sm:px-6 lg:px-6">
     <!-- title -->
-    <div class="mx-auto mb-10 max-w-3xl text-center">
+    <header class="mx-auto mb-10 max-w-3xl text-center">
       <h1 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
         {{ $t("projectsPage.title") }}
       </h1>
@@ -9,7 +9,7 @@
         class="mt-2 sm:mt-3 md:mt-4 text-sm sm:text-base md:text-lg leading-6 sm:leading-7 md:leading-8 text-gray-600 dark:text-gray-300">
         {{ $t("projectsPage.description") }}
       </p>
-    </div>
+    </header>
 
     <!-- tabs -->
     <div class="mb-6 lg:hidden">
@@ -29,19 +29,19 @@
     <!-- Projects -->
     <div class="grid items-start gap-3 lg:grid-cols-3">
       <!-- frontEnd Projects -->
-      <div :class="activeTab === 'frontEnd' ? 'block' : 'hidden'"
+      <article :class="activeTab === 'frontEnd' ? 'block' : 'hidden'"
         class="lg:block rounded-3xl border border-gray-200/70 bg-gray-200 p-4 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
         <div class="flex items-center gap-3.5">
           <div
             class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-300">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <svg class="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M9.75 17L9 20l-1 1h8l-1-1l-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
-          <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
             {{ $t("projectsPage.frontEnd.title") }}
-          </h3>
+          </h2>
         </div>
         <p class="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300">
           {{ $t("projectsPage.frontEnd.description") }}
@@ -72,22 +72,22 @@
             :description="$t('projectsPage.frontEnd.items.modals.description')" to="/Projects/Front-End/Modals"
             :link-text="$t('projectsPage.frontEnd.items.modals.link')" />
         </div>
-      </div>
+      </article>
 
       <!-- networking Projects -->
-      <div :class="activeTab === 'networking' ? 'block' : 'hidden'"
+      <article :class="activeTab === 'networking' ? 'block' : 'hidden'"
         class="lg:block rounded-3xl border border-gray-200/70 bg-gray-200 p-4 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
         <div class="flex items-center gap-3.5">
           <div
             class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-300">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <svg class="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M12 21a9 9 0 100-18 9 9 0 000 18zM3.6 9h16.8M3.6 15h16.8M12 3a14.25 14.25 0 00-4 9 14.25 14.25 0 004 9 14.25 14.25 0 004-9 14.25 14.25 0 00-4-9z" />
             </svg>
           </div>
-          <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
             {{ $t("projectsPage.networking.title") }}
-          </h3>
+          </h2>
         </div>
         <p class="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300">
           {{ $t("projectsPage.networking.description") }}
@@ -124,22 +124,22 @@
             :description="$t('projectsPage.networking.items.SqlServerLab.description')"
             to="/Projects/Networking/SqlServerLab" :link-text="$t('projectsPage.networking.items.SqlServerLab.link')" />
         </div>
-      </div>
+      </article>
 
       <!-- itInfrastructureTools Projects -->
-      <div :class="activeTab === 'itInfrastructureTools' ? 'block' : 'hidden'"
+      <article :class="activeTab === 'itInfrastructureTools' ? 'block' : 'hidden'"
         class="lg:block rounded-3xl border border-gray-200/70 bg-gray-200 p-4 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
         <div class="flex items-center gap-3.5">
           <div
             class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-300">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <svg class="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
               <path stroke-linecap="round" stroke-linejoin="round"
-                d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2-2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
             </svg>
           </div>
-          <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
             {{ $t("projectsPage.itInfrastructureTools.title") }}
-          </h3>
+          </h2>
         </div>
         <p class="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300">
           {{ $t("projectsPage.itInfrastructureTools.description") }}
@@ -172,7 +172,7 @@
               " to="/Projects/IT-Infrastructure-Tools/data-unit-converter"
                :link-text="$t('projectsPage.itInfrastructureTools.items.dataUnitConverter.link')" />
         </div>
-      </div>
+      </article>
     </div>
   </section>
 </template>
