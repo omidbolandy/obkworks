@@ -1,7 +1,8 @@
 <template>
   <div
     class="container mx-auto space-y-10 pb-12 sm:my-12 md:my-16 lg:my-5 px-4 sm:px-6 lg:px-8 max-w-14xl">
-    <!-- Main Introduction and Photo / Summary (Hero Section) -->
+    
+    <!-- Hero Section -->
     <section
       class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 pt-4 md:pt-10">
       <div class="flex-1 space-y-4 text-center md:text-left rtl:md:text-right">
@@ -22,10 +23,9 @@
           class="flex flex-wrap items-center justify-center gap-4 pt-2 md:justify-start">
           <router-link
             to="/Projects"
-            class="relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r  from-indigo-500 to-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:scale-[1.02] hover:from-blue-500 hover:to-indigo-500 hover:shadow-xl hover:shadow-blue-500/40 active:scale-[0.98] dark:shadow-blue-900/40 dark:hover:shadow-blue-500/30">
+            class="relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-indigo-500 to-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:scale-[1.02] hover:from-blue-500 hover:to-indigo-500 hover:shadow-xl hover:shadow-blue-500/40 active:scale-[0.98] dark:shadow-blue-900/40 dark:hover:shadow-blue-500/30">
             <span
-              class="absolute inset-0 bg-white/20 opacity-0 transition-opacity hover:opacity-100"
-            ></span>
+              class="absolute inset-0 bg-white/20 opacity-0 transition-opacity hover:opacity-100"></span>
             <span class="relative z-10">
               {{ $t("home.hero.projectsButton") }}
             </span>
@@ -34,18 +34,16 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
           </router-link>
         </div>
       </div>
+
+      <!-- Hero Logo/Image -->
       <div
         class="w-40 h-40 sm:w-56 sm:h-56 rounded-full flex items-center justify-center shadow-lg text-white text-5xl sm:text-7xl animate-pulse [animation-duration:4s]">
-        <img src="/src/assets/obk-Logo-2.webp" alt="Logo" class="rounded-full" />
+        <img src="/src/assets/obk-Logo-2.webp" alt="obkworks - Personal Web Portfolio and Network Infrastructure Labs Logo" class="rounded-full" />
       </div>
     </section>
 
@@ -80,7 +78,7 @@
     <!-- About Me -->
     <section
       class="p-6 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20 backdrop-blur-sm shadow-sm hover:border-blue-500/30 transition-colors">
-      <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
+      <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
         <svg
           class="w-6 h-6 text-gray-850 dark:text-gray-100"
           fill="none"
@@ -93,9 +91,8 @@
             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
         </svg>
         <span>{{ $t("home.about.title") }}</span>
-      </h3>
-      <p
-        class="text-base leading-relaxed text-gray-600 dark:text-gray-300">
+      </h2>
+      <p class="text-base leading-relaxed text-gray-600 dark:text-gray-300">
         {{ $t("home.about.textPart1") }}
         <span class="text-blue-500 font-semibold">Cisco</span>
         {{ $t("home.about.textPart2") }}
@@ -108,7 +105,6 @@
 
     <!-- Academic Education Section -->
     <section class="p-6 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20 backdrop-blur-sm shadow-sm hover:border-blue-500/30 transition-colors">
-      <!-- Section Title -->
       <div class="flex items-center gap-3">
         <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,9 +136,9 @@
     </section>
 
     <!-- Specialized Toolkit -->
-    <section class="space-y-6 ">
+    <section class="space-y-6">
       <div class="text-center md:text-left rtl:md:text-right">
-        <h3 class="text-2xl font-bold">{{ $t("home.skills.title") }}</h3>
+        <h2 class="text-2xl font-bold">{{ $t("home.skills.title") }}</h2>
         <p class="text-sm text-gray-500 dark:text-gray-400">
           {{ $t("home.skills.subtitle") }}
         </p>
@@ -150,47 +146,43 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div
           class="p-5 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20">
-          <h4 class="font-bold text-blue-600 dark:text-blue-400 mb-3">
+          <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-3">
             🌐 {{ $t("home.skills.categories.network.title") }}
-          </h4>
-          <p
-            class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
-            <bdi>{{ $t("home.skills.categories.network.text") }}</bdi>
+          </h3>
+          <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
+            {{ $t("home.skills.categories.network.text") }}
           </p>
         </div>
         <div
           class="p-5 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20">
-          <h4 class="font-bold text-purple-600 dark:text-purple-400 mb-3">
+          <h3 class="font-bold text-purple-600 dark:text-purple-400 mb-3">
             🖥️ {{ $t("home.skills.categories.virtualization.title") }}
-          </h4>
-          <p
-            class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
+          </h3>
+          <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
              {{ $t("home.skills.categories.virtualization.text") }}
           </p>
         </div>
         <div
           class="p-5 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20">
-          <h4 class="font-bold text-green-600 dark:text-green-400 mb-3">
+          <h3 class="font-bold text-green-600 dark:text-green-400 mb-3">
             ⚡ {{ $t("home.skills.categories.web.title") }}
-          </h4>
-          <p
-            class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
+          </h3>
+          <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
             {{ $t("home.skills.categories.web.text") }}
           </p>
         </div>
         <div
           class="p-5 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20">
-          <h4 class="font-bold text-amber-600 dark:text-amber-400 mb-3">
+          <h3 class="font-bold text-amber-600 dark:text-amber-400 mb-3">
             🛠️ {{ $t("home.skills.categories.tools.title") }}
-          </h4>
-          <p
-            class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
+          </h3>
+          <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
             {{ $t("home.skills.categories.tools.text") }}
           </p>
         </div>
         <div
           class="p-5 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20">
-          <h4
+          <h3
             class="font-bold text-rose-600 dark:text-rose-400 mb-3 flex items-center gap-1.5">
             <svg
               class="w-5 h-5 stroke-current"
@@ -206,9 +198,8 @@
               <path d="M14 11h6" />
             </svg>
             <span>{{ $t("home.skills.categories.remoteManagement.title") }}</span>
-          </h4>
-          <p
-            class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
+          </h3>
+          <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
             {{ $t("home.skills.categories.remoteManagement.text") }}
           </p>
         </div>
@@ -216,11 +207,10 @@
         <!-- Office Automation Systems Card -->
         <div
           class="p-5 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20">
-          <h4 class="font-bold text-teal-600 dark:text-teal-400 mb-3">
+          <h3 class="font-bold text-teal-600 dark:text-teal-400 mb-3">
             📑 {{ $t("home.skills.categories.officeAutomation.title") }}
-          </h4>
-          <p
-            class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
+          </h3>
+          <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 ltr text-left">
             {{ $t("home.skills.categories.officeAutomation.text") }}
           </p>
         </div>
@@ -230,9 +220,9 @@
     <!-- Work Experience / Internship Section-->
     <section class="space-y-6">
       <div class="text-center md:text-left rtl:md:text-right">
-        <h3 class="text-2xl font-bold text-gray-800 dark:text-white">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white">
           {{ $t("experience.title") }}
-        </h3>
+        </h2>
         <p class="text-sm text-gray-500 dark:text-gray-400">
           {{ $t("experience.subtitle") }}
         </p>
@@ -259,11 +249,10 @@
             <div
               class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
               <div>
-                <h4 class="text-lg font-bold text-gray-800 dark:text-white">
+                <h3 class="text-lg font-bold text-gray-800 dark:text-white">
                   {{ $t("experience.role") }}
-                </h4>
-                <p
-                  class="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                </h3>
+                <p class="text-sm font-semibold text-blue-600 dark:text-blue-400">
                   🏢 {{ $t("experience.company") }}
                 </p>
               </div>
@@ -273,10 +262,10 @@
               </span>
             </div>
             <div class="space-y-3">
-              <h5
+              <h4
                 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                 {{ $t("experience.tasksTitle") }}
-              </h5>
+              </h4>
               <ul class="space-y-2.5">
                 <li
                   v-for="(task, index) in $tm('experience.tasks')"
@@ -295,7 +284,7 @@
     <!-- The Path of Personal Development and Purpose -->
     <section
       class="p-6 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20 backdrop-blur-sm shadow-sm hover:border-blue-500/30 transition-colors">
-      <h4 class="text-lg font-bold mb-2">🚀 {{ $t("home.roadmap.title") }}</h4>
+      <h2 class="text-xl font-bold mb-2">🚀 {{ $t("home.roadmap.title") }}</h2>
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
         {{ $t("home.roadmap.description") }}
       </p>
@@ -317,15 +306,14 @@
 
     <!-- Contact Me -->
     <footer
-      class="text-center space-y-4 py-6 border-t bg-white p-6 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20 backdrop-blur-sm shadow-sm hover:border-blue-500/30 transition-colors">
-      <h4 class="text-xl font-bold text-gray-800 dark:text-white">
+      class="text-center space-y-4 py-6 border-t p-6 rounded-xl bg-white/40 dark:bg-gray-800/40 border border-gray-200/40 dark:border-gray-700/20 backdrop-blur-sm shadow-sm hover:border-blue-500/30 transition-colors">
+      <h2 class="text-xl font-bold text-gray-800 dark:text-white">
         {{ $t("home.contact.title") }}
-      </h4>
+      </h2>
       <p class="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto">
         {{ $t("home.contact.subtitle") }}
       </p>
       <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-        <!-- Email Component with Copy Button -->
         <div class="inline-flex items-center rounded-lg border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 p-1">
           <a
             href="mailto:omidbolandy@gmail.com"
@@ -423,7 +411,7 @@
 
 <script>
 export default {
-  name: "Home-1",
+  name: "HomeView",
   data() {
     return {
       copied: false,
