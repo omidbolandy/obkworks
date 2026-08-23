@@ -30,6 +30,7 @@ export const articles = [
     // --- article #1 ---
     {
         id: 1,
+        slug: 'modern-frontend-stack-html-css-js-tailwind-vuejs',
         title: {
             en: 'Modern Frontend Stack: Core Concepts of HTML, CSS, JavaScript, Tailwind & Vue.js',
             fa: 'تکنولوژی‌های مدرن فرانت‌اند: بررسی HTML ،CSS ،JavaScript ،Tailwind و Vue.js',
@@ -138,6 +139,7 @@ const toggleTheme = () => {
     // --- article #2 ---
     {
         id: 2,
+        slug: 'enterprise-cctv-ip-camera-nvr-dvr-architecture',
         title: {
             en: 'Enterprise Video Surveillance Architecture: IP Cameras, NVR, DVR & Streaming Protocols',
             fa: 'معماری سیستم‌های نظارت تصویری (CCTV): بررسی جامع دوربین‌های IP، NVR، DVR و پروتکل‌های انتقال تصویر',
@@ -232,6 +234,7 @@ SDK / Media Port: External 8000 -> Internal 8000 (TCP)`
     // --- article #3 ---
     {
         id: 3,
+        slug: 'network-plus-security-plus-fundamentals-ports-protocols',
         title: {
             en: 'Network & Security Fundamentals: Ports, Protocols, Network+ & Security+ Baselines',
             fa: 'مبانی شبکه‌ و امنیت: بررسی پورت‌ها، پروتکل‌های کاربردی و مفاهیم اصلی +Network و +Security',
@@ -340,6 +343,7 @@ SDK / Media Port: External 8000 -> Internal 8000 (TCP)`
     // --- article #4 ---
     {
         id: 4,
+        slug: 'enterprise-virtualization-esxi-vcenter-hyperv',
         title: {
             en: 'Enterprise Virtualization Architecture: ESXi, vCenter, Hyper-V & Workstation Implementation',
             fa: 'معماری مجازی‌سازی سازمانی: مقایسه و پیاده‌سازی VMware ESXi ،vCenter ،Hyper-V و Workstation',
@@ -462,6 +466,7 @@ New-VMSwitch -Name "External_vSwitch" -NetAdapterName "Ethernet 1" -AllowManagem
     // --- article #5 ---
     {
         id: 5,
+        slug: 'prtg-vs-opmanager-network-monitoring-guide',
         title: {
             en: 'PRTG vs. OpManager: Technical Evaluation & Configuration Guide',
             fa: 'ارزیابی فنی و راهنمای پیاده‌سازی: مقایسه جامع PRTG و OpManager',
@@ -561,6 +566,7 @@ snmp-server user prtgadmin PRTG_GROUP v3 auth sha AuthPass2026! priv aes 128 Pri
     // --- article #6 ---
     {
         id: 6,
+        slug: 'active-directory-domain-controller-security',
         title: {
             en: 'Designing Domain Controller Architecture & Active Directory Security Hardening',
             fa: 'طراحی معماری Domain Controller و ایمن‌سازی زیرساخت Active Directory (AD DS)',
@@ -675,6 +681,7 @@ Import-Csv -Path $csvPath | ForEach-Object {
     // --- article #7 ---
     {
         id: 7,
+        slug: 'windows-gpo-hardening-group-policy-objects',
         title: {
             en: 'Hardening Windows Clients using Group Policy Objects (GPO)',
             fa: 'ایمن‌سازی و مدیریت متمرکز کلاینت‌های ویندوز با Group Policy (GPO)',
@@ -777,6 +784,7 @@ gpupdate /force`
     // --- article #8 ---
     {
         id: 8,
+        slug: 'dhcp-failover-high-availability-windows-server',
         title: {
             en: 'High Availability DHCP Failover Configuration in Windows Server',
             fa: 'پیکربندی DHCP Failover برای پایداری سرویس آدرس‌دهی در ویندوز سرور',
@@ -860,6 +868,7 @@ Invoke-DhcpServerv4FailoverReplication -Name "HQ-DHCP-Failover"`
     // --- article #9 (EtherChannel) ---
     {
         id: 9,
+        slug: 'cisco-etherchannel-lacp-802-3ad-configuration',
         title: {
             en: 'Configuring Cisco EtherChannel using LACP (802.3ad)',
             fa: 'پیکربندی EtherChannel در سوئیچ‌های سیسکو با پروتکل LACP (802.3ad)',
@@ -963,6 +972,7 @@ show spanning-tree summary`
     // --- article #10 (Router on a Stick) ---
     {
         id: 10,
+        slug: 'inter-vlan-routing-router-on-a-stick-802-1q',
         title: {
             en: 'Inter-VLAN Routing using Router on a Stick (802.1Q)',
             fa: 'مسیریابی بین VLANها با روش Router on a Stick و استاندارد 802.1Q',
@@ -1090,6 +1100,7 @@ interface GigabitEthernet0/0/0.99
     // --- article #11 (Port Security) ---
     {
         id: 11,
+        slug: 'cisco-port-security-layer2-mac-address',
         title: {
             en: 'Enhancing Layer 2 Security with Cisco Port Security',
             fa: 'ارتقای امنیت لایه ۲ با ویژگی Port Security در سوئیچ‌های سیسکو',

@@ -56,7 +56,7 @@ const routes = [
         }
     },
     {
-        path: '/Articles/:id', name: 'ArticleDetails', component: ArticleDetails, props: true,
+        path: '/Articles/:slug', name: 'ArticleDetails', component: ArticleDetails, props: true,
         meta: {
             title: 'Article Details | obkworks',
             description: {

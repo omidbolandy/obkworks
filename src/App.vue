@@ -2,8 +2,7 @@
   <div
     id="app"
     :dir="isRtl ? 'rtl' : 'ltr'"
-    class="min-h-screen bg-gradient-to-br bg-gray-300 dark:bg-gray-700  text-gray-800 dark:text-white transition-colors duration-300 ease-in-out px-2">
-    <br />
+    class="px-3 pt-4 pb-6 min-h-screen bg-gradient-to-br bg-gray-300 dark:bg-gray-700  text-gray-800 dark:text-white transition-colors duration-300 ease-in-out">
     <!-- Navbar -->
     <AppNavbar />
 
@@ -12,10 +11,8 @@
 
     <!-- Footer -->
     <AppFooter />
-    <br /><br />
 
     <!-- Scroll-To-Top -->
-    <div>
       <button
         @click="scrollToTop"
         :class="[
@@ -34,10 +31,10 @@
           <path  stroke-linecap="round"  stroke-linejoin="round"  d="m4.5 15.75 7.5-7.5 7.5 7.5"/>
         </svg>
       </button>
-    </div>
     
     <!-- Scroll Progress Bar -->
     <div
+      aria-hidden="true"
       class="fixed top-0 start-0 h-1 bg-blue-500"
       :style="{ width: scrollPercentage + '%' }"
     ></div>

@@ -8,10 +8,10 @@
 
     <!-- Sentinel used to detect when the sticky filter bar reaches the top -->
     <div ref="stickySentinel" class="h-px"></div>
-
+    
     <!-- Tag filter -->
     <div ref="filterBar" :dir="$i18n.locale === 'fa' ? 'rtl' : 'ltr'"
-     class="max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-10 border-b border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-950/90 backdrop-blur-sm px-3 py-3 sm:px-4 sm:py-4 rounded-xl">
+      class="max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-10 border-b border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-950/90 backdrop-blur-sm px-3 py-3 sm:px-4 sm:py-4 rounded-xl">
       <p class="text-base sm:text-lg font-medium mb-2 sm:mb-3">
         {{ $t("articles.filterByTags") }}
       </p>
@@ -56,7 +56,7 @@
         </p>
 
         <!-- The link of each article (Fixed mt-auto) -->
-        <router-link :to="'/Articles/' + article.id"
+        <router-link :to="'/Articles/' + article.slug"
           class="mt-auto inline-block w-full rounded bg-blue-500 px-4 py-2 text-center text-sm text-white transition-colors hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 sm:w-auto sm:text-base">
           {{ $t("articles.readMore") }}
         </router-link>

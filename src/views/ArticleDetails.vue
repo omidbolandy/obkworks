@@ -117,7 +117,7 @@ import { localizeField, formatArticleDate } from "./utils/localization";
 
 export default {
   name: "article-1",
-  props: ["id"],
+  props: ["slug"],
   data() {
     return {
       article: null,
@@ -208,10 +208,10 @@ export default {
     },
   },
   watch: {
-    id: {
+    slug: {
       immediate: true,
-      handler(newId) { 
-        this.article = articles.find((a) => a.id === parseInt(newId)) || null;
+      handler(newSlug) {
+        this.article = articles.find((a) => a.slug === newSlug) || null;
         if (this.article) {
           this.$nextTick(() => { 
             document.title = `${this.articleTitle} | obkworks`; 
