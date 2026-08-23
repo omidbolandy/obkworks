@@ -5,7 +5,7 @@
       class="flex flex-wrap items-center justify-between max-w-screen-xl px-2 min-[375px]:px-3 min-[450px]:px-4 mx-auto">
 
       <!-- Logo -->
-      <a href="/" class="flex items-center shrink-0 min-w-0">
+      <router-link to="/" class="flex items-center shrink-0 min-w-0">
         <img
           src="/src/assets/obk-Logo-2.webp"
           class="w-8 h-8 mx-1 min-[375px]:w-9 min-[375px]:h-9 min-[375px]:mx-1.5 min-[450px]:w-10 min-[450px]:h-10 min-[450px]:mx-2 sm:h-16 sm:w-16 rounded-full shrink-0"
@@ -14,7 +14,7 @@
           class="self-center whitespace-nowrap font-semibold text-[10px] min-[375px]:text-xs min-[450px]:text-base md:text-lg lg:text-xl dark:text-white">
           {{ $t("appName") }}
         </span>
-      </a>
+      </router-link>
 
       <!-- Language switch, theme toggle, and mobile hamburger button -->
       <div class="relative flex items-center gap-1 min-[375px]:gap-1.5 min-[450px]:gap-2 order-2 lg:order-2">
@@ -62,9 +62,11 @@
             </button>
           </div>
         </div>
+        
         <div class="me-1 min-[375px]:me-2 min-[450px]:me-3 scale-90 min-[375px]:scale-100 origin-center">
           <ThemeToggle />
         </div>
+        
         <button
           type="button"
           @click="mobileMenuOpen = !mobileMenuOpen"
