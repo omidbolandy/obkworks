@@ -1,22 +1,16 @@
-# Dependencies (حجم اصلی پروژه - نیازی به آپلود نیست)
 node_modules/
 
-# Build Output (پوشه خروجی - کلودفلر خودش این را می‌سازد)
 dist/
 
-# IDE & Editor Settings (تنظیمات ادیتور شخصی)
 .vscode/
 
-# Environment Variables (کلیدهای خصوصی و API Keyها)
 .env
 .env.local
 .env.*.local
 
-# Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# System Files
 .DS_Store
 Thumbs.db
