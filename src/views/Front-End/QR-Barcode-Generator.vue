@@ -202,7 +202,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import QRCode from "qrcode";
 import JsBarcode from "jsbarcode";
 import i18n from "../../i18n.js";
@@ -217,7 +217,7 @@ const barcodeColors = () =>
     ? { background: "#f3f4f6", lineColor: "#111827" }
     : { background: "#ffffff", lineColor: "#1f2937" };
 
-const MAX_QR_LENGTH = 500;
+const MAX_QR_LENGTH = 1000;
 const MAX_BARCODE_LENGTH = 80;
 
 const qrText = ref("");
@@ -254,9 +254,9 @@ const selectArrowStyle = computed(() => {
 
 const QR_SIZE_MAP = { small: 160, medium: 240, large: 320 };
 const QR_CANVAS_SIZE_CLASSES = {
-  small: "w-[120px] max-[425px]:w-[100px] max-[320px]:w-[80px]",
-  medium: "w-[190px] max-[425px]:w-[150px] max-[320px]:w-[110px]",
-  large: "w-[260px] max-[425px]:w-[190px] max-[320px]:w-[130px]",
+    small: "w-[180px] max-[425px]:w-[140px] max-[320px]:w-[110px]",
+    medium: "w-[260px] max-[425px]:w-[210px] max-[320px]:w-[160px]",
+    large: "w-[340px] max-[425px]:w-[270px] max-[320px]:w-[200px]",
 };
 const qrCanvasSizeClass = computed(
   () => QR_CANVAS_SIZE_CLASSES[appliedQrSize.value]
@@ -426,4 +426,14 @@ function downloadBarcode(type) {
     }
   }
 }
+watch(qrSize, async () => {
+  if (!qrGenerated.value) return;
+  appliedQrSize.value = qrSize.value;
+  await generateQR();
+});
+
+watch(barcodeSize, () => {
+  if (!barcodeGenerated.value) return;
+  generateBarcode();
+});
 </script>
