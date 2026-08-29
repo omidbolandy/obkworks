@@ -19,12 +19,10 @@
     </router-link>
 
     <div
-      class="mt-8 rounded-3xl border border-gray-200/70 bg-white/80 p-8 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30"
-    >
+      class="mt-8 rounded-3xl border border-gray-200/70 bg-white/80 p-8 shadow-xl shadow-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:shadow-black/30">
       <div class="max-w-3xl">
         <h1
-          class="mt-1 text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl"
-        >
+          class="mt-1 text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
           {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.title") }}
         </h1>
         <p class="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -40,8 +38,7 @@
         <div>
           <label
             for="camerasCount"
-            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >
+            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300">
             {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.camerasCount") }}
           </label>
           <input
@@ -54,24 +51,21 @@
             inputmode="numeric"
             class="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
             @blur="sanitizeField('camerasCount', 1, 1000, defaultForm.camerasCount)"
-            @keyup.enter="calculate"
-          />
+            @keyup.enter="calculate"/>
         </div>
 
         <!-- Resolution -->
         <div>
           <label
             for="resolution"
-            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >
+            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300">
             {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.resolution") }}
           </label>
           <div class="relative">
             <select
               id="resolution"
               v-model="form.resolution"
-              class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-2.5 pe-10 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
-            >
+              class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-2.5 pe-10 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
               <option value="r720p">
                 {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.options.resolution.r720p") }}
               </option>
@@ -92,20 +86,17 @@
               </option>
             </select>
             <div
-              class="pointer-events-none absolute inset-y-0 flex items-center text-gray-500 ltr:right-3.5 rtl:left-3.5 dark:text-gray-400"
-            >
+              class="pointer-events-none absolute inset-y-0 flex items-center text-gray-500 ltr:right-3.5 rtl:left-3.5 dark:text-gray-400">
               <svg
                 class="h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+                viewBox="0 0 24 24">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
+                  d="M19 9l-7 7-7-7"/>
               </svg>
             </div>
           </div>
@@ -115,8 +106,7 @@
         <div>
           <label
             for="fps"
-            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >
+            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300">
             {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.fps") }}
           </label>
           <input
@@ -129,24 +119,21 @@
             inputmode="numeric"
             class="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
             @blur="sanitizeField('fps', 1, 120, defaultForm.fps)"
-            @keyup.enter="calculate"
-          />
+            @keyup.enter="calculate"/>
         </div>
 
         <!-- Codec -->
         <div>
         <label
           for="codec"
-          class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300"
-        >
+          class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300">
           {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.codec") }}
         </label>
         <div class="relative">
           <select
             id="codec"
             v-model="form.codec"
-            class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-2.5 pe-10 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
-          >
+            class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-2.5 pe-10 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
             <option value="h264">
               {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.options.codec.h264") }}
             </option>
@@ -158,20 +145,17 @@
             </option>
           </select>
           <div
-            class="pointer-events-none absolute inset-y-0 flex items-center text-gray-500 ltr:right-3.5 rtl:left-3.5 dark:text-gray-400"
-          >
+            class="pointer-events-none absolute inset-y-0 flex items-center text-gray-500 ltr:right-3.5 rtl:left-3.5 dark:text-gray-400">
             <svg
               class="h-4 w-4"
               fill="none"
               stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+              viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
+                d="M19 9l-7 7-7-7" />
             </svg>
           </div>
         </div>
@@ -181,16 +165,14 @@
         <div>
           <label
             for="quality"
-            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >
+            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300">
             {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.quality") }}
           </label>
           <div class="relative">
             <select
               id="quality"
               v-model="form.quality"
-              class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-2.5 pe-10 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
-            >
+              class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-2.5 pe-10 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
               <option value="low">
                 {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.options.quality.low") }}
               </option>
@@ -202,20 +184,17 @@
               </option>
             </select>
             <div
-              class="pointer-events-none absolute inset-y-0 flex items-center text-gray-500 ltr:right-3.5 rtl:left-3.5 dark:text-gray-400"
-            >
+              class="pointer-events-none absolute inset-y-0 flex items-center text-gray-500 ltr:right-3.5 rtl:left-3.5 dark:text-gray-400">
               <svg
                 class="h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+                viewBox="0 0 24 24">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
+                  d="M19 9l-7 7-7-7"/>
               </svg>
             </div>
           </div>
@@ -225,8 +204,7 @@
         <div>
           <label
             for="recordHours"
-            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >
+            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300">
             {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.recordHours") }}
           </label>
           <input
@@ -239,16 +217,14 @@
             inputmode="decimal"
             class="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
             @blur="sanitizeField('recordHours', 0, 24, defaultForm.recordHours)"
-            @keyup.enter="calculate"
-          />
+            @keyup.enter="calculate"/>
         </div>
 
         <!-- Retention days -->
         <div>
           <label
             for="retentionDays"
-            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >
+            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300">
             {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.retentionDays") }}
           </label>
           <input
@@ -261,24 +237,20 @@
             inputmode="numeric"
             class="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
             @blur="sanitizeField('retentionDays', 1, 3650, defaultForm.retentionDays)"
-            @keyup.enter="calculate"
-          />
+            @keyup.enter="calculate"/>
         </div>
 
         <!-- Motion detection toggle -->
         <div
-          class="flex items-center gap-3 rounded-2xl border border-dashed border-gray-300 p-4 dark:border-gray-700 sm:col-span-2"
-        >
+          class="flex items-center gap-3 rounded-2xl border border-dashed border-gray-300 p-4 dark:border-gray-700 sm:col-span-2">
           <input
             id="motionDetection"
             v-model="form.motionEnabled"
             type="checkbox"
-            class="h-5 w-5 shrink-0 rounded accent-blue-600"
-          />
+            class="h-5 w-5 shrink-0 rounded accent-blue-600"/>
           <label
             for="motionDetection"
-            class="text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >
+            class="text-sm font-semibold text-gray-700 dark:text-gray-300">
             {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.motionDetection") }}
           </label>
         </div>
@@ -286,8 +258,7 @@
         <div v-if="form.motionEnabled" class="sm:col-span-2">
           <label
             for="motionPercent"
-            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >
+            class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300">
             {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.motionPercent") }}
             <span class="text-blue-600 dark:text-blue-400">({{ safeMotionPercent }}%)</span>
           </label>
@@ -298,16 +269,14 @@
             min="1"
             max="100"
             step="1"
-            class="w-full accent-blue-600"
-          />
+            class="w-full accent-blue-600"/>
         </div>
       </div>
 
       <!-- Validation hint -->
       <p
         v-if="attemptedCalculate && !isFormValid"
-        class="mt-4 text-right text-sm font-medium text-red-600 dark:text-red-400"
-      >
+        class="mt-4 text-right text-sm font-medium text-red-600 dark:text-red-400">
         {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.validationHint") }}
       </p>
 
@@ -316,15 +285,13 @@
         <button
           type="button"
           @click="resetForm"
-          class="rounded-xl border border-gray-300 px-5 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"
-        >
+          class="rounded-xl border border-gray-300 px-5 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800">
           {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.resetButton") }}
         </button>
         <button
           type="button"
           @click="calculate"
-          class="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
-        >
+          class="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
           {{ $t("itInfrastructureTools.pages.cctvStorageCalculator.calculator.form.calculateButton") }}
         </button>
       </div>
@@ -332,8 +299,7 @@
       <!-- Results -->
       <div
         v-if="result"
-        class="mt-10 rounded-2xl border border-gray-200 bg-gray-50/70 p-6 dark:border-gray-700 dark:bg-gray-800/60"
-      >
+        class="mt-10 rounded-2xl border border-gray-200 bg-gray-50/70 p-6 dark:border-gray-700 dark:bg-gray-800/60">
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
@@ -357,10 +323,29 @@
           </div>
         </div>
         <div
-          class="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm font-medium text-blue-800 dark:border-blue-900/60 dark:bg-blue-950/40 dark:text-blue-200"
-        >
+          class="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm font-medium text-blue-800 dark:border-blue-900/60 dark:bg-blue-950/40 dark:text-blue-200">
           {{ hddSuggestionText }}
         </div>
+      </div>
+
+      <!-- Related Article -->
+      <div class="mt-6 rounded-2xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30 p-3 flex items-center justify-between gap-2 min-[425px]:p-4 min-[425px]:gap-4">
+        <div>
+          <p class="text-[10px] font-semibold text-blue-700 dark:text-blue-300 leading-snug min-[375px]:text-[11px] min-[425px]:text-[13px]">
+            {{ $t('itInfrastructureTools.pages.cctvStorageCalculator.relatedArticle.label') }}
+          </p>
+          <p class="text-[9px] text-blue-600 dark:text-blue-400 mt-0.5 leading-snug min-[375px]:text-[10px] min-[425px]:text-[11px]">
+            {{ $t('itInfrastructureTools.pages.cctvStorageCalculator.relatedArticle.description') }}
+          </p>
+        </div>
+        <router-link
+          to="/Articles/enterprise-cctv-ip-camera-nvr-dvr-architecture"
+          class="shrink-0 inline-flex items-center gap-1 rounded-xl bg-blue-600 hover:bg-blue-700 px-2.5 py-1.5 text-[10px] font-semibold text-white transition-colors min-[375px]:px-3 min-[375px]:py-2 min-[375px]:text-[11px] min-[425px]:gap-2 min-[425px]:px-4 min-[425px]:py-2 min-[425px]:text-sm">
+          {{ $t('itInfrastructureTools.pages.cctvStorageCalculator.relatedArticle.button') }}
+          <svg class="w-3 h-3 rtl:rotate-180 min-[425px]:w-4 min-[425px]:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </router-link>
       </div>
     </div>
   </section>

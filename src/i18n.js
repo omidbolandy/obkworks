@@ -267,6 +267,11 @@ const messages = {
                             tb: "TB",
                         },
                     },
+                    relatedArticle: {
+                        label: 'Want to learn the architecture behind this calculator?',
+                        description: 'Read the full article on IP cameras, NVR, DVR and video transmission protocols.',
+                        button: 'Read Article',
+                    },
                 },
                 raidCalculator: {
                     title: "RAID Calculator",
@@ -619,7 +624,9 @@ const messages = {
             backToAllArticles: "Back to All Articles",
             notFound: "Article not found!",
             Copied: "Copied",
-
+            relatedProject: 'Related Project',
+            references: 'References',
+            relatedTool: 'Related Tool',
         },
         // todo page en language
         todo: {
@@ -2200,6 +2207,11 @@ const messages = {
                             tb: "ترابایت"
                         },
                     },
+                    relatedArticle: {
+                        label: 'می‌خواهید معماری پشت این ماشین‌حساب را بهتر بشناسید؟',
+                        description: 'مقاله جامع دوربین‌های IP، NVR، DVR و پروتکل‌های انتقال تصویر را مطالعه کنید.',
+                        button: 'مطالعه مقاله',
+                    },
                 },
                 raidCalculator: {
                     title: "ماشین‌حساب RAID",
@@ -2547,6 +2559,9 @@ const messages = {
             backToAllArticles: "بازگشت به همه مقالات",
             notFound: "مقاله پیدا نشد!",
             Copied: "کپی شد",
+            relatedProject: 'پروژه مرتبط',
+            references: 'منابع',
+            relatedTool: 'ابزار مرتبط',
         },
         // todo page fa language
         todo: {

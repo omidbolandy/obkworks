@@ -224,6 +224,13 @@ SDK / Media Port: External 8000 -> Internal 8000 (TCP)`
                 fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nدر طراحی سیستم‌های نظارت تصویری سازمانی، همواره میزان مصرف پهنای باند و فضای ذخیره‌سازی را بر اساس نرخ بیت (Bitrate) و تعداد فریم در ثانیه (FPS) محاسبه کنید. از کدک H.265 و سوئیچ‌های PoE استفاده کرده و ترافیک سنگین دوربین‌ها را حتماً در یک VLAN مجزا قرار دهید تا مانع از ایجاد کُندی در شبکه دیتای سازمان شوید.',
             }
         ],
+        references: [
+            { url: 'https://www.onvif.org', label: { en: 'ONVIF Standard', fa: 'استاندارد ONVIF' } },
+        ],
+        relatedTool: {
+            path: '/Projects/IT-Infrastructure-Tools/cctv-storage-calculator',
+            label: { en: 'CCTV Storage Calculator', fa: 'ماشین حساب ذخیره‌سازی CCTV' }
+        },
         author: 'obk',
         date: '2026-08-09',
         image: CCTV,
@@ -456,6 +463,10 @@ New-VMSwitch -Name "External_vSwitch" -NetAdapterName "Ethernet 1" -AllowManagem
                 fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nدر شبکه‌های سازمانی، استفاده از سرورهای ESXi به‌صورت منفرد و بدون vCenter باعث سردرگمی در مدیریت و از دست رفتن قابلیت‌های پایداری می‌شود. همواره برای محیط‌های واقعی از هایپروایزرهای نوع اول استفاده کرده و در صورت وجود دو یا چند سرور، vCenter Server را برای فعال‌سازی vMotion و HA مستقر کنید. از هایپروایزرهای نوع دوم مانند Workstation صرفاً برای تست اولیه سناریوها بهره بگیرید.',
             }
         ],
+        references: [
+            { url: 'https://www.vmware.com/products/cloud-infrastructure/esxi-and-esx', label: { en: 'VMware ESXi Official', fa: 'سایت رسمی VMware ESXi' } },
+            { url: 'https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-on-windows-server', label: { en: 'Microsoft Hyper-V Docs', fa: 'مستندات Hyper-V مایکروسافت' } },
+        ],
         author: 'obk',
         date: '2026-08-09',
         image: Virtualization,
@@ -556,6 +567,10 @@ snmp-server user prtgadmin PRTG_GROUP v3 auth sha AuthPass2026! priv aes 128 Pri
                 fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nهرگز دو ابزار مانیتورینگ را به‌صورت هم‌زمان در شبکه عملیاتی زیر بار نبرید. اگر اولویت سازمان شما راه‌اندازی سریع، تحلیل ترافیک پورت‌ها و مدیریت ساده است، PRTG را انتخاب کنید. اگر نیازمند داشبوردهای عریض برای اتاق NOC، پایش عمیق سرورها/مجازی‌سازی و مدل لایسنس‌دهی مبتنی بر تعداد دستگاه هستید، OpManager گزینه برتر شما خواهد بود.',
             }
         ],
+        references: [
+            { url: 'https://www.paessler.com/prtg', label: { en: 'PRTG Official Site', fa: 'سایت رسمی PRTG' } },
+            { url: 'https://www.manageengine.com/network-monitoring/', label: { en: 'ManageEngine OpManager', fa: 'سایت رسمی OpManager' } },
+        ],
         author: 'obk',
         date: '2026-08-09',
         image: PRTGVSOpManager,
@@ -563,7 +578,7 @@ snmp-server user prtgadmin PRTG_GROUP v3 auth sha AuthPass2026! priv aes 128 Pri
     },
 
     // windows server articles
-    // --- article #6 ---
+    // --- article #6 (Active-Directory) ---
     {
         id: 6,
         slug: 'active-directory-domain-controller-security',
@@ -673,12 +688,16 @@ Import-Csv -Path $csvPath | ForEach-Object {
                 fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nهرگز برای بکاپ‌گیری از Domain Controllerها به اسنپ‌شات‌های ساده مجازی‌سازی اعتماد نکنید؛ زیرا ریستور کردن اسنپ‌شات باعث پدیده خطرساز "USN Rollback" و نامعتبر شدن دیتابیس AD در سطح بقیه DCها می‌شود. همواره از بکاپ‌های System State یا راهکارهای VSS Aware استفاده کنید. همچنین مطمئن شوید نقش‌های FSMO (مخصوصاً PDC Emulator و Infrastructure Master) بین چند دامین کنترلر توزیع شده‌اند و لاگ‌برداری از تلاش‌های ناموفق ورود (Event ID 4625) فعال باشد.',
             }
         ],
+        relatedProject: {
+            path: '/Projects/Networking/ActiveDirectoryGpoLab',
+            label: { en: 'View Full Lab', fa: 'مشاهده پروژه کامل' }
+        },
         author: 'obk',
         date: '2026-08-09',
         image: ActiveDirectory,
         tags: ['MCSA'],
     },
-    // --- article #7 ---
+    // --- article #7 (GPO) ---
     {
         id: 7,
         slug: 'windows-gpo-hardening-group-policy-objects',
@@ -776,12 +795,16 @@ gpupdate /force`
                 fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nدر زمان طراحی Group Policy، توجه به ارث‌بری (Inheritance) و فیلترینگ امنیتی (Security Filtering) ضروری است. به‌صورت پیش‌فرض، هر GPO به گروه Authenticated Users اعمال می‌شود. برای محدود کردن دامنه اثر GPO به گروهی خاص، حتماً بخش Security Filtering را ویرایش کنید. همچنین در محیط‌های اشتراکی یا ریموت دسکتاپ (Terminal Server)، فعال کردن حالت "Loopback Processing Mode" باعث می‌شود سیاست‌های بخش User براساس OU سیستم‌عامل اعمال شوند، نه بر اساس مکان اکانت کاربر در اکتیو دایرکتوری.',
             }
         ],
+        relatedProject: {
+            path: '/Projects/Networking/ActiveDirectoryGpoLab',
+            label: { en: 'View Full Lab', fa: 'مشاهده پروژه کامل' }
+        },
         author: 'obk',
         date: '2026-08-09',
         image: GroupPolicy,
         tags: ['MCSA'],
     },
-    // --- article #8 ---
+    // --- article #8 (dhcp-Failover) ---
     {
         id: 8,
         slug: 'dhcp-failover-high-availability-windows-server',
@@ -858,6 +881,10 @@ Invoke-DhcpServerv4FailoverReplication -Name "HQ-DHCP-Failover"`
                 fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nدر زمان طراحی DHCP Failover، درک صحیح تایمر MCLT (Maximum Client Lead Time) اهمیت بالایی دارد. تایمر MCLT بازه زمانی را مشخص می‌کند که سرور پشتیبان پس از قطع ارتباط با سرور اصلی، صبر کرده و سپس کنترل کامل اسکوپ آی‌پی را بر عهده می‌گیرد. همچنین توصیه می‌شود ویژگی Auto State Transition فعال باشد تا در صورت قطع لینک شبکه بین دو سرور، سیستم پس از زمان مشخصی سرور قطع‌شده را به‌طور خودکار به وضعیت DOWN ببرد و از تداخل در صدور IP (رخداد Split-Brain) جلوگیری کند.',
             }
         ],
+        relatedProject: {
+            path: '/Projects/Networking/DnsDhcpLabView',
+            label: { en: 'View Full Lab', fa: 'مشاهده پروژه کامل' }
+        },
         author: 'obk',
         date: '2026-08-09',
         image: ConfigurationDHCPFailover,
@@ -964,6 +991,10 @@ show spanning-tree summary`
                 fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nقبل از قرار دادن پورت‌ها در یک Channel Group، حتماً اطمینان حاصل کنید که تمام اینترفیس‌های فیزیکی از نظر سرعت (Speed)، حالت Duplex، مقدار Native VLAN، لیست VLANهای مجاز و هزینه STP دقیقاً یکسان باشند. عدم تطابق حتی در یک پارامتر باعث می‌شود STP پورت متناقض را در وضعیت "err-disabled" قرار دهد. همچنین EtherChannel الگوریتم‌های تقسیم بار (Load Balancing) بر اساس هش (مانند IP مبدا/مقصد یا MAC مبدا/مقصد) را به کار می‌برد نه روش Round-Robin. انتخاب الگوریتم مناسب بر اساس الگوی ترافیک شبکه، توزیع متوازن ترافیک را روی تمام کابل‌های فیزیکی تضمین می‌کند.',
             }
         ],
+        relatedProject: {
+            path: '/Projects/Networking/EtherChannel-lab',
+            label: { en: 'View Full Lab', fa: 'مشاهده پروژه کامل' }
+        },
         author: 'obk',
         date: '2026-08-09',
         image: EtherChannel,
@@ -1090,8 +1121,12 @@ interface GigabitEthernet0/0/0.99
                 type: 'text',
                 en: 'Engineering Takeaway & Operational Considerations:\nWhile Router on a Stick is an excellent solution for small-to-medium networks, it introduces a potential single point of failure and bandwidth bottleneck on the single trunk link. In high-density enterprise environments, Inter-VLAN Routing is typically offloaded to Layer 3 Switches using Switched Virtual Interfaces (SVIs) or Routed Ports. SVIs handle routing directly in hardware via Application-Specific Integrated Circuits (ASICs), achieving wire-speed performance without congesting external router interfaces.',
                 fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nاگرچه روش Router on a Stick راهکاری عالی و مقرون‌به‌صرفه برای شبکه‌های کوچک و متوسط است، اما تنها لینک Trunk متصل به روتر می‌تواند به نقطه گلوگاه (Bottleneck) و نقطه منفرد شکست (Single Point of Failure) تبدیل شود. در شبکه‌های سازمانی بزرگ، مسیریابی بین VLANها معمولاً به سوئیچ‌های لایه ۳ (Multi-Layer Switch) با استفاده از اینترفیس‌های مجازی SVI (Switched Virtual Interface) واگذار می‌شود. سوئیچ‌های لایه ۳ عملیات مسیریابی را مستقیماً روی سخت‌افزار (تراشه‌های ASIC) انجام می‌دهند که باعث دستیابی به سرعت پردازش بالاتر (Wire-Speed) و جلوگیری از فشار روی روتر می‌شود.',
-            }
+            },
         ],
+        relatedProject: {
+            path: '/Projects/Networking/VLANLab',
+            label: { en: 'View Full Lab', fa: 'مشاهده پروژه کامل' }
+        },
         author: 'obk',
         date: '2026-08-09',
         image: RouterOnAStick,
@@ -1231,6 +1266,10 @@ errdisable recovery interval 300`
                 fa: 'در زیرساخت‌های حیاتی، ترکیب Port Security با فناوری‌هایی نظیر 802.1X و DHCP Snooping یک ساختار دفاع در عمق (Defense-in-Depth) فوق‌العاده در برابر حملات لایه ۲ مانند ARP Poisoning و MAC Flooding ایجاد می‌کند.',
             }
         ],
+        relatedProject: {
+            path: '/Projects/Networking/PortSecurityDHCPSnooping',
+            label: { en: 'View Full Lab', fa: 'مشاهده پروژه کامل' }
+        },
         author: 'obk',
         date: '2026-08-09',
         image: PortSecurity,
