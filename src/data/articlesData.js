@@ -1124,7 +1124,7 @@ interface GigabitEthernet0/0/0.99
             },
         ],
         relatedProject: {
-            path: '/Projects/Networking/VLANLab',
+            path: '/Projects/Networking/VLAN-Lab',
             label: { en: 'View Full Lab', fa: 'مشاهده پروژه کامل' }
         },
         author: 'obk',
