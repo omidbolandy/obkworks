@@ -1,16 +1,22 @@
 <template>
-  <div
+  <main
     class="container mx-auto space-y-10 pb-12 sm:my-12 md:my-16 lg:my-5 px-4 sm:px-6 lg:px-8 max-w-14xl">
     
     <!-- Hero Section -->
     <section
       class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 pt-4 md:pt-10">
       <div class="flex-1 space-y-4 text-center md:text-left rtl:md:text-right">
-        <h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl">
-          {{ $t("home.hero.hi") }}
-          <span class="text-blue-600 dark:text-blue-400">{{ $t("home.hero.name") }} </span>
-          <span v-if="$i18n.locale === 'fa'">{{ $t("home.hero.name1") }} </span>
-        </h1>
+        <div class="flex flex-wrap items-baseline gap-x-3">
+          <p class="text-3xl font-extrabold tracking-tight sm:text-5xl">
+            {{ $t("home.hero.hi") }}
+          </p>
+          <h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl">
+            <span class="text-blue-600 dark:text-blue-400">{{ $t("home.hero.name") }} </span>
+          </h1>
+          <p class="text-3xl font-extrabold tracking-tight sm:text-5xl" v-if="$i18n.locale === 'fa'">
+            {{ $t("home.hero.name1") }}
+          </p>
+        </div>
         <h2
           class="text-lg sm:text-xl font-semibold text-gray-700 dark:text-gray-300">
           {{ $t("home.hero.title") }}
@@ -313,11 +319,16 @@
       <p class="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto">
         {{ $t("home.contact.subtitle") }}
       </p>
+
       <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-        <div class="inline-flex items-center rounded-lg border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 p-1">
+
+        <!-- Gmail Button with Copy Action -->
+        <div class="inline-flex items-center rounded-lg border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 hover:border-blue-400/50 dark:hover:border-blue-500/50 transition-all">
           <a
-            href="mailto:omidbolandy@gmail.com"
-            class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1.5 px-2.5 py-1 transition-colors">
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=omidbolandy@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1.5 px-3 py-2 transition-colors">
             <svg
               class="w-4 h-4"
               aria-hidden="true"
@@ -332,11 +343,11 @@
           <button
             @click="copyEmail('omidbolandy@gmail.com')"
             type="button"
-            class="relative p-2 rounded-md border border-transparent transition-all duration-200 cursor-pointer"
+            class="relative p-1.5 me-1 rounded-md border border-transparent transition-all duration-200 cursor-pointer"
             :class="
               copied
                 ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 border-green-200 dark:border-green-700'
-                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600'"
+                : 'text-gray-500 dark:text-gray-400 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 hover:text-blue-600 dark:hover:text-blue-400'"
             :title="$t('home.contact.copyEmail') || 'Copy Email'">
             <svg
               v-if="copied"
@@ -370,11 +381,13 @@
             </span>
           </button>
         </div>
+      
+        <!-- GitHub Button -->
         <a
           href="https://github.com/omidbolandy"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700/50 px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+          class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 hover:border-blue-400/50 dark:hover:border-blue-500/50 px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
           <svg
             class="w-4 h-4"
             aria-hidden="true"
@@ -386,13 +399,15 @@
               d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
               clip-rule="evenodd"/>
           </svg>
-          {{ $t("home.contact.github") }}
+          <span>{{ $t("home.contact.github") }}</span>
         </a>
+      
+        <!-- LinkedIn Button -->
         <a
           href="https://www.linkedin.com/in/omid-bolandy"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700/50 px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+          class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 hover:border-blue-400/50 dark:hover:border-blue-500/50 px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
           <svg
             class="w-4 h-4"
             aria-hidden="true"
@@ -402,16 +417,48 @@
             <path
               d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.87 0-2.16 1.46-2.16 2.95v5.67H9.31V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.61 0 4.28 2.38 4.28 5.48v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z"/>
           </svg>
-          {{ $t("home.contact.linkedin") }}
+          <span>{{ $t("home.contact.linkedin") }}</span>
         </a>
       </div>
     </footer>
-  </div>
+  </main>
 </template>
 
 <script>
+import logoImg from "@/assets/obk-Logo-2.webp";
+
 export default {
   name: "HomeView",
+  mounted() {
+    const existing = document.querySelector('script[data-json-ld="person"]');
+    if (existing) existing.remove();
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Omid Bolandy Natag",
+      alternateName: ["امید بلندی نتاج", "obkworks"],
+      image: `https://obkworks.tr${logoImg}`,
+      url: "https://obkworks.tr",
+      email: "omidbolandy@gmail.com",
+      sameAs: [
+        "https://github.com/omidbolandy",
+        "https://www.linkedin.com/in/omid-bolandy"
+      ],
+      jobTitle: "Network Specialist & Frontend Developer",
+      knowsAbout: [
+        "Cisco Networking",
+        "Windows Server",
+        "Vue.js",
+        "Tailwind CSS",
+        "IT Infrastructure"
+      ]
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-json-ld', 'person');
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+  },
   data() {
     return {
       copied: false,
