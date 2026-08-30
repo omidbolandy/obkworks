@@ -6,14 +6,14 @@
     <section
       class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 pt-4 md:pt-10">
       <div class="flex-1 space-y-4 text-center md:text-left rtl:md:text-right">
-        <div class="flex flex-wrap items-baseline gap-x-3">
+        <div class="flex flex-wrap items-baseline gap-x-3 justify-center md:justify-start">
           <p class="text-3xl font-extrabold tracking-tight sm:text-5xl">
             {{ $t("home.hero.hi") }}
           </p>
           <h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl">
             <span class="text-blue-600 dark:text-blue-400">{{ $t("home.hero.name") }} </span>
           </h1>
-          <p class="text-3xl font-extrabold tracking-tight sm:text-5xl" v-if="$i18n.locale === 'fa'">
+          <p class="text-3xl font-extrabold tracking-tight sm:text-5xl w-full text-center md:w-auto md:text-left rtl:md:text-right" v-if="$i18n.locale === 'fa'">
             {{ $t("home.hero.name1") }}
           </p>
         </div>
