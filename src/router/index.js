@@ -4,26 +4,31 @@ import Home from '../views/Home.vue'
 import Projects from '../views/Projects.vue'
 
 const routes = [
+    // Home Route
     {
         path: '/', name: 'home',
         component: Home,
         meta: { title: 'Home | obkworks', description: { fa: 'پورتفولیوی شخصی obkworks شامل ابزارهای فرانت اند، سناریو های شبکه سیسکو، مقالات تخصصی و محاسبه گرهای زیر ساخت IT.', en: 'Personal portfolio of obkworks featuring front-end web tools, Cisco networking labs, technical articles, and IT infrastructure calculators.' } }
     },
+    // Articles Route
     {
         path: '/Articles', name: 'Articles',
         component: () => import('../views/Articles.vue'),
         meta: { title: 'Articles | obkworks', description: { fa: 'مجموعه مقالات تخصصی شبکه، مفاهیم فرانت اند، امنیت لایه ۲ سیسکو، ویندوز سرور و مدیریت سیستم ها.', en: 'Technical articles covering front-end development, Cisco networking, Layer 2 security, Windows Server, and system administration.' } }
     },
+    // Article Details Route
     {
         path: '/Articles/:slug', name: 'ArticleDetails',
         component: () => import('@/views/ArticleDetails.vue'), props: true,
         meta: { title: 'Article Details | obkworks', description: { fa: 'جزئیات و آموزش های تخصصی مقالات توسعه وب، شبکه های سیسکو، ویندوز سرور و زیرساخت IT در obkworks.', en: 'Detailed technical guides and insights on web development, Cisco networking, Windows Server, and IT infrastructure by obkworks.' } }
     },
+    // Projects Route
     {
         path: '/Projects', name: 'Projects',
         component: Projects,
         meta: { title: 'Projects | obkworks', description: { fa: 'مشاهده و بررسی تمام پروژه ها، اپلیکیشن های تحت وب، لابراتوارهای شبکه و ابزارهای محاسباتی زیر ساخت IT.', en: 'Explore interactive web apps, hands-on network lab configurations, and IT infrastructure tools.' } }
     },
+    // Front-End Projects
     {
         path: '/Projects/Front-End/FinancialCalculator', name: 'FinancialCalculator',
         component: () => import('../views/Front-End/FinancialCalculator.vue'),
@@ -74,13 +79,14 @@ const routes = [
         component: () => import('../views/Front-End/Modals.vue'),
         meta: { title: 'Modal Examples | obkworks', description: { fa: 'نمونه های مختلف Modal و پنجره های تعاملی طراحی شده با Vue.js و Tailwind CSS.', en: 'Interactive modal and dialog examples built with Vue.js and Tailwind CSS.' } }
     },
+    // Networking Labs
     {
-        path: '/Projects/Networking/VLANLab', name: 'VLANLab',
+        path: '/Projects/Networking/VLAN-Lab', name: 'VLANLab',
         component: () => import('../views/networking/VLANLab.vue'),
         meta: { title: 'VLAN Lab | obkworks', description: { fa: 'پیکربندی عملی VLAN، Inter-VLAN Routing و تنظیم Trunk Port در سوئیچ های سیسکو.', en: 'Hands-on VLAN segmentation, Inter-VLAN routing, and Cisco trunk port configuration lab.' } }
     },
     {
-        path: '/Projects/Networking/OSPFLab', name: 'OSPFLab',
+        path: '/Projects/Networking/OSPF-Lab', name: 'OSPFLab',
         component: () => import('../views/networking/OSPFLab.vue'),
         meta: { title: 'OSPF Lab | obkworks', description: { fa: 'آموزش پیکربندی پروتکل مسیریابی OSPF نسخه ۲ در روترهای سیسکو با تنظیم Area و Router ID.', en: 'OSPFv2 dynamic routing protocol configuration lab on Cisco routers with area and router ID setup.' } }
     },
@@ -119,6 +125,7 @@ const routes = [
         component: () => import('../views/networking/SqlServerLab.vue'),
         meta: { title: 'SQL Server Lab | obkworks', description: { fa: 'طراحی پایگاه داده رابطه ای، کوئری نویسی T-SQL و مدیریت بانک های اطلاعاتی SQL Server.', en: 'Relational database design, T-SQL query optimization, and SQL Server administration lab.' } }
     },
+    // IT Infrastructure Tools
     {
         path: '/Projects/IT-Infrastructure-Tools/ip-subnet-calculator', name: 'IpSubnetCalculator',
         component: () => import('../views/IT-Infrastructure-Tools/IP-Subnet-Calculator.vue'),
@@ -144,6 +151,7 @@ const routes = [
         component: () => import('../views/IT-Infrastructure-Tools/Data-Unit-Converter.vue'),
         meta: { title: 'Data Unit Converter | obkworks', description: { fa: 'مبدل واحدهای ذخیره سازی و سرعت شبکه شامل بایت، کیلوبایت، مگابایت، گیگابایت و نرخ انتقال داده.', en: 'Convert digital storage units and data transfer rates between Bytes, KB, MB, GB, TB, and bitrates.' } }
     },
+    // Not Found Route
     {
         path: '/:pathMatch(.*)*', name: 'NotFound',
         component: () => import('@/views/NotFound.vue'),
