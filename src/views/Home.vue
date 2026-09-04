@@ -76,7 +76,7 @@
           {{ $t("aboutWebsite.part2") }}
         <span class="font-semibold text-sky-500">{{ $t("aboutWebsite.tailwind") }}</span>
           {{ $t("aboutWebsite.part3") }}
-        <span class="font-semibold text-[#F38020]">{{ $t("aboutWebsite.cloudflare") }}</span>
+        <span class="font-semibold text-[#8b5cf6]">{{ $t("aboutWebsite.cloudflare") }}</span>
           {{ $t("aboutWebsite.part4") }}
       </p>
     </section>

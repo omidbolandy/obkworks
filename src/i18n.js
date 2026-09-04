@@ -493,7 +493,7 @@ const messages = {
         footer: {
             quickAccess: 'Quick access',
             functionalSites: 'Functional sites',
-            tagline: "Personal portfolio featuring networking projects, front-end applications, technical articles, and IT infrastructure tools, developed using Vue.js and Tailwind CSS, and hosted on Cloudflare Pages.",
+            tagline: "Personal portfolio featuring networking projects, front-end applications, technical articles, and IT infrastructure tools, developed using Vue.js and Tailwind CSS, and hosted on Vercel.",
             copyright: '© 2026 obk Portfolio. All rights reserved.',
         },
         // bmiCalculator page en language
@@ -741,7 +741,7 @@ const messages = {
             part2: " and ",
             tailwind: "Tailwind CSS",
             part3: " with a responsive design, it supports both Persian and English languages and is hosted on ",
-            cloudflare: "Cloudflare Pages",
+            cloudflare: "Vercel",
             part4: ". New projects, scenarios, and articles will be added in the future."
         },
         // financialCalculator page en language
@@ -2427,7 +2427,7 @@ const messages = {
         footer: {
             quickAccess: 'دسترسی سریع',
             functionalSites: 'ابزارها',
-            tagline: "نمونه‌کارهای شخصی شامل پروژه‌های شبکه، برنامه‌های فرانت‌اند، مقالات تخصصی و ابزارهای زیرساخت IT، توسعه‌یافته با Vue.js و Tailwind CSS و میزبانی‌شده روی Cloudflare Pages.",
+            tagline: "نمونه‌کارهای شخصی شامل پروژه‌های شبکه، برنامه‌های فرانت‌اند، مقالات تخصصی و ابزارهای زیرساخت IT، توسعه‌یافته با Vue.js و Tailwind CSS و میزبانی‌شده روی Vercel.",
             copyright: '© 2026  نمونه کار های  obk. تمامی حقوق محفوظ است.',
         },
         // bmiCalculator page fa language
@@ -2681,7 +2681,7 @@ const messages = {
             part2: " و ",
             tailwind: "Tailwind CSS",
             part3: " به صورت واکنش‌گرا (Responsive) توسعه داده شده، از زبان‌های فارسی و انگلیسی پشتیبانی می‌کند و با استفاده از ",
-            cloudflare: "Cloudflare Pages",
+            cloudflare: "Vercel",
             part4: " منتشر شده است. در آینده پروژه‌ها، سناریوها و مقالات جدید به آن اضافه خواهند شد."
         },
         // financialCalculator page fa language
