@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '../views/Home.vue'
 import Projects from '../views/Projects.vue'
+import { updateSeo } from '../utils/seo'
 
 const routes = [
     // Home Route
@@ -168,27 +169,8 @@ const router = createRouter({
 })
 
 router.afterEach((to) => {
-    document.title = to.meta.title || 'obkworks';
     const currentLang = localStorage.getItem('locale') || 'en';
-    document.documentElement.lang = currentLang;
-    document.documentElement.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
-    let metaDescription = document.querySelector("meta[name='description']");
-    if (!metaDescription) {
-        metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
-        document.head.appendChild(metaDescription);
-    }
-    let descText = '';
-    if (to.meta.description) {
-        descText = typeof to.meta.description === 'object'
-            ? (to.meta.description[currentLang] || to.meta.description.en)
-            : to.meta.description;
-    } else {
-        descText = currentLang === 'fa'
-            ? 'نمونه کار شخصی obkworks شامل ابزارهای توسعه وب، آزمایشگاه های شبکه سیسکو و ویندوز سرور، ابزارهای محاسباتی زیرساخت فناوری اطلاعات و مقالات فنی.'
-            : 'Personal portfolio of obkworks featuring web development tools, Cisco & Windows Server networking labs, IT infrastructure calculators, and technical articles.';
-    }
-    metaDescription.setAttribute('content', descText);
+    updateSeo(to, currentLang);
 });
 
 export default router

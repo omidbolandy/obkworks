@@ -45,6 +45,7 @@
 import AppNavbar from "./components/AppNavbar.vue";
 import AppFooter from "./components/AppFooter.vue";
 import { applyDirection } from "./i18n";
+import { updateSeo } from "./utils/seo";
 
 export default {
   components: { AppNavbar, AppFooter },
@@ -105,6 +106,11 @@ export default {
     }
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("resize", this.handleResize);
+  },
+  watch: {
+    "$i18n.locale"(locale) {
+      updateSeo(this.$route, locale);
+    },
   },
 };
 </script>

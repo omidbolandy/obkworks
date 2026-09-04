@@ -159,6 +159,7 @@
 <script>
 import { articles } from "../data/articlesData";
 import { localizeField, formatArticleDate } from "./utils/localization";
+import { updateArticleSeo } from "../utils/seo";
 
 export default {
   name: "article-1",
@@ -170,52 +171,9 @@ export default {
     };
   },
   methods: {
-    updateMetaDescription() {
+    updateArticleSeo() {
       if (!this.article) return;
-      let metaDescription = document.querySelector("meta[name='description']");
-      if (!metaDescription) {
-        metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
-        document.head.appendChild(metaDescription);
-      }
-      metaDescription.setAttribute('content', this.articleExcerpt);
-    },
-    injectJsonLd() {
-      const existing = document.querySelector('script[data-json-ld="article"]');
-      if (existing) existing.remove();
-      if (!this.article) return;
-      let imageUrl = undefined;
-      if (typeof this.article.image === 'string') {
-        imageUrl = this.article.image.startsWith('http') 
-          ? this.article.image 
-          : `https://obkworks.tr${this.article.image}`;
-      }
-      const schema = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        headline: this.articleTitle,
-        description: this.articleExcerpt,
-        author: {
-          "@type": "Person",
-          name: "Omid Bolandy Natag",
-          alternateName: ["امید بلندی نتاج", "obkworks"],
-          url: "https://obkworks.tr"
-        },
-        publisher: {
-          "@type": "Person",
-          name: "Omid Bolandy Natag",
-          url: "https://obkworks.tr"
-        },
-        datePublished: this.article.date,
-        image: imageUrl,
-        inLanguage: this.locale === 'fa' ? 'fa-IR' : 'en-US',
-        url: window.location.href,
-      };
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.setAttribute('data-json-ld', 'article');
-      script.textContent = JSON.stringify(schema);
-      document.head.appendChild(script);
+      updateArticleSeo(this.$route, this.locale, this.article, this.articleTitle, this.articleExcerpt);
     },
     copyToClipboard(text, index) {
       if (!text) return;
@@ -297,8 +255,7 @@ export default {
         if (this.article) {
           this.$nextTick(() => { 
             document.title = `${this.articleTitle} | obkworks`; 
-            this.updateMetaDescription();
-            this.injectJsonLd();
+            this.updateArticleSeo();
           });
         } else { 
           document.title = 'Article Not Found | obkworks';
@@ -308,8 +265,7 @@ export default {
     locale() {
       if (this.article) { 
         document.title = `${this.articleTitle} | obkworks`; 
-        this.updateMetaDescription();
-        this.injectJsonLd();
+        this.updateArticleSeo();
       }
     }
   },

@@ -430,7 +430,7 @@ import logoImg from "@/assets/obk-Logo-2.webp";
 export default {
   name: "HomeView",
   mounted() {
-    const existing = document.querySelector('script[data-json-ld="person"]');
+    const existing = document.querySelector('script[data-json-ld="person"], script[data-seo-schema="person"]');
     if (existing) existing.remove();
     const schema = {
       "@context": "https://schema.org",
@@ -455,7 +455,7 @@ export default {
     };
     const script = document.createElement('script');
     script.type = 'application/ld+json';
-    script.setAttribute('data-json-ld', 'person');
+    script.setAttribute('data-seo-schema', 'person');
     script.textContent = JSON.stringify(schema);
     document.head.appendChild(script);
   },
