@@ -522,8 +522,8 @@ const messages = {
             hero: {
                 hi: "Hi, I'm",
                 name: "Omid Bolandy Natag",
-                title: "Network and Infrastructure Engineer and Front-end Developer",
-                description: "Bridging the gap between robust enterprise networks and modern web experiences. Specializing in Cisco, virtualization, and building clean Vue.js applications.",
+                title: "Network and Infrastructure Engineer and Front-End Developer",
+                description: "Welcome to my website — where the stable world of network infrastructure and virtualization expertise merges with modern front-end development. Specializing in Cisco technologies, Microsoft services, and building optimized websites with Vue.js.",
                 projectsButton: "View Projects"
             },
             about: {
@@ -547,7 +547,7 @@ const messages = {
                     },
                     web: {
                         title: "Web Development",
-                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, SEO Fundamentals"
+                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, WordPress, SEO Fundamentals"
                     },
                     tools: {
                         title: "Tools & Application Software",
@@ -2458,7 +2458,7 @@ const messages = {
                 name: "امید بلندی نتاج ",
                 name1: "هستم",
                 title: "مهندس شبکه و زیرساخت و توسعه‌دهنده فرانت‌اند",
-                description: "تلفیق دنیای پایدار زیرساخت شبکه و تخصص مجازی‌سازی با دنیای مدرن فرانت‌اند. متخصص در حوزه‌های سیسکو، سرویس‌های مایکروسافت و توسعه وب‌سایت‌های بهینه با Vue.js.",
+                description: "به وب‌سایت من خوش آمدید؛ جایی برای تلفیق دنیای پایدار زیرساخت شبکه و تخصص مجازی‌سازی با دنیای مدرن فرانت‌اند. متخصص در حوزه‌های سیسکو، سرویس‌های مایکروسافت و توسعه وب‌سایت‌های بهینه با Vue.js.",
                 projectsButton: "مشاهده پروژه‌ها"
             },
             about: {
@@ -2482,7 +2482,7 @@ const messages = {
                     },
                     web: {
                         title: "توسعه وب",
-                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, SEO Fundamentals"
+                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, WordPress, SEO Fundamentals"
                     },
                     tools: {
                         title: "ابزارها و نرم‌افزارهای کاربردی",
