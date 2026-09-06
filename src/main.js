@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
 import './style.css'
+import { inject } from '@vercel/analytics'
 
 try {
     const stored = localStorage.getItem('theme');
@@ -20,4 +21,5 @@ try {
     document.documentElement.classList.add('dark');
 }
 
+inject()
 createApp(App).use(router).use(i18n).mount('#app')
