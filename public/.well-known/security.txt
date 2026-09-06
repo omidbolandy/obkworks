@@ -1,0 +1,5 @@
+Contact: mailto:omidbolandy@gmail.com
+Contact: https://github.com/omidbolandy
+Contact: https://www.linkedin.com/in/omid-bolandy
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: fa, en
