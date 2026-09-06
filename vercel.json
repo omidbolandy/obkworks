@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self' 'unsafe-eval' https://vercel.live; script-src-elem 'self' https://vercel.live; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://api.openweathermap.org https://vercel.live wss://vercel.live;"
+          "value": "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; frame-src 'self' https://vercel.live; object-src 'none'; script-src 'self' 'unsafe-eval' https://vercel.live; script-src-elem 'self' https://vercel.live; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://api.openweathermap.org https://vercel.live wss://vercel.live;"
         },
         {
           "key": "X-Content-Type-Options",
