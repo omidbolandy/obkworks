@@ -2,12 +2,18 @@
 
 A modern bilingual portfolio website built to showcase my IT skills, projects, and technical articles.
 
-[![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+<a href="https://vuejs.org/" target="_blank">
+  <img src="https://img.shields.io/badge/Vue.js-v3.x-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" alt="Vue.js 3.x">
+</a>
+
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://obkworks.tr)
-[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](#)
 
----
+<a href="https://www.cloudflare.com/dns/" target="_blank">
+  <img src="https://img.shields.io/badge/DNS-Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare DNS">
+</a>
+
+[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](https://obkworks.tr)
 
 ## 🚀 Live Portfolio
 
@@ -61,6 +67,7 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 ### Deployment
 
 - GitHub
+- Cloudflare DNS
 - Vercel
 
 ### APIs
@@ -148,14 +155,9 @@ npm run dev
 
 **Omid Bolandy Natag**
 
-GitHub:
-https://github.com/omidbolandy
-
-Website:
-https://obkworks.tr
-
-LinkedIn:
-[(Omid Bolandy Natag)](https://www.linkedin.com/in/omid-bolandy/)
+- GitHub: [omidbolandy](https://github.com/omidbolandy)
+- Website: [obkworks.tr](https://obkworks.tr)
+- LinkedIn: [Omid Bolandy](https://www.linkedin.com/in/omid-bolandy/)
 
 ---
 
