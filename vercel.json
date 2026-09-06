@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/Projects/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/Articles/:path*",
+      "destination": "/index.html"
+    },
+    {
       "source": "/search",
       "destination": "/index.html"
     },

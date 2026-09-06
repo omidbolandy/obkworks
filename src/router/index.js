@@ -17,6 +17,12 @@ const routes = [
         component: () => import('../views/Articles.vue'),
         meta: { title: 'Articles | obkworks', description: { fa: 'مجموعه مقالات تخصصی شبکه، مفاهیم فرانت اند، امنیت لایه ۲ سیسکو، ویندوز سرور و مدیریت سیستم ها.', en: 'Technical articles covering front-end development, Cisco networking, Layer 2 security, Windows Server, and system administration.' } }
     },
+    // Search Route
+    {
+        path: '/search', name: 'Search',
+        component: () => import('../views/Search.vue'),
+        meta: { title: 'Search | obkworks', description: { fa: 'جست وجو در مقالات و پروژه های obkworks.', en: 'Search through obkworks articles and projects.' } }
+    },
     // Article Details Route
     {
         path: '/Articles/:slug', name: 'ArticleDetails',
@@ -83,11 +89,13 @@ const routes = [
     // Networking Labs
     {
         path: '/Projects/Networking/VLAN-Lab', name: 'VLANLab',
+        alias: ['/Projects/Networking/VLAN-lab'],
         component: () => import('../views/networking/VLANLab.vue'),
         meta: { title: 'VLAN Lab | obkworks', description: { fa: 'پیکربندی عملی VLAN، Inter-VLAN Routing و تنظیم Trunk Port در سوئیچ های سیسکو.', en: 'Hands-on VLAN segmentation, Inter-VLAN routing, and Cisco trunk port configuration lab.' } }
     },
     {
         path: '/Projects/Networking/OSPF-Lab', name: 'OSPFLab',
+        alias: ['/Projects/Networking/OSPF-lab'],
         component: () => import('../views/networking/OSPFLab.vue'),
         meta: { title: 'OSPF Lab | obkworks', description: { fa: 'آموزش پیکربندی پروتکل مسیریابی OSPF نسخه ۲ در روترهای سیسکو با تنظیم Area و Router ID.', en: 'OSPFv2 dynamic routing protocol configuration lab on Cisco routers with area and router ID setup.' } }
     },
