@@ -94,10 +94,10 @@
         </p>
         <div class="mt-8 grid gap-4">
           <ProjectLinkCard :title="$t('projectsPage.networking.items.VLAN.title')"
-            :description="$t('projectsPage.networking.items.VLAN.description')" to="/Projects/Networking/VLAN-lab"
+            :description="$t('projectsPage.networking.items.VLAN.description')" to="/Projects/Networking/VLAN-Lab"
             :link-text="$t('projectsPage.networking.items.VLAN.link')" />
           <ProjectLinkCard :title="$t('projectsPage.networking.items.OSPF.title')"
-            :description="$t('projectsPage.networking.items.OSPF.description')" to="/Projects/Networking/OSPF-lab"
+            :description="$t('projectsPage.networking.items.OSPF.description')" to="/Projects/Networking/OSPF-Lab"
             :link-text="$t('projectsPage.networking.items.OSPF.link')" />
           <ProjectLinkCard :title="$t('projectsPage.networking.items.eigrpLabCard.title')"
             :description="$t('projectsPage.networking.items.eigrpLabCard.description')"
