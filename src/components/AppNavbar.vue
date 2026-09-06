@@ -21,7 +21,7 @@
         <!-- Search -->
         <div
           ref="searchContainer"
-          :class="['relative transition-all duration-200', searchExpanded ? 'flex-1 min-w-0' : 'w-0 overflow-hidden sm:w-32 md:w-40 lg:w-56']">
+          :class="['relative transition-all duration-200', searchExpanded ? 'flex-1 min-w-0 overflow-visible' : 'w-0 overflow-hidden sm:w-32 sm:overflow-visible md:w-40 lg:w-56']">
           <form @submit.prevent="submitSearch" role="search" :class="{ 'max-[639px]:hidden': !searchExpanded }" class="relative">
             <label for="navbar-search" class="sr-only">{{ $t("search.inputLabel") }}</label>
             <input
