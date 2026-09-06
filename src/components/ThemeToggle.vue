@@ -5,7 +5,7 @@
       @click="toggleTheme"
       :aria-pressed="isDark"
       aria-label="Toggle theme"
-      class="h-9 w-9 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white hover:scale-105 transition"
+      class="h-9 w-9 flex items-center justify-center rounded-xl border border-gray-300 bg-white text-gray-900 transition hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
       title="Toggle theme">
 
       <!-- moon -->
