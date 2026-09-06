@@ -2,17 +2,10 @@
 
 A modern bilingual portfolio website built to showcase my IT skills, projects, and technical articles.
 
-<a href="https://vuejs.org/" target="_blank">
-  <img src="https://img.shields.io/badge/Vue.js-v3.x-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" alt="Vue.js 3.x">
-</a>
-
+[![Vue.js](https://img.shields.io/badge/Vue.js-v3.x-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://obkworks.tr)
-
-<a href="https://www.cloudflare.com/dns/" target="_blank">
-  <img src="https://img.shields.io/badge/DNS-Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare DNS">
-</a>
-
+[![Cloudflare DNS](https://img.shields.io/badge/DNS-Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://www.cloudflare.com/dns/)
 [![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](https://obkworks.tr)
 
 ## 🚀 Live Portfolio
