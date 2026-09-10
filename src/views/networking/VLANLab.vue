@@ -29,10 +29,9 @@
         </div>
 
         <!-- Top Image Representation -->
-        <div class="my-6 overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
-          <img src="/src/views/networking/assets/vlan.png" :alt="$t('networkingLabs.pages.vlanRouterOnAStick.imageAlt')"
-            class="w-full h-auto object-cover" />
-        </div>
+        <ImageLightbox
+         src="/src/views/networking/assets/vlan.png"
+         :title="$t('networkingLabs.pages.vlanRouterOnAStick.imageAlt')"/>
 
         <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">
           {{ $t("networkingLabs.pages.vlanRouterOnAStick.intro") }}
@@ -316,8 +315,13 @@
 </template>
 
 <script>
+import ImageLightbox from '../../components/ImageLightbox.vue'
+
 export default {
   name: "VLANLab",
+  components: {
+    ImageLightbox
+  },
   data() {
     return {
       copiedIndex: null,

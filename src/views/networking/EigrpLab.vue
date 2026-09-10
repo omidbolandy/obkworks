@@ -29,10 +29,9 @@
         </div>
 
         <!-- Top Image Representation -->
-        <div class="my-6 overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
-          <img src="/src/views/networking/assets/EIGRP.png" :alt="$t('networkingLabs.pages.eigrpRouting.imageAlt')"
-            class="w-full h-auto object-cover" />
-        </div>
+        <ImageLightbox
+        src="/src/views/networking/assets/EIGRP.png"
+        :title="$t('networkingLabs.pages.eigrpRouting.imageAlt')"/>
 
         <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">
           {{ $t("networkingLabs.pages.eigrpRouting.intro") }}
@@ -313,8 +312,13 @@
 </template>
 
 <script>
+import ImageLightbox from '../../components/ImageLightbox.vue'
+
 export default {
   name: "EigrpLab",
+  components: {
+    ImageLightbox
+  },
   data() {
     return {
       copiedIndex: null,

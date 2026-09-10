@@ -1960,6 +1960,15 @@ const messages = {
             description: "The page you are looking for does not exist or has been moved.",
             backHome: "Back to Home"
         },
+        // lightbox component en language
+        lightbox: {
+            download: "Download",
+            share: "Share",
+            print: "Print",
+            close: "Close",
+            linkCopied: "Link copied!"
+        },
+
     },
     // fa language
     fa: {
@@ -3973,6 +3982,14 @@ const messages = {
             subtitle: "صفحه مورد نظر پیدا نشد",
             description: "صفحه‌ای که به دنبال آن هستید وجود ندارد یا آدرس آن تغییر کرده است.",
             backHome: "بازگشت به صفحه اصلی"
+        },
+        // lightbox component fa language
+        lightbox: {
+            download: "دانلود",
+            share: "اشتراک‌گذاری",
+            print: "چاپ",
+            close: "بستن",
+            linkCopied: "لینک کپی شد!"
         },
     },
 }

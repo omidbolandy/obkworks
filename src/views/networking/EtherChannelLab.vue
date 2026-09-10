@@ -29,10 +29,9 @@
         </div>
 
         <!-- Top Image Representation -->
-        <div class="my-6 overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
-          <img src="/src/views/networking/assets/EtherChannel.png" :alt="$t('networkingLabs.pages.etherchannelLacp.imageAlt')"
-            class="w-full h-auto object-cover" />
-        </div>
+        <ImageLightbox
+        src="/src/views/networking/assets/EtherChannel.png"
+        :title="$t('networkingLabs.pages.etherchannelLacp.imageAlt')"/>
 
         <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">
           {{ $t("networkingLabs.pages.etherchannelLacp.intro") }}
@@ -260,8 +259,13 @@
 </template>
 
 <script>
+import ImageLightbox from '../../components/ImageLightbox.vue'
+
 export default {
   name: "EtherChannelLacpLab",
+  components: {
+    ImageLightbox
+  },
   data() {
     return {
       copiedIndex: null,
