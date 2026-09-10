@@ -30,7 +30,7 @@
 
         <!-- Top Image Representation -->
         <ImageLightbox
-        src="/src/views/networking/assets/EIGRP.png"
+        src="/assets/networking/EIGRP.png"
         :title="$t('networkingLabs.pages.eigrpRouting.imageAlt')"/>
 
         <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">

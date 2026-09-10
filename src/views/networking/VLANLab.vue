@@ -30,7 +30,7 @@
 
         <!-- Top Image Representation -->
         <ImageLightbox
-         src="/src/views/networking/assets/vlan.png"
+         src="/assets/networking/vlan.png"
          :title="$t('networkingLabs.pages.vlanRouterOnAStick.imageAlt')"/>
 
         <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">

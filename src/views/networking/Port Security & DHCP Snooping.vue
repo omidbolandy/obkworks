@@ -30,7 +30,7 @@
 
         <!-- Top Image Representation -->
         <ImageLightbox
-        src="/src/views/networking/assets/Port Security & DHCP Snooping.png"
+        src="/assets/networking/Port Security & DHCP Snooping.png"
         :title="$t('networkingLabs.pages.dhcpSecurityLab.imageAlt')"/>
 
         <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">
