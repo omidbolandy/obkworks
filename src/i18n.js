@@ -1968,7 +1968,28 @@ const messages = {
             close: "Close",
             linkCopied: "Link copied!"
         },
-
+        // Donate page
+        donate: {
+            button: "Support this project",
+            title: "Support Project Development",
+            description: "Your financial support encourages content creation, open-source project development, and website tool improvements.",
+            domesticTitle: "Domestic Payment (Iran)",
+            domesticName: "Coffeete",
+            domesticDesc: "Fast payment with all Iranian debit cards",
+            directLink: "Go to Coffeete page ↗",
+            cryptoTitle: "Cryptocurrency (Global)",
+            cryptoName: "Tether (USDT - TRC20)",
+            cryptoDesc: "Secure & direct transfer on TRON network",
+            cryptoWarning: "Please send only USDT via the TRC20 network.",
+            copy: "Copy",
+            clickToCopy: "Click to copy",
+            copyLink: "Copy Link",
+            copyAddress: "Copy Address",
+            footerNote: "Thank you so much for your support! ❤️",
+            copiedToast: "copied successfully!",
+            copyCoffeeteTitle: "Click to copy Coffeete link",
+            copyCryptoTitle: "Click to copy USDT wallet address",
+        }
     },
     // fa language
     fa: {
@@ -3991,6 +4012,28 @@ const messages = {
             close: "بستن",
             linkCopied: "لینک کپی شد!"
         },
+        // Donate page
+        donate: {
+            button: "حمایت مالی از پروژه",
+            title: "حمایت از توسعه این پروژه",
+            description: "حمایت‌های مالی شما دلگرمی بزرگی برای ادامه تولید محتوا، توسعه پروژه‌های متن‌باز و بهبود ابزارهای این وب‌سایت است.",
+            domesticTitle: "پرداخت ریالی (داخلی)",
+            domesticName: "کافه تد (Coffeete)",
+            domesticDesc: "پرداخت سریع با کلیه کارت‌های بانکی عضو شتاب",
+            directLink: "ورود مستقیم به صفحه کافه تد ↗",
+            cryptoTitle: "ارز دیجیتال (بین‌المللی)",
+            cryptoName: "تتر (USDT - TRC20)",
+            cryptoDesc: "واریز امن و مستقیم روی شبکه ترون (TRON)",
+            cryptoWarning: "لطفاً فقط رمزارز USDT (تتر) روی شبکه TRC20 واریز کنید.",
+            copy: "کپی",
+            clickToCopy: "کلیک کنید تا کپی شود",
+            copyLink: "کپی لینک",
+            copyAddress: "کپی آدرس",
+            footerNote: "با سپاس فراوان از حمایت و همراهی شما ❤️",
+            copiedToast: "با موفقیت کپی شد!",
+            copyCoffeeteTitle: "کلیک کنید تا لینک کافه تد کپی شود",
+            copyCryptoTitle: "کلیک کنید تا آدرس ولت USDT کپی شود",
+        }
     },
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-100 dark:bg-[#1a2030] rounded-2xl mx-4">
+  <footer class="bg-gray-100 dark:bg-[#1a2030] rounded-2xl mx-4 relative">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
       <div class="md:flex md:justify-between mx-5 mb-8">
         <div class="mb-12 md:mb-0 md:max-w-xs">
@@ -31,6 +31,17 @@
             <li class="mb-1.5 md:mb-2">
               <router-link class="hover:underline" to="/Articles">{{ $t("nav.articles") }}</router-link>
             </li>
+            <li class="mb-1.5 md:mb-2">
+              <button 
+                @click="openModal" 
+                class="relative overflow-hidden group rounded-lg py-0.5 -ms-1 px-1 hover:underline text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1.5 transition-colors">
+                <span class="absolute top-0 -left-[100%] w-full h-full rounded-lg bg-gradient-to-r from-transparent via-amber-200/60 dark:via-white/30 to-transparent transition-all duration-700 group-hover:left-[100%] pointer-events-none"></span>
+
+                <span class="text-xl transition-transform duration-300 group-hover:rotate-12">☕</span>
+
+                <span>{{ $t("donate.button") }}</span>
+              </button>
+            </li>
           </ul>
         </div>
       </div>
@@ -41,7 +52,7 @@
         <span class="text-sm max-[425px]:text-xs max-[375px]:text-[11px] text-gray-500 sm:text-center dark:text-gray-400">
           {{ $t("footer.copyright") }}
         </span>
-        <div class="flex mt-4 sm:justify-center sm:mt-0">
+        <div class="flex items-center mt-4 sm:justify-center sm:mt-0">
           <a href="mailto:omidbolandy@gmail.com" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
               viewBox="0 0 24 24">
@@ -79,11 +90,209 @@
         </div>
       </div>
     </div>
+
+    <!--  DONATE MODAL  -->
+    <Transition name="fade">
+      <div 
+        v-if="isModalOpen" 
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm overflow-y-auto"
+        @click.self="closeModal">
+        <div class="relative w-full max-w-4xl bg-white dark:bg-[#1a2030] rounded-3xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700  transition-colors">
+          
+          <!-- Close button (X) -->
+          <button 
+            @click="closeModal" 
+            class="absolute top-4 left-4 z-10 p-2 text-gray-400 hover:text-gray-700 dark:hover:text-white bg-gray-100 dark:bg-gray-800 rounded-full transition-colors"
+            title="Esc">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+
+          <!-- Medal Header -->
+          <div class="text-center pt-8 pb-4 px-6 border-b border-gray-100 dark:border-gray-800">
+            <h2 class="text-2xl font-extrabold text-gray-900 dark:text-white flex items-center justify-center gap-2">
+              <span>☕</span> {{ $t("donate.title") }}
+            </h2>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 max-w-lg mx-auto leading-relaxed">
+              {{ $t("donate.description") }}
+            </p>
+          </div>
+
+          <!-- Medal body (two columns) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 lg:p-8">
+
+            <!-- Right: Cafe Ted (Rial-based / inside Iran) -->
+            <div class="flex flex-col items-center justify-between p-6 bg-amber-50/60 dark:bg-amber-950/20 rounded-2xl border border-amber-200/80 dark:border-amber-900/40">
+              <div class="text-center w-full">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 rounded-full text-xs font-bold mb-3">
+                  <span>🇮🇷</span> {{ $t("donate.domesticTitle") }}
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">{{ $t("donate.domesticName") }}</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">{{ $t("donate.domesticDesc") }}</p>
+
+                <!-- Ted Cafe QR Code Image -->
+                <div 
+                  @click="copyToClipboard(coffeeteUrl, $t('donate.domesticName'))" 
+                  class="group relative inline-block p-3 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer transition-transform hover:scale-105 mb-4"
+                  :title="$t('donate.domesticName') + ' - ' + $t('donate.clickToCopy')">
+                  <img src="/src/assets/Donate/Coffeete-QRCode-obkdev.png" alt="Coffeete QR Code" class="w-40 h-40 object-contain mx-auto rounded-lg" />
+                  <div class="absolute inset-0 bg-black/60 rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-medium transition-opacity">
+                    {{ $t("donate.copyLink") }}
+                  </div>
+                </div>
+
+                <!-- Link and copy button -->
+                <div class="w-full bg-white dark:bg-gray-800 p-2.5 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-between gap-2">
+                  <span class="text-xs font-mono text-gray-600 dark:text-gray-300 truncate dir-ltr">
+                    {{ coffeeteUrl }}
+                  </span>
+                  <button 
+                    @click="copyToClipboard(coffeeteUrl, $t('donate.domesticName'))" 
+                    class="shrink-0 px-3 py-1.5 text-xs font-medium bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors flex items-center gap-1">
+                    <span>{{ $t("donate.copy") }}</span>
+                  </button>
+                </div>
+              </div>
+
+              <a 
+                :href="coffeeteUrl" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="w-full mt-4 py-2.5 px-4 text-center text-xs font-bold text-amber-900 bg-amber-200 hover:bg-amber-300 dark:bg-amber-800/80 dark:text-amber-100 dark:hover:bg-amber-700 rounded-xl transition-colors">
+                {{ $t("donate.directLink") }}
+              </a>
+            </div>
+
+            <!-- Left: Trust Wallet (Crypto / International) -->
+            <div class="flex flex-col items-center justify-between p-6 bg-sky-50/60 dark:bg-sky-950/20 rounded-2xl border border-sky-200/80 dark:border-sky-900/40">
+              <div class="text-center w-full">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 rounded-full text-xs font-bold mb-3">
+                  <span>🌐</span> {{ $t("donate.cryptoTitle") }}
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">{{ $t("donate.cryptoName") }}</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">{{ $t("donate.cryptoDesc") }}</p>
+
+                <!-- Trust Wallet QR Code Image -->
+                <div 
+                  @click="copyToClipboard(cryptoAddress, $t('donate.cryptoName'))" 
+                  class="group relative inline-block p-3 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer transition-transform hover:scale-105 mb-4"
+                  :title="$t('donate.cryptoName') + ' - ' + $t('donate.clickToCopy')">
+                  <img src="/src/assets/Donate/QR-Code-Trust-Wallet.webp" alt="Trust Wallet QR Code" class="w-40 h-40 object-contain mx-auto rounded-lg" />
+                  <div class="absolute inset-0 bg-black/60 rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-medium transition-opacity">
+                    {{ $t("donate.copyAddress") }}
+                  </div>
+                </div>
+
+                <!-- 34-character address and copy button -->
+                <div class="w-full bg-white dark:bg-gray-800 p-2.5 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-between gap-2">
+                  <span class="text-xs font-mono text-gray-600 dark:text-gray-300 truncate dir-ltr" :title="cryptoAddress">
+                    {{ cryptoAddress }}
+                  </span>
+                  <button 
+                    @click="copyToClipboard(cryptoAddress, $t('donate.cryptoName'))" 
+                    class="shrink-0 px-3 py-1.5 text-xs font-medium bg-sky-600 hover:bg-sky-700 text-white rounded-lg transition-colors flex items-center gap-1">
+                    <span>{{ $t("donate.copy") }}</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="w-full mt-4 p-2 text-center text-[11px] text-sky-800 dark:text-sky-300 bg-sky-100/70 dark:bg-sky-900/40 rounded-xl">
+                ⚠️ {{ $t("donate.cryptoWarning") }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Medal Footnote -->
+          <div class="text-center pb-6 pt-2 px-6">
+            <span class="text-xs text-gray-400 dark:text-gray-500">
+              {{ $t("donate.footerNote") }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- Successful copy toast message -->
+    <Transition name="toast">
+      <div 
+        v-if="toastMessage" 
+        class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs font-medium rounded-full shadow-lg flex items-center gap-2 border border-gray-700 dark:border-gray-300"
+      >
+        <span>✅</span>
+        <span>{{ toastMessage }} {{ $t("donate.copiedToast") }}</span>
+      </div>
+    </Transition>
   </footer>
 </template>
 
 <script>
 export default {
   name: "AppFooter",
+  data() {
+    return {
+      isModalOpen: false,
+      toastMessage: "",
+      coffeeteUrl: "https://www.coffeete.ir/obkdev",
+      cryptoAddress: "TA7EZq1AD2uN9UeWaEUnWnjYgjhSAwGMzM",
+    };
+  },
+  methods: {
+    openModal() {
+      this.isModalOpen = true;
+      window.addEventListener("keydown", this.handleKeyDown);
+    },
+    closeModal() {
+      this.isModalOpen = false;
+      window.removeEventListener("keydown", this.handleKeyDown);
+    },
+    handleKeyDown(event) {
+      if (event.key === "Escape") {
+        this.closeModal();
+      }
+    },
+    async copyToClipboard(text, label) {
+      try {
+        await navigator.clipboard.writeText(text);
+        this.showToast(label);
+      } catch (err) {
+        console.error("Copy error:", err);
+      }
+    },
+    showToast(label) {
+      this.toastMessage = label;
+      setTimeout(() => {
+        this.toastMessage = "";
+      }, 3000);
+    },
+  },
+  beforeUnmount() {
+    window.removeEventListener("keydown", this.handleKeyDown);
+  },
 };
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.3s ease;
+}
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 20px);
+}
+
+.dir-ltr {
+  direction: ltr;
+}
+</style>
