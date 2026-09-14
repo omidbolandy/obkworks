@@ -242,7 +242,8 @@ export default {
       localeDropdownOpen: false,
       searchOpen: false,
       searchQuery: "",
-        searchExpanded: false,
+      searchExpanded: false,
+      isTyping: false,
     };
   },
   computed: {
@@ -267,7 +268,12 @@ export default {
   watch: {
     searchQuery(val) {
       if (val.trim()) {
+        this.isTyping = true;
         this.searchOpen = true;
+        clearTimeout(this._typingTimer);
+        this._typingTimer = setTimeout(() => {
+          this.isTyping = false;
+        }, 500);
       }
     },
   },
@@ -285,8 +291,10 @@ export default {
         this.closeLocaleDropdown();
       }
       if (searchContainer && !searchContainer.contains(event.target)) {
-        setTimeout(() => this.closeSearch(), 150);
+      if (!this.isTyping) {
+        this.closeSearch();
       }
+    }
     },
     closeSearch() {
       this.searchOpen = false;
