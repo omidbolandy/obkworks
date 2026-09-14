@@ -11,7 +11,7 @@
         class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
       />
       <!-- Hover zoom icon -->
-      <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 touch-visible transition-opacity duration-300">
         <div class="bg-black/50 rounded-full p-3">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none"
             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -178,5 +178,22 @@ const print = () => {
 .fade-leave-to {
   opacity: 0;
   transform: scale(0.96);
+}
+@media (hover: none) {
+  .touch-visible {
+    opacity: 1 !important;
+  }
+  .group:active .group-hover\:scale-105 {
+    transform: none !important;
+  }
+}
+@media (max-width: 425px) {
+  .touch-visible svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .touch-visible > div {
+    padding: 0.5rem;
+  }
 }
 </style>
