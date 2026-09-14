@@ -320,6 +320,7 @@ formattedDate() {
 
         if (String(data.cod) !== "200") {
           this.weather = null;
+          this.lastCity = "";
           this.errorMessage =
             String(data.cod) === "404"
               ? this.$t("weather.notFound")
