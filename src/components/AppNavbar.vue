@@ -264,6 +264,13 @@ export default {
       return this.searchResults.projects.slice(0, 3);
     },
   },
+  watch: {
+    searchQuery(val) {
+      if (val.trim()) {
+        this.searchOpen = true;
+      }
+    },
+  },
   methods: {
     toggleLocaleDropdown() {
       this.localeDropdownOpen = !this.localeDropdownOpen;
@@ -278,7 +285,7 @@ export default {
         this.closeLocaleDropdown();
       }
       if (searchContainer && !searchContainer.contains(event.target)) {
-        this.closeSearch();
+        setTimeout(() => this.closeSearch(), 150);
       }
     },
     closeSearch() {
