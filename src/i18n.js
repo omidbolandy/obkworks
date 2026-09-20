@@ -158,6 +158,11 @@ const messages = {
                 title: 'IT Infrastructure Tools',
                 description: 'A collection of practical tools and calculators to streamline IT infrastructure design, estimation, and resource management.',
                 items: {
+                    MyIPInfo: {
+                        title: 'My IP Info',
+                        description: 'Discover your public IP address, location, ISP, and network details in real time.',
+                        link: 'View Tool',
+                    },
                     subnetCalculator: {
                         title: 'IP Subnet Calculator',
                         description: 'Quickly calculate subnets, host values, and usable ranges.',
@@ -189,6 +194,23 @@ const messages = {
         // itInfrastructureTools page en language
         itInfrastructureTools: {
             pages: {
+                ipLookup: {
+                    title: "IP Lookup",
+                    subtitle: "Your IP Address Information",
+                    loading: "Fetching your information...",
+                    error: "Failed to fetch information",
+                    retry: "Try Again",
+                    ip: "IP Address",
+                    city: "City",
+                    region: "Region",
+                    country: "Country",
+                    isp: "Internet Service Provider",
+                    timezone: "Timezone",
+                    location: "Approximate Location",
+                    coordinates: "Coordinates",
+                    dataSource: "Data Source",
+                    unknown: "Unknown"
+                },
                 ipSubnetCalculator: {
                     title: "IP Subnet Calculator",
                     description: "Enter an IP address and prefix length to see full subnet details.",
@@ -1989,7 +2011,8 @@ const messages = {
             copiedToast: "copied successfully!",
             copyCoffeeteTitle: "Click to copy Coffeete link",
             copyCryptoTitle: "Click to copy USDT wallet address",
-        }
+        },
+
     },
     // fa language
     fa: {
@@ -2143,6 +2166,11 @@ const messages = {
                 title: 'ابزارهای زیرساخت IT',
                 description: 'مجموعه ابزارها و محاسبات کاربردی برای تسهیل و شتاب‌بخشی به فرآیندهای طراحی، تخمین و مدیریت زیرساخت‌های IT.',
                 items: {
+                    MyIPInfo: {
+                        title: 'اطلاعات IP من',
+                        description: 'نمایش لحظه‌ای آدرس IP عمومی، موقعیت جغرافیایی، ارائه دهنده اینترنت (ISP) و جزئیات شبکه.',
+                        link: 'مشاهده ابزار',
+                    },
                     subnetCalculator: {
                         title: 'ماشین‌حساب IP Subnet',
                         description: 'محاسبه سریع ساب‌نت، مقدارها و بازه‌های میزبان.',
@@ -2174,6 +2202,23 @@ const messages = {
         // itInfrastructureTools page fa language
         itInfrastructureTools: {
             pages: {
+                ipLookup: {
+                    title: "جستجوی IP",
+                    subtitle: "اطلاعات آدرس IP شما",
+                    loading: "در حال دریافت اطلاعات...",
+                    error: "خطا در دریافت اطلاعات",
+                    retry: "تلاش مجدد",
+                    ip: "آدرس IP",
+                    city: "شهر",
+                    region: "استان/منطقه",
+                    country: "کشور",
+                    isp: "سرویس‌دهنده اینترنت",
+                    timezone: "منطقه زمانی",
+                    location: "موقعیت تقریبی",
+                    coordinates: "مختصات",
+                    dataSource: "منبع داده",
+                    unknown: "نامشخص"
+                },
                 ipSubnetCalculator: {
                     title: "محاسبه‌گر ساب‌نت IP",
                     description: "آدرس IP و پیشوند شبکه رو وارد کن تا جزئیات کامل ساب‌نت رو ببینی.",
@@ -4033,7 +4078,8 @@ const messages = {
             copiedToast: "با موفقیت کپی شد!",
             copyCoffeeteTitle: "کلیک کنید تا لینک کافه تد کپی شود",
             copyCryptoTitle: "کلیک کنید تا آدرس ولت USDT کپی شود",
-        }
+        },
+
     },
 }
 

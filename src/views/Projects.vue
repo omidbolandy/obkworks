@@ -146,6 +146,11 @@
         </p>
         <div class="mt-8 grid gap-4">
           <ProjectLinkCard :title="$t(
+            'projectsPage.itInfrastructureTools.items.MyIPInfo.title')" 
+            :description="$t('projectsPage.itInfrastructureTools.items.MyIPInfo.description')" 
+            to="/Projects/IT-Infrastructure-Tools/My-IP-Info" 
+              :link-text="$t('projectsPage.itInfrastructureTools.items.MyIPInfo.link')" />
+          <ProjectLinkCard :title="$t(
             'projectsPage.itInfrastructureTools.items.subnetCalculator.title')" 
             :description="$t('projectsPage.itInfrastructureTools.items.subnetCalculator.description')" 
             to="/Projects/IT-Infrastructure-Tools/ip-subnet-calculator" 

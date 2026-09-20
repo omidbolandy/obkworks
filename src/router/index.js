@@ -136,6 +136,11 @@ const routes = [
     },
     // IT Infrastructure Tools
     {
+        path: '/Projects/IT-Infrastructure-Tools/My-IP-Info', name: 'MyIPInfo',
+        component: () => import('../views/IT-Infrastructure-Tools/My-IP-Info.vue'),
+        meta: { title: 'My IP Info | obkworks', description: {  fa: 'ابزار آنلاین نمایش لحظه‌ای آدرس IP عمومی، موقعیت جغرافیایی، ارائه‌دهنده اینترنت (ISP) و اطلاعات ASN شبکه.',  en: 'Check your public IPv4/IPv6 address, geolocation, ISP, ASN, and network connection details in real time.' } }
+    },
+    {
         path: '/Projects/IT-Infrastructure-Tools/ip-subnet-calculator', name: 'IpSubnetCalculator',
         component: () => import('../views/IT-Infrastructure-Tools/IP-Subnet-Calculator.vue'),
         meta: { title: 'IP Subnet Calculator | obkworks', description: { fa: 'محاسبه گر سابنت IP و CIDR برای تعیین محدوده آدرس ها، نت ماسک، آدرس شبکه و Broadcast.', en: 'Calculate CIDR subnet masks, network ranges, broadcast addresses, and usable host IPs.' } }
