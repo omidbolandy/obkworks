@@ -209,7 +209,8 @@ const messages = {
                     location: "Approximate Location",
                     coordinates: "Coordinates",
                     dataSource: "Data Source",
-                    unknown: "Unknown"
+                    unknown: "Unknown",
+                    mapScroll: "Hold Ctrl to scroll the map",
                 },
                 ipSubnetCalculator: {
                     title: "IP Subnet Calculator",
@@ -2217,7 +2218,8 @@ const messages = {
                     location: "موقعیت تقریبی",
                     coordinates: "مختصات",
                     dataSource: "منبع داده",
-                    unknown: "نامشخص"
+                    unknown: "نامشخص",
+                    mapScroll: "برای اسکرول Ctrl را نگه دارید"
                 },
                 ipSubnetCalculator: {
                     title: "محاسبه‌گر ساب‌نت IP",

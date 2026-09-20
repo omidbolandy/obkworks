@@ -3,7 +3,19 @@ export const config = {
   
 };
 
+const cleanISP = (isp) => {
+  if (!isp) return null
+  return isp.replace(/^AS\d+\s*/i, '').trim()
+}
+
+const getCountryName = (code, names) => {
+  try { return names.of(code) } catch { return code }
+}
+
 export default async function handler(req) {
+  const url = new URL(req.url)
+  const lang = url.searchParams.get('lang') || 'en'
+  const countryNames = new Intl.DisplayNames([lang], { type: 'region' })
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
     req.headers.get('x-real-ip') ||
@@ -18,8 +30,8 @@ export default async function handler(req) {
         ip: data.ip,
         city: data.city,
         region: data.region,
-        country: data.country,
-        isp: data.org,
+        country: getCountryName(data.country, countryNames),
+        isp: cleanISP(data.org),
         timezone: data.timezone,
         lat: parseFloat(lat),
         lng: parseFloat(lng),
@@ -31,8 +43,8 @@ export default async function handler(req) {
         ip: data.ip,
         city: data.city,
         region: data.region,
-        country: data.country,
-        isp: data.connection?.isp,
+        country: getCountryName(data.country_code, countryNames),
+        isp: cleanISP(data.connection?.isp),
         timezone: data.timezone?.id,
         lat: data.latitude,
         lng: data.longitude,
