@@ -195,7 +195,7 @@ const messages = {
         itInfrastructureTools: {
             pages: {
                 ipLookup: {
-                    title: "IP Lookup",
+                    title: "My IP Information",
                     subtitle: "Your IP Address Information",
                     loading: "Fetching your information...",
                     error: "Failed to fetch information",
@@ -2204,7 +2204,7 @@ const messages = {
         itInfrastructureTools: {
             pages: {
                 ipLookup: {
-                    title: "جستجوی IP",
+                    title: "اطلاعات IP من",
                     subtitle: "اطلاعات آدرس IP شما",
                     loading: "در حال دریافت اطلاعات...",
                     error: "خطا در دریافت اطلاعات",

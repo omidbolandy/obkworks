@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full min-h-[70vh] px-3 sm:px-6 py-8 transition-colors duration-300 bg-white dark:bg-gray-900/70">
+  <div class="w-full min-h-[70vh] px-3 sm:px-6 py-8 transition-colors duration-300">
     <div class="w-full max-w-3xl mx-auto">
 
       <!-- Back to Projects -->
@@ -19,7 +19,7 @@
       </div>
 
   <!-- Main Container -->
-  <div class="rounded-2xl my-4 p-5 sm:p-8 bg-white dark:bg-[#111827b3] transition-colors duration-300">
+  <div class="rounded-2xl my-4 p-5 sm:p-8 bg-gray-100 dark:bg-[#111827b3] transition-colors duration-300">
 
       <!-- Header -->
       <div class="text-center mb-8">
@@ -55,7 +55,7 @@
       <div v-else-if="ipData" class="space-y-4">
 
         <!-- IP Card -->
-        <div class="w-full p-5 sm:p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
+        <div class="w-full p-5 sm:p-6 rounded-2xl bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
           <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">
             {{ $t("itInfrastructureTools.pages.ipLookup.ip") }}
           </p>
@@ -69,7 +69,7 @@
           <div
             v-for="item in infoItems"
             :key="item.key"
-            class="p-5 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
+            class="p-5 rounded-2xl bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
             <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">
               {{ $t(`itInfrastructureTools.pages.ipLookup.${item.key}`) }}
             </p>
@@ -82,7 +82,7 @@
         </div>
 
         <!-- Coordinates -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
+        <div class="p-5 rounded-2xl bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
           <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">
             {{ $t("itInfrastructureTools.pages.ipLookup.coordinates") }}
           </p>
@@ -92,7 +92,7 @@
         </div>
 
         <!-- Map -->
-        <div class="rounded-2xl overflow-hidden bg-white dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
+        <div class="rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
           <p class="text-gray-500 dark:text-gray-400 text-xs px-5 pt-4 pb-3">
             {{ $t("itInfrastructureTools.pages.ipLookup.location") }}
           </p>
