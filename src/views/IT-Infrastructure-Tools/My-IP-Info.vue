@@ -75,7 +75,9 @@
             </p>
             <p
               :dir="item.ltr ? 'ltr' : 'auto'"
-              class="text-gray-900 dark:text-white font-semibold text-sm truncate">
+              :class="item.key === 'isp' 
+                 ? 'text-gray-900 dark:text-white font-semibold text-sm sm:truncate break-words' 
+                 : 'text-gray-900 dark:text-white font-semibold text-sm truncate'">
               {{ ipData[item.field] || $t("itInfrastructureTools.pages.ipLookup.unknown") }}
             </p>
           </div>
@@ -178,5 +180,14 @@ onMounted(() => {
   window.addEventListener('keyup', (e) => {
     if (e.key === 'Control') ctrlPressed.value = false
   })
+  let touchCount = 0
+window.addEventListener('touchstart', (e) => {
+  touchCount = e.touches.length
+  if (touchCount >= 2) ctrlPressed.value = true
+})
+window.addEventListener('touchend', () => {
+  touchCount = 0
+  ctrlPressed.value = false
+})
 })
 </script>
