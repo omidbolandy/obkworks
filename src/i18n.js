@@ -158,7 +158,7 @@ const messages = {
                 title: 'IT Infrastructure Tools',
                 description: 'A collection of practical tools and calculators to streamline IT infrastructure design, estimation, and resource management.',
                 items: {
-                    MyIPInfo: {
+                    ipLookup: {
                         title: 'My IP Info',
                         description: 'Discover your public IP address, location, ISP, and network details in real time.',
                         link: 'View Tool',
@@ -2171,7 +2171,7 @@ const messages = {
                 title: 'ابزارهای زیرساخت IT',
                 description: 'مجموعه ابزارها و محاسبات کاربردی برای تسهیل و شتاب‌بخشی به فرآیندهای طراحی، تخمین و مدیریت زیرساخت‌های IT.',
                 items: {
-                    MyIPInfo: {
+                    ipLookup: {
                         title: 'اطلاعات IP من',
                         description: 'نمایش لحظه‌ای آدرس IP عمومی، موقعیت جغرافیایی، ارائه دهنده اینترنت (ISP) و جزئیات شبکه.',
                         link: 'مشاهده ابزار',

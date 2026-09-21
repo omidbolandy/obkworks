@@ -10,7 +10,7 @@ A modern bilingual portfolio website built to showcase my IT skills, projects, a
 
 ## 🚀 Live Portfolio
 
-https://obkworks.tr
+https://www.obkworks.tr
 
 ---
 
@@ -37,11 +37,11 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 - 📱 Responsive Design
 - 🌦 Weather Application
 - 📅 Date & Time Utilities
-- 🧮 IT Infrastructure Tools
+- 🧮 IT Infrastructure Tools (Subnet Calculator, IP Info, RAID, CCTV Storage, etc.)
 - 📚 Technical Articles
 - 💻 Front-end Projects
 - 🌐 Network Projects
-- 🔐 Secure Weather API using Cloudflare Pages Functions
+- 🔐 Secure API integration via Vercel
 
 ---
 
@@ -65,6 +65,7 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 
 ### APIs
 
+- IPInfo API (Public IP, GeoLocation & ISP Details)
 - OpenWeatherMap API
 - ExchangeRate API
 
@@ -99,6 +100,7 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 
 ### IT Infrastructure Tools
 
+- My IP Info
 - IP Subnet Calculator
 - CCTV Storage Calculator
 - RAID Calculator

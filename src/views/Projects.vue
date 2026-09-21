@@ -146,10 +146,10 @@
         </p>
         <div class="mt-8 grid gap-4">
           <ProjectLinkCard :title="$t(
-            'projectsPage.itInfrastructureTools.items.MyIPInfo.title')" 
-            :description="$t('projectsPage.itInfrastructureTools.items.MyIPInfo.description')" 
+            'projectsPage.itInfrastructureTools.items.ipLookup.title')" 
+            :description="$t('projectsPage.itInfrastructureTools.items.ipLookup.description')" 
             to="/Projects/IT-Infrastructure-Tools/My-IP-Info" 
-              :link-text="$t('projectsPage.itInfrastructureTools.items.MyIPInfo.link')" />
+              :link-text="$t('projectsPage.itInfrastructureTools.items.ipLookup.link')" />
           <ProjectLinkCard :title="$t(
             'projectsPage.itInfrastructureTools.items.subnetCalculator.title')" 
             :description="$t('projectsPage.itInfrastructureTools.items.subnetCalculator.description')" 
