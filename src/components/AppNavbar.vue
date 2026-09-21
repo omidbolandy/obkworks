@@ -329,6 +329,7 @@ export default {
       }
       applyDirection(locale);
       this.$emit("locale-changed", locale);
+      window.dispatchEvent(new CustomEvent('locale-changed', { detail: locale }))
     },
     isLocale(locale) {
       return this.$i18n.locale === locale;

@@ -105,7 +105,14 @@
               :class="item.key === 'isp' 
                  ? 'text-gray-900 dark:text-white font-semibold text-sm sm:truncate break-words' 
                  : 'text-gray-900 dark:text-white font-semibold text-sm truncate'">
-              {{ item.key === 'country' ? getFlag(ipData.countryCode) + ' ' : '' }}{{ ipData[item.field] || $t("itInfrastructureTools.pages.ipLookup.unknown") }}
+              <img
+                  v-if="item.key === 'country' && ipData.countryCode"
+                  :src="`https://flagcdn.com/24x18/${ipData.countryCode.toLowerCase()}.png`"
+                  :alt="ipData.countryCode"
+                  class="inline-block me-1.5 align-middle rounded-sm"
+                  width="24"
+                  height="18"
+              />{{ ipData[item.field] || $t("itInfrastructureTools.pages.ipLookup.unknown") }}
             </p>
           </div>
         </div>
@@ -160,7 +167,11 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, getCurrentInstance, watch } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { getCurrentInstance } from 'vue'
+
+const instance = getCurrentInstance()
+const locale = computed(() => instance?.proxy?.$i18n?.locale ?? 'en')
 
 import chromeIcon from '@/assets/browsers/chrome.svg'
 import firefoxIcon from '@/assets/browsers/firefox.svg'
@@ -171,28 +182,41 @@ import operaIcon from '@/assets/browsers/opera.svg'
 // National flag
 const getFlag = (code) => {
   if (!code) return ''
-  return code.toUpperCase().replace(/./g, c =>
-    String.fromCodePoint(c.charCodeAt(0) + 127397))
+  return code.toUpperCase()
 }
 
 // Browser and Operating System
-const getBrowserInfo = () => {
+const getBrowserInfo = (locale) => {
   const ua = navigator.userAgent
-  let browser = 'Unknown'
+  let browserKey = 'unknown'
   let browserIcon = null
 
-  if (ua.includes('Firefox')) { browser = 'Firefox'; browserIcon = firefoxIcon }
-  else if (ua.includes('Edg')) { browser = 'Edge'; browserIcon = edgeIcon }
-  else if (ua.includes('Chrome')) { browser = 'Chrome'; browserIcon = chromeIcon }
-  else if (ua.includes('Safari')) { browser = 'Safari'; browserIcon = safariIcon }
-  else if (ua.includes('Opera')) { browser = 'Opera'; browserIcon = operaIcon }
+  if (ua.includes('Firefox')) { browserKey = 'Firefox'; browserIcon = firefoxIcon }
+  else if (ua.includes('Edg')) { browserKey = 'Edge'; browserIcon = edgeIcon }
+  else if (ua.includes('Chrome')) { browserKey = 'Chrome'; browserIcon = chromeIcon }
+  else if (ua.includes('Safari')) { browserKey = 'Safari'; browserIcon = safariIcon }
+  else if (ua.includes('Opera')) { browserKey = 'Opera'; browserIcon = operaIcon }
 
-  let os = 'Unknown'
-  if (ua.includes('Windows')) os = 'Windows'
-  else if (ua.includes('Mac')) os = 'macOS'
-  else if (ua.includes('Linux')) os = 'Linux'
-  else if (ua.includes('Android')) os = 'Android'
-  else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS'
+  const browserNames = {
+    en: { Firefox: 'Firefox', Edge: 'Edge', Chrome: 'Chrome', Safari: 'Safari', Opera: 'Opera', unknown: 'Unknown' },
+    fa: { Firefox: 'فایرفاکس', Edge: 'اج', Chrome: 'کروم', Safari: 'سافاری', Opera: 'اپرا', unknown: 'ناشناخته' },
+  }
+
+  let osKey = 'Unknown'
+  if (ua.includes('Android')) osKey = 'Android'
+  else if (ua.includes('iPhone') || ua.includes('iPad')) osKey = 'iOS'
+  else if (ua.includes('Windows')) osKey = 'Windows'
+  else if (ua.includes('Mac')) osKey = 'macOS'
+  else if (ua.includes('Linux')) osKey = 'Linux'
+
+  const osNames = {
+    en: { Android: 'Android', iOS: 'iOS', Windows: 'Windows', macOS: 'macOS', Linux: 'Linux', Unknown: 'Unknown' },
+    fa: { Android: 'اندروید', iOS: 'iOS', Windows: 'ویندوز', macOS: 'مک‌اواس', Linux: 'لینوکس', Unknown: 'ناشناخته' },
+  }
+
+  const lang = locale || 'en'
+  const browser = (browserNames[lang] || browserNames.en)[browserKey] || browserKey
+  const os = (osNames[lang] || osNames.en)[osKey] || osKey
 
   return { browser, browserIcon, os }
 }
@@ -210,9 +234,6 @@ async function copyIP() {
 }
 
 const clientInfo = ref(null)
-
-const instance = getCurrentInstance()
-const locale = computed(() => instance?.proxy?.$i18n?.locale || 'en')
 
 const ipData = ref(null)
 const loading = ref(true)
@@ -252,8 +273,15 @@ async function fetchIP() {
 }
 
 onMounted(() => {
-  clientInfo.value = getBrowserInfo()
+  clientInfo.value = getBrowserInfo(instance?.proxy?.$i18n?.locale ?? 'en')
   fetchIP()
+  
+  // Listening for language changes from the navbar
+  window.addEventListener('locale-changed', (e) => {
+    clientInfo.value = getBrowserInfo(e.detail)
+    fetchIP()
+  })
+
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Control') ctrlPressed.value = true
   })
@@ -271,8 +299,5 @@ onMounted(() => {
   })
 })
 
-watch(locale, () => {
-  fetchIP()
-})
 
 </script>
