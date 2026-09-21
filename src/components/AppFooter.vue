@@ -147,7 +147,7 @@
                   @click="copyToClipboard(coffeeteUrl, $t('donate.domesticName'))" 
                   class="group relative inline-block p-3 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer transition-transform hover:scale-105 mb-4"
                   :title="$t('donate.domesticName') + ' - ' + $t('donate.clickToCopy')">
-                  <img src="/src/assets/Donate/Coffeete-QRCode-obkdev.png" alt="Coffeete QR Code" class="w-40 h-40 object-contain mx-auto rounded-lg" />
+                  <img :src="coffeeteQrImage" alt="Coffeete QR Code" class="w-40 h-40 object-contain mx-auto rounded-lg" />
                   <div class="absolute inset-0 bg-black/60 rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-medium transition-opacity">
                     {{ $t("donate.copyLink") }}
                   </div>
@@ -277,6 +277,10 @@
 </template>
 
 <script>
+import binanceQr from "@/assets/Donate/Binance.webp";
+import tronQr from "@/assets/Donate/Tron.webp";
+import coffeeteQr from "@/assets/Donate/Coffeete-QRCode-obkdev.png";
+
 export default {
   name: "AppFooter",
   data() {
@@ -287,6 +291,7 @@ export default {
       cryptoNetwork: "tron",
       cryptoAddressTron: "TA7EZq1AD2uN9UeWaEUnWnjYgjhSAwGMzM",
       cryptoAddressBnb: "0x530d4C4f0790f5F42b45f5Ab928f4eF319c3c04E",
+      coffeeteQrImage: coffeeteQr,
     };
   },
   methods: {
@@ -325,9 +330,7 @@ export default {
       return this.cryptoNetwork === "bnb" ? this.cryptoAddressBnb : this.cryptoAddressTron;
     },
     cryptoQrImage() {
-      return this.cryptoNetwork === "bnb"
-        ? "/src/assets/Donate/Binance.webp"
-        : "/src/assets/Donate/Tron.webp";
+      return this.cryptoNetwork === "bnb" ? binanceQr : tronQr;
     },
     cryptoTitle() {
       return this.cryptoNetwork === "bnb"
@@ -348,8 +351,8 @@ export default {
       return this.cryptoNetwork === "bnb"
         ? this.$t("donate.crypto.bnb.alt")
         : this.$t("donate.crypto.tron.alt");
-  }
-},
+    }
+  },
   beforeUnmount() {
     window.removeEventListener("keydown", this.handleKeyDown);
   },
