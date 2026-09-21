@@ -2,7 +2,7 @@
   <div
     id="app"
     :dir="isRtl ? 'rtl' : 'ltr'"
-    class="px-3 pt-4 pb-6 min-h-screen bg-gradient-to-br bg-gray-300 dark:bg-gray-700  text-gray-800 dark:text-white transition-colors duration-300 ease-in-out">
+    class="px-3 pt-4 pb-6 min-h-screen bg-gradient-to-br bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-white transition-colors duration-300 ease-in-out">
     <!-- Navbar -->
     <AppNavbar />
 
@@ -13,29 +13,30 @@
     <AppFooter />
 
     <!-- Scroll-To-Top -->
-      <button
-        @click="scrollToTop"
-        :class="[
-          scrollPosition >= 300
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 translate-y-4 pointer-events-none']"
-        class="fixed bottom-6 z-50 p-3 rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/30 transition-all duration-300 hover:bg-blue-700 hover:scale-110 active:scale-95 ltr:right-6 rtl:left-6"
-        aria-label="Scroll to top">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          class="h-6 w-6">
-          <path  stroke-linecap="round"  stroke-linejoin="round"  d="m4.5 15.75 7.5-7.5 7.5 7.5"/>
-        </svg>
-      </button>
+    <button
+      @click="scrollToTop"
+      :class="[
+        scrollPosition >= 300 && !isModalOpen
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 translate-y-4 pointer-events-none'
+      ]"
+      class="fixed bottom-6 z-40 p-3 rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/30 transition-all duration-300 hover:bg-blue-700 hover:scale-110 active:scale-95 ltr:right-6 rtl:left-6"
+      aria-label="Scroll to top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="h-6 w-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"/>
+      </svg>
+    </button>
     
     <!-- Scroll Progress Bar -->
     <div
       aria-hidden="true"
-      class="fixed top-0 start-0 h-1 bg-blue-500"
+      class="fixed top-0 start-0 h-1 bg-blue-500 z-50"
       :style="{ width: scrollPercentage + '%' }"
     ></div>
   </div>
@@ -54,6 +55,7 @@ export default {
       showMenu: false,
       scrollPosition: 0,
       scrollPercentage: 0,
+      isModalOpen: false,
       projectsMenuTimer: null,
       categoryMenuTimer: null,
     };
@@ -91,11 +93,15 @@ export default {
         document.documentElement.scrollHeight - window.innerHeight;
       this.scrollPercentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     },
+    handleModalToggle(event) {
+      this.isModalOpen = event.detail;
+    }
   },
   mounted() {
     this.handleResize();
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("resize", this.handleResize);
+    window.addEventListener("modal-toggle", this.handleModalToggle);
   },
   beforeUnmount() {
     if (this.projectsMenuTimer) {
@@ -106,6 +112,7 @@ export default {
     }
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("resize", this.handleResize);
+    window.removeEventListener("modal-toggle", this.handleModalToggle);
   },
   watch: {
     "$i18n.locale"(locale) {

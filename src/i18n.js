@@ -2016,6 +2016,20 @@ const messages = {
             copiedToast: "copied successfully!",
             copyCoffeeteTitle: "Click to copy Coffeete link",
             copyCryptoTitle: "Click to copy USDT wallet address",
+            crypto: {
+              tron: {
+                title: "Tether (USDT - TRC20)",
+                subtitle: "Secure and direct deposit on the TRON network",
+                warning: "Please deposit ONLY Tether (USDT) on the TRC20 (TRON) network.",
+                alt: "USDT Tron TRC20 QR Code"
+              },
+              bnb: {
+                title: "Tether (USDT - BEP20)",
+                subtitle: "Secure and direct deposit on the BNB Smart Chain",
+                warning: "Please deposit ONLY Tether (USDT) on the BEP20 (BNB Smart Chain) network.",
+                alt: "USDT BNB Smart Chain BEP20 QR Code"
+              }
+            }
         },
 
     },
@@ -4088,6 +4102,20 @@ const messages = {
             copiedToast: "با موفقیت کپی شد!",
             copyCoffeeteTitle: "کلیک کنید تا لینک کافه تد کپی شود",
             copyCryptoTitle: "کلیک کنید تا آدرس ولت USDT کپی شود",
+            crypto: {
+              tron: {
+                title: "تتر (USDT - TRC20)",
+                subtitle: "واریز امن و مستقیم روی شبکه ترون (TRON)",
+                warning: "لطفاً فقط رمزارز USDT (تتر) روی شبکه TRC20 (TRON) واریز کنید.",
+                alt: "بارکد واریز تتر شبکه ترون TRC20"
+              },
+              bnb: {
+                title: "تتر (USDT - BEP20)",
+                subtitle: "واریز امن و مستقیم روی شبکه بایننس (BNB Smart Chain)",
+                warning: "لطفاً فقط رمزارز USDT (تتر) روی شبکه BEP20 (BNB Smart Chain) واریز کنید.",
+                alt: "بارکد واریز تتر شبکه بایننس BEP20"
+              }
+            }
         },
 
     },

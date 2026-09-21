@@ -34,10 +34,8 @@
             <li class="mb-1.5 md:mb-2">
               <button 
                 @click="openModal" 
-                class="relative overflow-hidden group rounded-lg py-0.5 -ms-1 px-1 hover:underline text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1.5 transition-colors">
+                class="relative overflow-hidden group rounded-lg py-0.5 -ms-1 px-1 text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1.5 transition-colors">
                 <span class="absolute top-0 -left-[100%] w-full h-full rounded-lg bg-gradient-to-r from-transparent via-amber-200/60 dark:via-white/30 to-transparent transition-all duration-700 group-hover:left-[100%] pointer-events-none"></span>
-
-                <span class="text-xl transition-transform duration-300 group-hover:rotate-12">☕</span>
 
                 <span>{{ $t("donate.button") }}</span>
               </button>
@@ -91,14 +89,14 @@
       </div>
     </div>
 
-    <!--  DONATE MODAL  -->
+    <!-- DONATE MODAL -->
     <Transition name="fade">
       <div 
         v-if="isModalOpen" 
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm overflow-y-auto"
+        class="fixed inset-0 z-50 flex items-start sm:items-center justify-center bg-black/75 backdrop-blur-sm overflow-y-auto px-4 py-10 sm:py-6"
         @click.self="closeModal">
-        <div class="relative w-full max-w-4xl bg-white dark:bg-[#1a2030] rounded-3xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700  transition-colors">
-          
+        <div class="relative w-full max-w-4xl my-auto bg-white dark:bg-[#1a2030] rounded-3xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700 transition-colors">
+
           <!-- Close button (X) -->
           <button 
             @click="closeModal" 
@@ -108,30 +106,43 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
           </button>
-
-          <!-- Medal Header -->
+        
+          <!-- Modal Header -->
           <div class="text-center pt-8 pb-4 px-6 border-b border-gray-100 dark:border-gray-800">
             <h2 class="text-2xl font-extrabold text-gray-900 dark:text-white flex items-center justify-center gap-2">
-              <span>☕</span> {{ $t("donate.title") }}
+              {{ $t("donate.title") }}
             </h2>
             <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 max-w-lg mx-auto leading-relaxed">
               {{ $t("donate.description") }}
             </p>
           </div>
-
-          <!-- Medal body (two columns) -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 lg:p-8">
-
+        
+          <!-- Modal body (two columns with synchronized alignment) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 lg:p-8 items-stretch">
+          
             <!-- Right: Cafe Ted (Rial-based / inside Iran) -->
-            <div class="flex flex-col items-center justify-between p-6 bg-amber-50/60 dark:bg-amber-950/20 rounded-2xl border border-amber-200/80 dark:border-amber-900/40">
-              <div class="text-center w-full">
+            <div class="flex flex-col justify-between p-6 bg-amber-50/60 dark:bg-amber-950/20 rounded-2xl border border-amber-200/80 dark:border-amber-900/40 h-full">
+              <div class="flex flex-col items-center text-center w-full">
+
+                <!-- Badge & Switch area space holder for alignment -->
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 rounded-full text-xs font-bold mb-3">
                   <span>🇮🇷</span> {{ $t("donate.domesticTitle") }}
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">{{ $t("donate.domesticName") }}</h3>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">{{ $t("donate.domesticDesc") }}</p>
-
-                <!-- Ted Cafe QR Code Image -->
+              
+                <!-- Empty space element to align with Crypto network buttons -->
+                <div class="h-[38px] mb-3"></div>
+              
+                <!-- Title & Subtitle with min-height -->
+                <div class="min-h-[64px] flex flex-col justify-center mb-4">
+                  <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                    {{ $t("donate.domesticName") }}
+                  </h3>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    {{ $t("donate.domesticDesc") }}
+                  </p>
+                </div>
+              
+                <!-- QR Code Box -->
                 <div 
                   @click="copyToClipboard(coffeeteUrl, $t('donate.domesticName'))" 
                   class="group relative inline-block p-3 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer transition-transform hover:scale-105 mb-4"
@@ -141,8 +152,8 @@
                     {{ $t("donate.copyLink") }}
                   </div>
                 </div>
-
-                <!-- Link and copy button -->
+              
+                <!-- Copy Link Box -->
                 <div class="w-full bg-white dark:bg-gray-800 p-2.5 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-between gap-2">
                   <span class="text-xs font-mono text-gray-600 dark:text-gray-300 truncate dir-ltr">
                     {{ coffeeteUrl }}
@@ -154,7 +165,7 @@
                   </button>
                 </div>
               </div>
-
+            
               <a 
                 :href="coffeeteUrl" 
                 target="_blank" 
@@ -163,47 +174,86 @@
                 {{ $t("donate.directLink") }}
               </a>
             </div>
+          
+            <!-- Left: Crypto / International -->
+            <div class="flex flex-col justify-between p-6 bg-sky-50/60 dark:bg-sky-950/20 rounded-2xl border border-sky-200/80 dark:border-sky-900/40 h-full">
+              <div class="flex flex-col items-center text-center w-full">
 
-            <!-- Left: Trust Wallet (Crypto / International) -->
-            <div class="flex flex-col items-center justify-between p-6 bg-sky-50/60 dark:bg-sky-950/20 rounded-2xl border border-sky-200/80 dark:border-sky-900/40">
-              <div class="text-center w-full">
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 rounded-full text-xs font-bold mb-3">
                   <span>🌐</span> {{ $t("donate.cryptoTitle") }}
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">{{ $t("donate.cryptoName") }}</h3>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">{{ $t("donate.cryptoDesc") }}</p>
-
-                <!-- Trust Wallet QR Code Image -->
+              
+                <!-- High visibility Network Toggle Buttons -->
+                <div class="inline-flex items-center justify-center gap-1 p-1 mb-3 rounded-xl bg-sky-200/80 dark:bg-sky-900/80 border border-sky-300 dark:border-sky-700 h-[38px]">
+                  <button
+                    type="button"
+                    @click="cryptoNetwork = 'tron'"
+                    :class="[
+                      'px-3.5 py-1 text-xs font-extrabold rounded-lg transition-all duration-200',
+                      cryptoNetwork === 'tron'
+                        ? 'bg-sky-600 text-white dark:bg-sky-400 dark:text-gray-950 shadow-md scale-105'
+                        : 'text-sky-800 dark:text-sky-200 hover:bg-sky-300/60 dark:hover:bg-sky-800/80'
+                    ]">
+                    Tron (TRC20)
+                  </button>
+                  <button
+                    type="button"
+                    @click="cryptoNetwork = 'bnb'"
+                    :class="[
+                      'px-3.5 py-1 text-xs font-extrabold rounded-lg transition-all duration-200',
+                      cryptoNetwork === 'bnb'
+                        ? 'bg-sky-600 text-white dark:bg-sky-400 dark:text-gray-950 shadow-md scale-105'
+                        : 'text-sky-800 dark:text-sky-200 hover:bg-sky-300/60 dark:hover:bg-sky-800/80'
+                    ]">
+                    Binance (BEP20)
+                  </button>
+                </div>
+              
+                <!-- Title & Subtitle with matching min-height -->
+                <div class="min-h-[64px] flex flex-col justify-center mb-4">
+                  <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                    {{ cryptoTitle }}
+                  </h3>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    {{ cryptoSubtitle }}
+                  </p>
+                </div>
+              
+                <!-- QR Code Box -->
                 <div 
-                  @click="copyToClipboard(cryptoAddress, $t('donate.cryptoName'))" 
+                  @click="copyToClipboard(cryptoAddress, cryptoTitle)" 
                   class="group relative inline-block p-3 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer transition-transform hover:scale-105 mb-4"
-                  :title="$t('donate.cryptoName') + ' - ' + $t('donate.clickToCopy')">
-                  <img src="/src/assets/Donate/QR-Code-Trust-Wallet.webp" alt="Trust Wallet QR Code" class="w-40 h-40 object-contain mx-auto rounded-lg" />
+                  :title="cryptoTitle + ' - ' + $t('donate.clickToCopy')">
+                  <img 
+                    :src="cryptoQrImage" 
+                    :alt="cryptoAltText" 
+                    class="w-40 h-40 object-contain mx-auto rounded-lg" />
                   <div class="absolute inset-0 bg-black/60 rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-medium transition-opacity">
                     {{ $t("donate.copyAddress") }}
                   </div>
                 </div>
-
-                <!-- 34-character address and copy button -->
+              
+                <!-- Copy Address Box -->
                 <div class="w-full bg-white dark:bg-gray-800 p-2.5 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-between gap-2">
                   <span class="text-xs font-mono text-gray-600 dark:text-gray-300 truncate dir-ltr" :title="cryptoAddress">
                     {{ cryptoAddress }}
                   </span>
                   <button 
-                    @click="copyToClipboard(cryptoAddress, $t('donate.cryptoName'))" 
+                    @click="copyToClipboard(cryptoAddress, cryptoTitle)" 
                     class="shrink-0 px-3 py-1.5 text-xs font-medium bg-sky-600 hover:bg-sky-700 text-white rounded-lg transition-colors flex items-center gap-1">
                     <span>{{ $t("donate.copy") }}</span>
                   </button>
                 </div>
               </div>
-
-              <div class="w-full mt-4 p-2 text-center text-[11px] text-sky-800 dark:text-sky-300 bg-sky-100/70 dark:bg-sky-900/40 rounded-xl">
-                ⚠️ {{ $t("donate.cryptoWarning") }}
+            
+              <!-- Warning text aligned with direct link button height -->
+              <div class="w-full mt-4 p-2 text-center text-[11px] text-sky-800 dark:text-sky-300 bg-sky-100/70 dark:bg-sky-900/40 rounded-xl min-h-[42px] flex items-center justify-center">
+                ⚠️ {{ cryptoWarning }}
               </div>
             </div>
           </div>
-
-          <!-- Medal Footnote -->
+        
+          <!-- Modal Footnote -->
           <div class="text-center pb-6 pt-2 px-6">
             <span class="text-xs text-gray-400 dark:text-gray-500">
               {{ $t("donate.footerNote") }}
@@ -234,17 +284,21 @@ export default {
       isModalOpen: false,
       toastMessage: "",
       coffeeteUrl: "https://www.coffeete.ir/obkdev",
-      cryptoAddress: "TA7EZq1AD2uN9UeWaEUnWnjYgjhSAwGMzM",
+      cryptoNetwork: "tron",
+      cryptoAddressTron: "TA7EZq1AD2uN9UeWaEUnWnjYgjhSAwGMzM",
+      cryptoAddressBnb: "0x530d4C4f0790f5F42b45f5Ab928f4eF319c3c04E",
     };
   },
   methods: {
     openModal() {
       this.isModalOpen = true;
       window.addEventListener("keydown", this.handleKeyDown);
+      window.dispatchEvent(new CustomEvent("modal-toggle", { detail: true }));
     },
     closeModal() {
       this.isModalOpen = false;
       window.removeEventListener("keydown", this.handleKeyDown);
+      window.dispatchEvent(new CustomEvent("modal-toggle", { detail: false }));
     },
     handleKeyDown(event) {
       if (event.key === "Escape") {
@@ -266,6 +320,36 @@ export default {
       }, 3000);
     },
   },
+  computed: {
+    cryptoAddress() {
+      return this.cryptoNetwork === "bnb" ? this.cryptoAddressBnb : this.cryptoAddressTron;
+    },
+    cryptoQrImage() {
+      return this.cryptoNetwork === "bnb"
+        ? "/src/assets/Donate/Binance.webp"
+        : "/src/assets/Donate/QR-Code-Trust-Wallet.webp";
+    },
+    cryptoTitle() {
+      return this.cryptoNetwork === "bnb"
+        ? this.$t("donate.crypto.bnb.title")
+        : this.$t("donate.crypto.tron.title");
+    },
+    cryptoSubtitle() {
+      return this.cryptoNetwork === "bnb"
+        ? this.$t("donate.crypto.bnb.subtitle")
+        : this.$t("donate.crypto.tron.subtitle");
+    },
+    cryptoWarning() {
+      return this.cryptoNetwork === "bnb"
+        ? this.$t("donate.crypto.bnb.warning")
+        : this.$t("donate.crypto.tron.warning");
+    },
+    cryptoAltText() {
+      return this.cryptoNetwork === "bnb"
+        ? this.$t("donate.crypto.bnb.alt")
+        : this.$t("donate.crypto.tron.alt");
+  }
+},
   beforeUnmount() {
     window.removeEventListener("keydown", this.handleKeyDown);
   },
