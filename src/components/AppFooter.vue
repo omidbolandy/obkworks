@@ -327,7 +327,7 @@ export default {
     cryptoQrImage() {
       return this.cryptoNetwork === "bnb"
         ? "/src/assets/Donate/Binance.webp"
-        : "/src/assets/Donate/QR-Code-Trust-Wallet.webp";
+        : "/src/assets/Donate/Tron.webp";
     },
     cryptoTitle() {
       return this.cryptoNetwork === "bnb"
