@@ -103,7 +103,7 @@
             <p
               :dir="item.ltr ? 'ltr' : 'auto'"
               :class="item.key === 'isp' 
-                 ? 'text-gray-900 dark:text-white font-semibold text-sm sm:truncate break-words' 
+                 ? 'text-gray-900 dark:text-white font-semibold text-sm break-words' 
                  : 'text-gray-900 dark:text-white font-semibold text-sm truncate'">
               <img
                   v-if="item.key === 'country' && ipData.countryCode"
@@ -141,6 +141,7 @@
               class="border-0 block"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
+              sandbox="allow-scripts allow-same-origin"
             ></iframe>
             <!-- overlay -->
             <div
