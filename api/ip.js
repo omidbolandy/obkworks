@@ -35,6 +35,7 @@ export default async function handler(req) {
         timezone: data.timezone,
         lat: parseFloat(lat),
         lng: parseFloat(lng),
+        countryCode: data.country,
         source: 'ipinfo',
       };
     }
@@ -48,6 +49,7 @@ export default async function handler(req) {
         timezone: data.timezone?.id,
         lat: data.latitude,
         lng: data.longitude,
+        countryCode: data.country_code,
         source: 'ipwho',
       };
     }

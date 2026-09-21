@@ -62,6 +62,33 @@
           <p dir="ltr" class="text-3xl sm:text-4xl font-mono font-black bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-400 bg-clip-text text-transparent tracking-tight">
             {{ ipData.ip }}
           </p>
+          <button
+            @click="copyIP"
+            class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
+            {{ copied ? $t("itInfrastructureTools.pages.ipLookup.copied") : $t("itInfrastructureTools.pages.ipLookup.copy") }}
+          </button>
+        </div>
+
+        <!-- Browser & OS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-2xl bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
+            <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">
+              {{ $t("itInfrastructureTools.pages.ipLookup.browser") }}
+            </p>
+            <p class="text-gray-900 dark:text-white font-semibold text-sm flex items-center gap-2">
+              <img v-if="clientInfo?.browserIcon" :src="clientInfo.browserIcon" class="w-5 h-5" alt="browser icon" />
+              <span v-else>🌐</span>
+              {{ clientInfo?.browser }}
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-gray-100 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-colors duration-300">
+            <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">
+              {{ $t("itInfrastructureTools.pages.ipLookup.os") }}
+            </p>
+            <p class="text-gray-900 dark:text-white font-semibold text-sm">
+              {{ clientInfo?.os }}
+            </p>
+          </div>
         </div>
 
         <!-- Info Grid -->
@@ -78,7 +105,7 @@
               :class="item.key === 'isp' 
                  ? 'text-gray-900 dark:text-white font-semibold text-sm sm:truncate break-words' 
                  : 'text-gray-900 dark:text-white font-semibold text-sm truncate'">
-              {{ ipData[item.field] || $t("itInfrastructureTools.pages.ipLookup.unknown") }}
+              {{ item.key === 'country' ? getFlag(ipData.countryCode) + ' ' : '' }}{{ ipData[item.field] || $t("itInfrastructureTools.pages.ipLookup.unknown") }}
             </p>
           </div>
         </div>
@@ -110,9 +137,10 @@
             ></iframe>
             <!-- overlay -->
             <div
-              v-if="!ctrlPressed"
-              class="absolute inset-0 z-10 flex items-center justify-center bg-black/10 dark:bg-black/30 cursor-default"
-              @wheel.prevent>
+              v-if="!ctrlPressed && !isMobile"
+              class="absolute inset-0 z-10 flex items-center justify-center bg-black/10 dark:bg-black/30 cursor-pointer"
+              @wheel.prevent
+              @click="ctrlPressed = true">
               <span class="px-3 py-1.5 rounded-lg bg-black/50 text-white text-xs select-none">
                 {{ $t("itInfrastructureTools.pages.ipLookup.mapScroll") }}
               </span>
@@ -132,7 +160,56 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, getCurrentInstance } from 'vue'
+import { ref, computed, onMounted, getCurrentInstance, watch } from 'vue'
+
+import chromeIcon from '@/assets/browsers/chrome.svg'
+import firefoxIcon from '@/assets/browsers/firefox.svg'
+import edgeIcon from '@/assets/browsers/edge.svg'
+import safariIcon from '@/assets/browsers/safari.svg'
+import operaIcon from '@/assets/browsers/opera.svg'
+
+// National flag
+const getFlag = (code) => {
+  if (!code) return ''
+  return code.toUpperCase().replace(/./g, c =>
+    String.fromCodePoint(c.charCodeAt(0) + 127397))
+}
+
+// Browser and Operating System
+const getBrowserInfo = () => {
+  const ua = navigator.userAgent
+  let browser = 'Unknown'
+  let browserIcon = null
+
+  if (ua.includes('Firefox')) { browser = 'Firefox'; browserIcon = firefoxIcon }
+  else if (ua.includes('Edg')) { browser = 'Edge'; browserIcon = edgeIcon }
+  else if (ua.includes('Chrome')) { browser = 'Chrome'; browserIcon = chromeIcon }
+  else if (ua.includes('Safari')) { browser = 'Safari'; browserIcon = safariIcon }
+  else if (ua.includes('Opera')) { browser = 'Opera'; browserIcon = operaIcon }
+
+  let os = 'Unknown'
+  if (ua.includes('Windows')) os = 'Windows'
+  else if (ua.includes('Mac')) os = 'macOS'
+  else if (ua.includes('Linux')) os = 'Linux'
+  else if (ua.includes('Android')) os = 'Android'
+  else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS'
+
+  return { browser, browserIcon, os }
+}
+
+const copied = ref(false)
+
+async function copyIP() {
+  try {
+    await navigator.clipboard.writeText(ipData.value.ip)
+    copied.value = true
+    setTimeout(() => copied.value = false, 2000)
+  } catch {
+    // fallback
+  }
+}
+
+const clientInfo = ref(null)
 
 const instance = getCurrentInstance()
 const locale = computed(() => instance?.proxy?.$i18n?.locale || 'en')
@@ -141,6 +218,8 @@ const ipData = ref(null)
 const loading = ref(true)
 const error = ref(false)
 const ctrlPressed = ref(false)
+
+const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
 
 const infoItems = [
   { key: 'city',     field: 'city',     ltr: false },
@@ -173,6 +252,7 @@ async function fetchIP() {
 }
 
 onMounted(() => {
+  clientInfo.value = getBrowserInfo()
   fetchIP()
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Control') ctrlPressed.value = true
@@ -181,13 +261,18 @@ onMounted(() => {
     if (e.key === 'Control') ctrlPressed.value = false
   })
   let touchCount = 0
-window.addEventListener('touchstart', (e) => {
-  touchCount = e.touches.length
-  if (touchCount >= 2) ctrlPressed.value = true
+  window.addEventListener('touchstart', (e) => {
+    touchCount = e.touches.length
+    if (touchCount >= 2) ctrlPressed.value = true
+  })
+  window.addEventListener('touchend', () => {
+    touchCount = 0
+    ctrlPressed.value = false
+  })
 })
-window.addEventListener('touchend', () => {
-  touchCount = 0
-  ctrlPressed.value = false
+
+watch(locale, () => {
+  fetchIP()
 })
-})
+
 </script>

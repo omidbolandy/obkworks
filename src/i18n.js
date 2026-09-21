@@ -211,6 +211,10 @@ const messages = {
                     dataSource: "Data Source",
                     unknown: "Unknown",
                     mapScroll: "Hold Ctrl to scroll the map",
+                    browser: "Browser",
+                    os: "Operating System",
+                    copy: "Copy IP Address",
+                    copied: "Copied!",
                 },
                 ipSubnetCalculator: {
                     title: "IP Subnet Calculator",
@@ -2219,7 +2223,11 @@ const messages = {
                     coordinates: "مختصات",
                     dataSource: "منبع داده",
                     unknown: "نامشخص",
-                    mapScroll: "برای اسکرول Ctrl را نگه دارید"
+                    mapScroll: "برای اسکرول Ctrl را نگه دارید",
+                    browser: "مرورگر",
+                    os: "سیستم عامل",
+                    copy: "کپی آدرس IP",
+                    copied: "کپی شد!",
                 },
                 ipSubnetCalculator: {
                     title: "محاسبه‌گر ساب‌نت IP",
