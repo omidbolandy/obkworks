@@ -168,6 +168,11 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import neshangl from '@neshan-maps-platform/maplibre-sdk';
 import '@neshan-maps-platform/maplibre-sdk/dist/neshan-maplibre-sdk.css';
 
+// inline worker
+maplibregl.setWorkerUrl(
+  `https://unpkg.com/maplibre-gl@${maplibregl.version}/dist/maplibre-gl-csp-worker.js`
+);
+
 export default {
   name: 'MapPage',
 
