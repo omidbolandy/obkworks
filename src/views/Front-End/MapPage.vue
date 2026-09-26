@@ -202,8 +202,8 @@ export default {
 
     maptilerStyle() {
       return this.isDark
-        ? `https://api.maptiler.com/maps/streets-v2-dark/style.json?key=${import.meta.env.MAP_API}`
-        : `https://api.maptiler.com/maps/streets-v2/style.json?key=${import.meta.env.MAP_API}`;
+        ? `https://api.maptiler.com/maps/streets-v2-dark/style.json?key=${import.meta.env.VITE_MAP_API}`
+        : `https://api.maptiler.com/maps/streets-v2/style.json?key=${import.meta.env.VITE_MAP_API}`;
     },
 
     neshanStyle() {
@@ -246,7 +246,7 @@ export default {
       style: this.neshanStyle,
       center: [51.389, 35.6892],
       zoom: 11,
-      apiKey: import.meta.env.MAP_API_A,
+      apiKey: import.meta.env.VITE_MAP_API_A,
     });
     this.map.addControl(new maplibregl.NavigationControl(), 'top-right');
   } else {
