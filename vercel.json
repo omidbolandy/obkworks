@@ -28,7 +28,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/((?!assets/).*)",
+      "source": "/((?!assets/|api/).*)",
       "destination": "/index.html"
     }
   ]
