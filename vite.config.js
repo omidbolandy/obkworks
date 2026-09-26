@@ -10,9 +10,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  optimizeDeps: {
-    include: ['maplibre-gl'],
-  },
+    optimizeDeps: {
+      exclude: ['maplibre-gl'],
+    },
   build: {
     target: 'esnext',
     rollupOptions: {

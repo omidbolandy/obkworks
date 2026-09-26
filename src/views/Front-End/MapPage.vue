@@ -163,7 +163,7 @@
 </template>
 
 <script>
-import maplibregl from 'maplibre-gl';
+import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import neshangl from '@neshan-maps-platform/maplibre-sdk';
 import '@neshan-maps-platform/maplibre-sdk/dist/neshan-maplibre-sdk.css';
