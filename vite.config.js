@@ -13,9 +13,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['maplibre-gl'],
   },
-  worker: {
-    format: 'es',
-  },
   build: {
     rollupOptions: {
       output: {
