@@ -47,6 +47,11 @@ const routes = [
         meta: { title: 'Weather App | obkworks', description: { fa: 'برنامه هواشناسی آنلاین برای مشاهده وضعیت آب و هوا و پیش بینی دما در شهرهای مختلف.', en: 'Real-time weather application to check temperature, forecast, and atmospheric conditions globally.' } }
     },
     {
+        path: '/Projects/Front-End/MapPage', name: 'MapPage',
+        component: () => import('../views/Front-End/MapPage.vue'),
+        meta: { title: 'Map | obkworks', description: {  fa: 'نقشه‌ی تعاملی با جستجوی آدرس و بهینه‌سازی خودکار بر اساس منطقه‌ی جغرافیایی کاربر.',  en: 'Interactive map with address search, automatically optimized based on the user\'s region.'}}
+    },
+    {
         path: '/Projects/Front-End/TodoList', name: 'TodoList',
         component: () => import('../views/Front-End/TodoList.vue'),
         meta: { title: 'Todo List App | obkworks', description: { fa: 'ابزار مدیریت کارهای روزانه برای ثبت، ویرایش و دسته بندی لیست وظایف.', en: 'A clean todo list application for organizing daily tasks, tracking progress, and managing activities.' } }

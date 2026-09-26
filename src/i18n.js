@@ -55,6 +55,11 @@ const messages = {
                         description: 'Live weather app with search and detailed forecast information.',
                         link: 'Open Weather',
                     },
+                    MapPage: {
+                        title: 'Map',
+                        description: 'Interactive map with address search, optimized for your region.',
+                        link: 'Open Map',
+                    },
                     calendar: {
                         title: 'Calendar',
                         description: 'Interactive calendar with localized dates and holiday details.',
@@ -2031,6 +2036,18 @@ const messages = {
               }
             }
         },
+        // map page en language
+        map: {
+            title: 'Map',
+            searchPlaceholder: 'Search address...',
+            noResults: 'No results found',
+            switchToNeshan: 'Neshan Map',
+            switchToMaptiler: 'Global Map',
+            searching: 'Searching...',
+            errorSearch: 'Search failed, please try again',
+            title: "Map",
+            attribution: "Powered by"
+        },
 
     },
     // fa language
@@ -2081,6 +2098,11 @@ const messages = {
                         title: 'آب‌وهوا',
                         description: 'اپلیکیشن آب و هوا با جستجو و اطلاعات پیش‌بینی دقیق.',
                         link: 'باز کردن آب‌وهوا',
+                    },
+                    MapPage: {
+                        title: 'نقشه',
+                        description: 'نقشه‌ی تعاملی با جستجوی آدرس، بهینه‌شده برای منطقه‌ی شما.',
+                        link: 'باز کردن نقشه',
                     },
                     calendar: {
                         title: 'تقویم',
@@ -4116,6 +4138,18 @@ const messages = {
                 alt: "بارکد واریز تتر شبکه بایننس BEP20"
               }
             }
+        },
+        // map page fa language
+        map: {
+            title: 'نقشه',
+            searchPlaceholder: 'جستجوی آدرس...',
+            noResults: 'نتیجه‌ای یافت نشد',
+            switchToNeshan: 'نقشه‌ی نشان',
+            switchToMaptiler: 'نقشه‌ی جهانی',
+            searching: 'در حال جستجو...',
+            errorSearch: 'خطا در جستجو، دوباره تلاش کنید',
+            title: "نقشه",
+            attribution: "ارائه‌شده توسط"
         },
 
     },

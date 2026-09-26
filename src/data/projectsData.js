@@ -133,11 +133,11 @@ export const projects = [
         path: '/Projects/Networking/SqlServerLab',
     },
     {
-        id: 'ip-lookup',
+        id: 'My-IP-Info',
         category: 'itInfrastructureTools',
         titleKey: 'projectsPage.itInfrastructureTools.items.ipLookup.title',
         descriptionKey: 'projectsPage.itInfrastructureTools.items.ipLookup.description',
-        path: '/Projects/IT-Infrastructure-Tools/ip-lookup',
+        path: '/Projects/IT-Infrastructure-Tools/My-IP-Info',
     },
     {
         id: 'ip-subnet-calculator',

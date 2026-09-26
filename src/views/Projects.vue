@@ -53,6 +53,9 @@
           <ProjectLinkCard :title="$t('projectsPage.frontEnd.items.weather.title')"
             :description="$t('projectsPage.frontEnd.items.weather.description')" to="/Projects/Front-End/Weather"
             :link-text="$t('projectsPage.frontEnd.items.weather.link')" />
+            <ProjectLinkCard :title="$t('projectsPage.frontEnd.items.MapPage.title')"
+            :description="$t('projectsPage.frontEnd.items.MapPage.description')" to="/Projects/Front-End/MapPage"
+            :link-text="$t('projectsPage.frontEnd.items.MapPage.link')" />
           <ProjectLinkCard :title="$t('projectsPage.frontEnd.items.todo.title')"
             :description="$t('projectsPage.frontEnd.items.todo.description')" to="/Projects/Front-End/TodoList"
             :link-text="$t('projectsPage.frontEnd.items.todo.link')" />
