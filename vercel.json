@@ -1,4 +1,15 @@
 {
+  "headers": [
+    {
+      "source": "/assets/(.*).mjs",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/Projects/:path*",
