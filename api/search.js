@@ -27,6 +27,8 @@ function normalizeMaptiler(data) {
 }
 
 export default async function handler(req, res) {
+  console.log('country:', req.headers['x-vercel-ip-country']);
+  console.log('query:', req.query);
   const ip = req.headers['x-forwarded-for'] || 'anonymous';
   const { success } = await ratelimit.limit(ip);
   if (!success) {
