@@ -27,8 +27,6 @@ function normalizeMaptiler(data) {
 }
 
 export default async function handler(req, res) {
-  console.log('country:', req.headers['x-vercel-ip-country']);
-  console.log('query:', req.query);
   const ip = req.headers['x-forwarded-for'] || 'anonymous';
   const { success } = await ratelimit.limit(ip);
   if (!success) {
@@ -50,13 +48,13 @@ export default async function handler(req, res) {
       const centerLng = lng || '51.3890';
       const response = await fetch(
         `https://api.neshan.org/v1/search?term=${encodeURIComponent(q)}&lat=${centerLat}&lng=${centerLng}`,
-        { headers: { 'Api-Key': process.env.MAP_API_A } }
+        { headers: { 'Api-Key': process.env.VITE_MAP_API_A } }
       );
       const data = await response.json();
       results = normalizeNeshan(data);
     } else {
       const response = await fetch(
-        `https://api.maptiler.com/geocoding/${encodeURIComponent(q)}.json?key=${process.env.MAP_API}`
+        `https://api.maptiler.com/geocoding/${encodeURIComponent(q)}.json?key=${process.env.VITE_MAP_API}`
       );
       const data = await response.json();
       results = normalizeMaptiler(data);
@@ -64,7 +62,6 @@ export default async function handler(req, res) {
 
     res.status(200).json({ results, provider: country === 'IR' ? 'neshan' : 'maptiler' });
     } catch (err) {
-      console.error('Search error:', err.message, err.stack);
       res.status(500).json({ error: 'Search failed' });
     }
 }
