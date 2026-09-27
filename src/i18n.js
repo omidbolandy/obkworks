@@ -220,6 +220,8 @@ const messages = {
                     os: "Operating System",
                     copy: "Copy IP Address",
                     copied: "Copied!",
+                    attribution: "Data by:",
+                    active: "active",
                 },
                 ipSubnetCalculator: {
                     title: "IP Subnet Calculator",
@@ -2264,6 +2266,8 @@ const messages = {
                     os: "سیستم عامل",
                     copy: "کپی آدرس IP",
                     copied: "کپی شد!",
+                    attribution: "منبع اطلاعات:",
+                    active: "فعال",
                 },
                 ipSubnetCalculator: {
                     title: "محاسبه‌گر ساب‌نت IP",

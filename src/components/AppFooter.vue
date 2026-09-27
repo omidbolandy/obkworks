@@ -100,7 +100,7 @@
           <!-- Close button (X) -->
           <button 
             @click="closeModal" 
-            class="absolute top-4 left-4 z-10 p-2 text-gray-400 hover:text-gray-700 dark:hover:text-white bg-gray-100 dark:bg-gray-800 rounded-full transition-colors"
+            class="absolute top-4 end-4 z-10 p-2 text-gray-400 hover:text-gray-700 dark:hover:text-white bg-gray-100 dark:bg-gray-800 rounded-full transition-colors"
             title="Esc">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -108,8 +108,8 @@
           </button>
         
           <!-- Modal Header -->
-          <div class="text-center pt-8 pb-4 px-6 border-b border-gray-100 dark:border-gray-800">
-            <h2 class="text-2xl font-extrabold text-gray-900 dark:text-white flex items-center justify-center gap-2">
+          <div class="text-center pt-8 pb-4 px-8 sm:px-12 border-b border-gray-100 dark:border-gray-800">
+            <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white flex items-center justify-center gap-2">
               {{ $t("donate.title") }}
             </h2>
             <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 max-w-lg mx-auto leading-relaxed">
@@ -153,13 +153,13 @@
                   </div>
                 </div>
               
-                <!-- Copy Link Box -->
+                <!-- Coffeete Link Box -->
                 <div class="w-full bg-white dark:bg-gray-800 p-2.5 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-between gap-2">
-                  <span class="text-xs font-mono text-gray-600 dark:text-gray-300 truncate dir-ltr">
+                  <span class="text-xs font-mono text-gray-600 dark:text-gray-300 break-all whitespace-normal sm:whitespace-nowrap sm:truncate dir-ltr" :title="coffeeteUrl">
                     {{ coffeeteUrl }}
                   </span>
                   <button 
-                    @click="copyToClipboard(coffeeteUrl, $t('donate.domesticName'))" 
+                    @click="copyToClipboard(coffeeteUrl, 'Coffeete')" 
                     class="shrink-0 px-3 py-1.5 text-xs font-medium bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors flex items-center gap-1">
                     <span>{{ $t("donate.copy") }}</span>
                   </button>
@@ -235,7 +235,7 @@
               
                 <!-- Copy Address Box -->
                 <div class="w-full bg-white dark:bg-gray-800 p-2.5 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-between gap-2">
-                  <span class="text-xs font-mono text-gray-600 dark:text-gray-300 truncate dir-ltr" :title="cryptoAddress">
+                  <span class="text-xs font-mono text-gray-600 dark:text-gray-300 break-all whitespace-normal dir-ltr" :title="cryptoAddress">
                     {{ cryptoAddress }}
                   </span>
                   <button 
@@ -288,7 +288,7 @@ export default {
       isModalOpen: false,
       toastMessage: "",
       coffeeteUrl: "https://www.coffeete.ir/obkdev",
-      cryptoNetwork: "tron",
+      cryptoNetwork: "bnb",
       cryptoAddressTron: "TA7EZq1AD2uN9UeWaEUnWnjYgjhSAwGMzM",
       cryptoAddressBnb: "0x530d4C4f0790f5F42b45f5Ab928f4eF319c3c04E",
       coffeeteQrImage: coffeeteQr,

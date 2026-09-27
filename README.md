@@ -16,7 +16,7 @@ https://www.obkworks.tr
 
 ## ℹ️ Project Information
 
-- **Version:** 1.1.2
+- **Version:** 1.2.0
 - **Status:** Stable
 - **License:** © 2026 obk Portfolio. All rights reserved.
 
@@ -36,6 +36,8 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 - 🌙 Dark & Light Theme
 - 📱 Responsive Design
 - 🌦 Weather Application
+- 🗺️ Interactive Map (MapTiler & Neshan Platform)
+- 📡 My IP & Network Geolocation Tool
 - 📅 Date & Time Utilities
 - 🧮 IT Infrastructure Tools (Subnet Calculator, IP Info, RAID, CCTV Storage, etc.)
 - 📚 Technical Articles
@@ -63,11 +65,24 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 - Cloudflare DNS
 - Vercel
 
-### APIs
+### Database & Caching
 
-- IPInfo API (Public IP, GeoLocation & ISP Details)
-- OpenWeatherMap API
-- ExchangeRate API
+- Upstash (Serverless Redis)
+
+### External APIs & Services
+
+- **Maps & Geocoding:**
+  - MapTiler API
+  - Neshan Maps API
+  - Nominatim API (OpenStreetMap)
+
+- **IP & Location:**
+  - IPInfo API
+  - IPWho API
+
+- **Financial & Utilities:**
+  - OpenWeatherMap API
+  - ExchangeRate API
 
 ---
 
@@ -76,7 +91,8 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 ### Front-end Projects
 
 - Financial Calculator
-- Weather Application (Secure Weather API using Cloudflare Pages Functions)
+- Weather Application
+- Map
 - Todo List
 - Calendar
 - Unit Conversion

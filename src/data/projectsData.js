@@ -14,6 +14,13 @@ export const projects = [
         path: '/Projects/Front-End/Weather',
     },
     {
+        id: 'map',
+        category: 'frontEnd',
+        titleKey: 'projectsPage.frontEnd.items.MapPage.title',
+        descriptionKey: 'projectsPage.frontEnd.items.MapPage.description',
+        path: '/Projects/Front-End/MapPage',
+    },
+    {
         id: 'todo-list',
         category: 'frontEnd',
         titleKey: 'projectsPage.frontEnd.items.todo.title',
@@ -174,4 +181,5 @@ export const projects = [
         descriptionKey: 'projectsPage.itInfrastructureTools.items.dataUnitConverter.description',
         path: '/Projects/IT-Infrastructure-Tools/data-unit-converter',
     },
+
 ];
