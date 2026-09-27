@@ -16,19 +16,7 @@ function normalizeNeshan(data) {
   }));
 }
 
-function normalizeMaptiler(data) {
-  if (!data.features) return [];
-  return data.features.map(feature => ({
-    title: feature.text,
-    address: feature.place_name,
-    lat: feature.center?.[1],
-    lng: feature.center?.[0],
-  }));
-}
-
 export default async function handler(req, res) {
-  console.log('country:', req.headers['x-vercel-ip-country']);
-  console.log('query:', req.query);
   const ip = req.headers['x-forwarded-for'] || 'anonymous';
   const { success } = await ratelimit.limit(ip);
   if (!success) {
@@ -54,17 +42,22 @@ export default async function handler(req, res) {
       );
       const data = await response.json();
       results = normalizeNeshan(data);
-    } else {
-      const response = await fetch(
-        `https://api.maptiler.com/geocoding/${encodeURIComponent(q)}.json?key=${process.env.VITE_MAP_API}`
-      );
-      const data = await response.json();
-      results = normalizeMaptiler(data);
-    }
+      } else {
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=5`,
+          { headers: { 'User-Agent': 'obkworks.tr' } }
+        );
+        const data = await response.json();
+        results = data.map(item => ({
+          title: item.display_name.split(',')[0],
+          address: item.display_name,
+          lat: parseFloat(item.lat),
+          lng: parseFloat(item.lon),
+        }));
+      }
 
     res.status(200).json({ results, provider: country === 'IR' ? 'neshan' : 'maptiler' });
     } catch (err) {
-      console.error('Search error:', err.message, err.stack);
       res.status(500).json({ error: 'Search failed' });
     }
 }
