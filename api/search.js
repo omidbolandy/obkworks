@@ -63,7 +63,8 @@ export default async function handler(req, res) {
     }
 
     res.status(200).json({ results, provider: country === 'IR' ? 'neshan' : 'maptiler' });
-  } catch (err) {
-    res.status(500).json({ error: 'Search failed' });
-  }
+    } catch (err) {
+      console.error('Search error:', err.message, err.stack);
+      res.status(500).json({ error: 'Search failed' });
+    }
 }
