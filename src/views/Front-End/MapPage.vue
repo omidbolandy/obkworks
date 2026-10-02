@@ -50,14 +50,24 @@
         </div>
 
         <!-- Toggle Switcher Button -->
-        <button
-          @click="toggleProvider"
-          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800/80 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 border-gray-200/80 dark:border-gray-700/80 shadow-sm hover:shadow active:scale-[0.98]">
-          <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-          </svg>
-          <span>{{ activeProvider === 'neshan' ? $t('map.switchToMaptiler') : $t('map.switchToNeshan') }}</span>
-        </button>
+        <div class="inline-flex rounded-xl border border-gray-200/80 dark:border-gray-700/80 overflow-hidden shadow-sm bg-gray-100/80 dark:bg-gray-800/50 p-0.5 gap-0.5">
+          <button
+            @click="activeProvider = 'neshan'; toggleProvider()"
+            :class="activeProvider === 'neshan' 
+              ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm' 
+              : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'"
+            class="px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200">
+            Neshan
+          </button>
+          <button
+            @click="activeProvider = 'maptiler'; toggleProvider()"
+            :class="activeProvider === 'maptiler' 
+              ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm' 
+              : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'"
+            class="px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200">
+            MapTiler
+          </button>
+        </div>
       </div>
 
       <!-- Modern Search Bar -->
@@ -144,16 +154,26 @@
               d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
           </svg>
           <span>{{ $t("map.attribution") }}</span>
-          
-          <a v-if="activeProvider === 'neshan'"
-            href="https://platform.neshan.org" target="_blank" rel="noopener noreferrer nofollow" dir="ltr"
-            class="font-medium text-gray-500 underline decoration-dotted underline-offset-2 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
-            Neshan Maps Platform
+          <a href="https://platform.neshan.org" target="_blank" rel="noopener noreferrer nofollow"
+            class="font-medium underline decoration-dotted underline-offset-2 transition-colors inline-flex items-center gap-1.5"
+            :class="activeProvider === 'neshan'
+              ? 'text-blue-600 dark:text-blue-400'
+              : 'text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'">
+            <span dir="ltr" class="font-sans">Neshan Maps Platform</span>
+            <span v-if="activeProvider === 'neshan'" class="text-xs">
+              ({{ $t('itInfrastructureTools.pages.ipLookup.active') }})
+            </span>
           </a>
-          <a v-else
-            href="https://www.maptiler.com" target="_blank" rel="noopener noreferrer nofollow" dir="ltr"
-            class="font-medium text-gray-500 underline decoration-dotted underline-offset-2 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
-            MapTiler
+          <span>·</span>
+          <a href="https://www.maptiler.com" target="_blank" rel="noopener noreferrer nofollow"
+            class="font-medium underline decoration-dotted underline-offset-2 transition-colors inline-flex items-center gap-1.5"
+            :class="activeProvider === 'maptiler'
+              ? 'text-blue-600 dark:text-blue-400'
+              : 'text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'">
+            <span dir="ltr" class="font-sans">MapTiler</span>
+            <span v-if="activeProvider === 'maptiler'" class="text-xs">
+              ({{ $t('itInfrastructureTools.pages.ipLookup.active') }})
+            </span>
           </a>
         </p>
       </div>
@@ -168,7 +188,6 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import neshangl from '@neshan-maps-platform/maplibre-sdk';
 import '@neshan-maps-platform/maplibre-sdk/dist/neshan-maplibre-sdk.css';
 
-maplibregl.setWorkerUrl('/maplibre-worker.js');
 
 export default {
   name: 'MapPage',
@@ -263,7 +282,6 @@ export default {
 },
 
     toggleProvider() {
-      this.activeProvider = this.activeProvider === 'neshan' ? 'maptiler' : 'neshan';
       if (this.map) {
         this.map.remove();
         this.map = null;

@@ -2,15 +2,24 @@
   <footer class="bg-gray-100 dark:bg-[#1a2030] rounded-2xl mx-4 relative">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
       <div class="md:flex md:justify-between mx-5 mb-8">
-        <div class="mb-12 md:mb-0 md:max-w-xs">
 
-          <!-- obk Icon -->
-          <router-link class="flex items-center self-center text-2xl max-[425px]:text-xl max-[320px]:text-lg font-semibold whitespace-nowrap dark:text-white"
-            to="/">
-            <img src="/src/assets/obk-Logo-2.webp" class="w-10 h-10 mx-2 sm:h-16 sm:w-16 rounded-full"
-              alt="obkProject Logo" />
-            {{ $t("appName") }}
+        <div class="mb-12 md:mb-0 md:max-w-xs">
+          <!-- Logo -->
+          <router-link
+            to="/"
+            :dir="$i18n.locale === 'fa' ? 'rtl' : 'ltr'"
+            class="flex items-center shrink-0 min-w-0 gap-2 transition-all duration-200 w-fit max-[425px]:mx-auto max-[425px]:justify-center">
+            <img
+              src="/src/assets/obk-Logo-2.webp"
+              class="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full shrink-0"
+              alt="obkProject Logo"/>
+            <span class="h-5 sm:h-6 md:h-7 w-[1.5px] bg-gray-400 dark:bg-gray-500 shrink-0"></span>
+            <span
+              class="self-center whitespace-nowrap font-semibold hidden min-[280px]:inline text-xs sm:text-sm md:text-base lg:text-xl text-gray-900 dark:text-white">
+              {{ $t("appName") }}
+            </span>
           </router-link>
+
           <p class="text-start leading-6 mt-3 max-sm:text-sm text-[0.9375rem] text-gray-500 dark:text-gray-400">
             {{ $t("footer.tagline") }}
           </p>
@@ -383,3 +392,4 @@ export default {
   direction: ltr;
 }
 </style>
+

@@ -5,11 +5,15 @@
       class="flex flex-wrap items-center justify-between max-w-screen-xl px-1.5 sm:px-3 md:px-4 mx-auto">
 
       <!-- Logo -->
-      <router-link to="/" :class="['flex items-center shrink-0 min-w-0 transition-all duration-200', searchExpanded ? 'max-[639px]:hidden' : '']">
+      <router-link
+        to="/"
+        :dir="$i18n.locale === 'fa' ? 'rtl' : 'ltr'"
+        :class="['flex px-2 items-center shrink-0 min-w-0 gap-2 transition-all duration-200', searchExpanded ? 'max-[639px]:hidden' : '']">
         <img
           src="/src/assets/obk-Logo-2.webp"
-          class="w-7 h-7 mx-1 sm:w-9 sm:h-9 sm:mx-1.5 md:w-10 md:h-10 md:mx-2 lg:w-14 lg:h-14 rounded-full shrink-0"
+          class="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full shrink-0"
           alt="obkProject Logo"/>
+        <span class="h-5 sm:h-6 md:h-7 w-[1.5px] bg-gray-400 dark:bg-gray-500 shrink-0"></span>
         <span
           class="self-center whitespace-nowrap font-semibold hidden min-[280px]:inline text-xs sm:text-sm md:text-base lg:text-xl text-gray-900 dark:text-white">
           {{ $t("appName") }}
@@ -122,7 +126,7 @@
           </svg>
         </button>
       
-        <!-- Dropdown Menu (هم‌اندازه با دکمه بالایی) -->
+        <!-- Dropdown Menu -->
         <div
           v-if="localeDropdownOpen"
           class="absolute start-0 end-0 z-20 mt-2 w-full min-w-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">

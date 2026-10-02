@@ -91,6 +91,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.obkworks.tr/Projects/Front-End/MapPage</loc>
+    <lastmod>2026-10-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.obkworks.tr/Projects/Front-End/TodoList</loc>
     <lastmod>2026-09-14</lastmod>
     <priority>0.8</priority>
@@ -187,6 +192,11 @@
   <url>
     <loc>https://www.obkworks.tr/Projects/IT-Infrastructure-Tools/ip-subnet-calculator</loc>
     <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.obkworks.tr/Projects/IT-Infrastructure-Tools/TroubleshootingSimulator</loc>
+    <lastmod>2026-10-02</lastmod>
     <priority>0.8</priority>
   </url>
   <url>

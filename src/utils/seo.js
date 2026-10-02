@@ -1,6 +1,6 @@
 import logoUrl from '../assets/obk-Logo.webp';
 
-const SITE_URL = 'https://obkworks.tr';
+const SITE_URL = 'https://www.obkworks.tr';
 const SITE_NAME = 'obkworks';
 const DEFAULT_IMAGE = new URL(logoUrl, window.location.origin).href;
 

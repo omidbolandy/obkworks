@@ -437,8 +437,8 @@ export default {
       "@type": "Person",
       name: "Omid Bolandy Natag",
       alternateName: ["امید بلندی نتاج", "obkworks"],
-      image: `https://obkworks.tr${logoImg}`,
-      url: "https://obkworks.tr",
+      image: `https://www.obkworks.tr${logoImg}`,
+      url: "https://www.obkworks.tr",
       email: "omidbolandy@gmail.com",
       sameAs: [
         "https://github.com/omidbolandy",

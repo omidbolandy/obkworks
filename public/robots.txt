@@ -40,4 +40,4 @@ Disallow: /
 User-agent: PetalBot
 Disallow: /
 
-Sitemap: https://obkworks.tr/sitemap.xml
+Sitemap: https://www.obkworks.tr/sitemap.xml

@@ -9,7 +9,12 @@ const matchesQuery = (values, query) => {
     const normalizedQuery = normalizeText(query).trim();
     if (!normalizedQuery) return false;
 
-    return values.some((value) => normalizeText(value).includes(normalizedQuery));
+    return values.some((value) => {
+        if (Array.isArray(value)) {
+            return value.some((item) => normalizeText(item).includes(normalizedQuery));
+        }
+        return normalizeText(value).includes(normalizedQuery);
+    });
 };
 
 export const searchContent = (query, locale, translate) => {
@@ -44,6 +49,7 @@ export const searchContent = (query, locale, translate) => {
             project.title,
             project.description,
             project.category,
+            project.keywords || [],
         ], normalizedQuery));
 
     return { articles: matchingArticles, projects: matchingProjects };

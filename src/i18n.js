@@ -15,7 +15,7 @@ const locale = storedLocale || DEFAULT_LOCALE
 const messages = {
     // en language
     en: {
-        appName: 'obk Portfolio',
+        appName: 'Works',
         nav: {
             home: 'Home',
             articles: 'Articles',
@@ -2059,7 +2059,7 @@ const messages = {
     },
     // fa language
     fa: {
-        appName: 'نمونه‌کارهای obk',
+        appName: 'نمونه‌کارها',
         nav: {
             home: 'خانه',
             articles: 'مقالات',

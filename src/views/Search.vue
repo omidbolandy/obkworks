@@ -54,9 +54,17 @@
       </section>
     </template>
 
-    <p v-else class="rounded-xl border border-dashed border-gray-300 px-4 py-10 text-center text-gray-500 dark:border-gray-700 dark:text-gray-400">
-      {{ $t('search.noResults') }}
-    </p>
+    <div v-else class="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-200 bg-gray-50/50 px-6 py-14 text-center transition-colors dark:border-gray-800 dark:bg-gray-900/40">
+      <div class="mb-4 rounded-2xl bg-gray-100 p-3.5 text-gray-400 dark:bg-gray-800 dark:text-gray-500">
+        <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+        </svg>
+      </div>
+      <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100">
+        {{ $t('search.noResults') }}
+      </h3>
+    </div>
+
   </main>
 </template>
 

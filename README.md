@@ -4,9 +4,12 @@ A modern bilingual portfolio website built to showcase my IT skills, projects, a
 
 [![Vue.js](https://img.shields.io/badge/Vue.js-v3.x-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://obkworks.tr)
+[![MapLibre](https://img.shields.io/badge/MapLibre_GL-002240?style=for-the-badge&logo=maplibre&logoColor=white)](https://maplibre.org/)
+[![Upstash](https://img.shields.io/badge/Upstash_Redis-00E599?style=for-the-badge&logo=upstash&logoColor=black)](https://upstash.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 [![Cloudflare DNS](https://img.shields.io/badge/DNS-Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://www.cloudflare.com/dns/)
-[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](https://obkworks.tr)
+[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](https://www.obkworks.tr)
+
 
 ## 🚀 Live Portfolio
 
@@ -58,6 +61,7 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 - Vue I18n
 - Tailwind CSS
 - JavaScript (ES6+)
+- MapLibre GL JS
 
 ### Deployment
 
@@ -118,6 +122,7 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 
 - My IP Info
 - IP Subnet Calculator
+- Troubleshooting Simulator
 - CCTV Storage Calculator
 - RAID Calculator
 - VM Resource Allocator
@@ -167,8 +172,8 @@ npm run dev
 **Omid Bolandy Natag**
 
 - GitHub: [omidbolandy](https://github.com/omidbolandy)
-- Website: [obkworks.tr](https://obkworks.tr)
-- LinkedIn: [Omid Bolandy](https://www.linkedin.com/in/omid-bolandy/)
+- Website: [obkworks.tr](https://www.obkworks.tr)
+- LinkedIn: [omid bolandy](https://www.linkedin.com/in/omid-bolandy/)
 
 ---
 

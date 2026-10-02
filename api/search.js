@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       } else {
         const response = await fetch(
           `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=5`,
-          { headers: { 'User-Agent': 'obkworks.tr' } }
+          { headers: { 'User-Agent': 'www.obkworks.tr' } }
         );
         const data = await response.json();
         results = data.map(item => ({
