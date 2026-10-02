@@ -159,6 +159,11 @@
             to="/Projects/IT-Infrastructure-Tools/ip-subnet-calculator" 
               :link-text="$t('projectsPage.itInfrastructureTools.items.subnetCalculator.link')" />
           <ProjectLinkCard :title="$t(
+            'projectsPage.itInfrastructureTools.items.TroubleshootingSimulator.title')" 
+            :description="$t('projectsPage.itInfrastructureTools.items.TroubleshootingSimulator.description')" 
+            to="/Projects/IT-Infrastructure-Tools/TroubleshootingSimulator" 
+              :link-text="$t('projectsPage.itInfrastructureTools.items.TroubleshootingSimulator.link')" />
+          <ProjectLinkCard :title="$t(
             'projectsPage.itInfrastructureTools.items.cctvStorageCalculator.title')"
            :description="$t(
               'projectsPage.itInfrastructureTools.items.cctvStorageCalculator.description')

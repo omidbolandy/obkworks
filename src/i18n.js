@@ -173,6 +173,11 @@ const messages = {
                         description: 'Quickly calculate subnets, host values, and usable ranges.',
                         link: 'View Tool',
                     },
+                    TroubleshootingSimulator: {
+                        title: 'Troubleshooting Simulator',
+                        description: 'Interactive simulator for troubleshooting real-world Network and Windows issues using tools like ping, ipconfig, and nslookup.',
+                        link: 'View Tool',
+                    },
                     cctvStorageCalculator: {
                         title: 'CCTV Storage Calculator',
                         description: 'Estimate retention volume for CCTV recording systems.',
@@ -2217,6 +2222,11 @@ const messages = {
                     subnetCalculator: {
                         title: 'ماشین‌حساب IP Subnet',
                         description: 'محاسبه سریع ساب‌نت، مقدارها و بازه‌های میزبان.',
+                        link: 'مشاهده ابزار',
+                    },
+                    TroubleshootingSimulator: {
+                        title: 'شبیه‌ساز عیب‌یابی',
+                        description: 'شبیه‌ساز تعاملی عیب‌یابی مشکلات شبکه و ویندوز با ابزارهایی مثل ping، ipconfig و nslookup.',
                         link: 'مشاهده ابزار',
                     },
                     cctvStorageCalculator: {

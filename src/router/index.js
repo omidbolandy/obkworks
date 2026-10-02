@@ -151,6 +151,11 @@ const routes = [
         meta: { title: 'IP Subnet Calculator | obkworks', description: { fa: 'محاسبه گر سابنت IP و CIDR برای تعیین محدوده آدرس ها، نت ماسک، آدرس شبکه و Broadcast.', en: 'Calculate CIDR subnet masks, network ranges, broadcast addresses, and usable host IPs.' } }
     },
     {
+        path: '/Projects/IT-Infrastructure-Tools/TroubleshootingSimulator', name: 'TroubleshootingSimulator',
+        component: () => import('../views/IT-Infrastructure-Tools/TroubleshootingSimulator.vue'),
+        meta: { title: 'Troubleshooting Simulator | obkworks', description: { fa: 'شبیه ساز حل مسئله برای یادگیری و تمرین مهارت های رفع اشکال در زیرساخت های فناوری اطلاعات.', en: 'Troubleshooting simulator for learning and practicing IT infrastructure troubleshooting skills.' } }
+    },
+    {
         path: '/Projects/IT-Infrastructure-Tools/cctv-storage-calculator', name: 'CctvStorageCalculator',
         component: () => import('../views/IT-Infrastructure-Tools/CCTV-Storage-Calculator.vue'),
         meta: { title: 'CCTV Storage Calculator | obkworks', description: { fa: 'محاسبه گر هارد دوربین مداربسته جهت تخمین حجم ذخیره سازی و پهنای باند NVR/DVR بر اساس رزولوشن و تعداد دوربین.', en: 'Calculate required hard drive storage capacity and bandwidth for CCTV cameras and NVR/DVR systems.' } }
