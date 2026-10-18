@@ -19,7 +19,7 @@ https://www.obkworks.tr
 
 ## ℹ️ Project Information
 
-- **Version:** 1.3.1
+- **Version:** 1.4.0
 - **Status:** Stable
 - **License:** © 2026 obk Portfolio. All rights reserved.
 
@@ -29,24 +29,29 @@ https://www.obkworks.tr
 
 This website was developed as a personal portfolio to demonstrate practical experience in networking, system administration, virtualization, monitoring, and web development.
 
-The project is fully responsive and supports both Persian (RTL) and English (LTR).
+The website features a responsive interface, Persian (RTL) and English (LTR) language support, light and dark themes, interactive utilities, technical articles, and dedicated pages for contact and WordPress-related services.
 
 ---
 
 ## ✨ Features
 
-- 🌍 Bilingual (Persian / English)
-- 🌙 Dark & Light Theme
-- 📱 Responsive Design
-- 🌦 Weather Application
-- 🗺️ Interactive Map (MapTiler & Neshan Platform)
-- 📡 My IP & Network Geolocation Tool
-- 📅 Date & Time Utilities
-- 🧮 IT Infrastructure Tools (Subnet Calculator, IP Info, RAID, CCTV Storage, etc.)
-- 📚 Technical Articles
-- 💻 Front-end Projects
-- 🌐 Network Projects
-- 🔐 Secure API integration via Vercel
+- 🌍 Bilingual interface (Persian / English)
+- 🌙 Dark and light themes
+- 📱 Responsive design
+- 📬 Contact page with separate email and Telegram - contact forms
+- 🤖 Telegram-based support workflow
+- 🛡️ Server-side API validation, CAPTCHA - verification, and rate limiting
+- 🌐 WordPress services and resources page
+- 🌦 Weather application
+- 🗺️ Interactive maps and geolocation
+- 📡 IP information and network geolocation tools
+- 📅 Date and time utilities
+- 🧮 IT infrastructure tools, including subnet, RAID, - and CCTV storage calculators
+- 📚 Technical articles
+- 💻 Front-end projects
+- 🌐 Networking and infrastructure labs
+- 🔐 Serverless API integration via Vercel
+- ⚡ Redis-backed data storage and rate limiting
 
 ---
 
@@ -54,24 +59,24 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 
 ### Front-end
 
-- HTML
-- CSS
+- HTML5
+- CSS3
+- JavaScript (ES6+)
 - Vue.js 3
 - Vue Router
 - Vue I18n
 - Tailwind CSS
-- JavaScript (ES6+)
 - MapLibre GL JS
 
 ### Deployment
 
 - GitHub
-- Cloudflare DNS
 - Vercel
+- Cloudflare DNS
 
 ### Database & Caching
 
-- Upstash (Serverless Redis)
+- Upstash Redis
 
 ### External APIs & Services
 
@@ -87,6 +92,10 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 - **Financial & Utilities:**
   - OpenWeatherMap API
   - ExchangeRate API
+
+- **Communication & Messaging:**
+  - Telegram Bot API
+  - Resend Email API
 
 ---
 
@@ -130,6 +139,17 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 
 ---
 
+## 🌐 WordPress Websites & Services
+
+- 🛒 [obk | Store](https://store.obkworks.tr)
+- 🎫 [obk | Helpdesk](https://helpdesk.obkworks.tr)
+- 🏢 [obk | Company](https://company.obkworks.tr)
+- 📥 [obk | Downloads](https://downloads.obkworks.tr)
+- ⚙️ [obk | Automation](https://automation.obkworks.tr)
+- 📚 [obk | Docs](https://docs.obkworks.tr)
+
+---
+
 ## 📷 Screenshots
 
 ### 🏠 Home Overview
@@ -140,17 +160,30 @@ The project is fully responsive and supports both Persian (RTL) and English (LTR
 
 ![Projects Page](./screenshots/Projects.webp)
 
+### 🌐 WordPress Services
+
+![WordPress Services Page](./screenshots/WordPress.webp)
+
 ### 📚 Technical Articles
 
-![Articles Page](./screenshots/All-Articles.webp)
+![Articles Page](./screenshots/Articles.webp)
+
+### 📬 Contact & Support
+
+![Contact Page](./screenshots/Contact.webp)
 
 ---
 
 ## 📦 Installation
 
+### Prerequisites
+
+- Node.js and npm
+- Git
+
 ```bash
-git clone https://github.com/omidbolandy/repo-name.git
-cd repo-name
+git clone https://github.com/omidbolandy/obkworks.git
+cd obkworks
 npm install
 npm run dev
 ```
@@ -159,11 +192,12 @@ npm run dev
 
 ## 📈 Future Improvements
 
-- More Infrastructure Tools
-- Additional Network Labs
-- More Technical Articles
-- Performance Improvements
-- New Interactive Utilities
+- Additional IT infrastructure tools
+- More networking and system administration labs
+- More technical articles
+- Performance and accessibility improvements
+- Additional interactive utilities
+- Further enhancements to website services and - communication features
 
 ---
 
@@ -174,6 +208,8 @@ npm run dev
 - GitHub: [omidbolandy](https://github.com/omidbolandy)
 - Website: [obkworks.tr](https://www.obkworks.tr)
 - LinkedIn: [omid bolandy](https://www.linkedin.com/in/omid-bolandy/)
+- Email: [omidbolandy@gmail.com](https://mail.google.com/mail/?view=cm&fs=1&to=omidbolandy@gmail.com)
+- Telegram Support Bot: [obk Works Support](https://t.me/obkWorksBot)
 
 ---
 
