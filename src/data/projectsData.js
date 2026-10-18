@@ -206,5 +206,21 @@ export const projects = [
         path: '/Projects/IT-Infrastructure-Tools/data-unit-converter',
         keywords: ['محاسبه‌گر واحد داده', 'Data Unit Converter', 'Data Size Converter', 'File Size Converter', 'binary', 'decimal', 'data transfer units', 'bit', 'byte', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte', 'petabyte']
     },
+    {
+        id: 'wordpress',
+        category: 'wordpressShowcase',
+        titleKey: 'wordpressShowcase.title',
+        descriptionKey: 'wordpressShowcase.description',
+        path: '/wordpress',
+        keywords: ['وردپرس', 'ورد پرس', 'اتوماسیون', 'ای تی کمپانی', 'دانلود ها', 'هلپ دسک', 'پشتیبانی', 'فروشگاه', 'فروشگاه انلاین', 'WordPress', 'Word Press', 'automation', 'it company', 'docs', 'downloads', 'helpdesk', 'Store', 'Online Store']
+    },
+    {
+        id: 'contact',
+        category: 'contact',
+        titleKey: 'contact.title',
+        descriptionKey: 'contact.description',
+        path: '/contact',
+        keywords: ['تلگرام', 'ایمیل', 'ارتباط', 'تماس با من', 'Telegram', 'Email', 'Contact', 'Send a message', 'Get in Touch', 'Connect with me', 'GitHub', 'LinkedIn']
+    }
 
 ];

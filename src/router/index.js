@@ -181,6 +181,18 @@ const routes = [
         component: () => import('@/views/NotFound.vue'),
         meta: { title: '404 - Page Not Found | obkworks', description: { fa: 'صفحه مورد نظر شما پیدا نشد.', en: 'The requested page could not be found.' } }
     },
+    // Contact Page Route
+    {
+        path: '/contact', name: 'Contact',
+        component: () => import('@/views/Contact.vue'),
+        meta: { title: 'Contact | obkworks', description: { fa: 'صفحه تماس با ما.', en: 'Contact us page.' } }
+    },
+    // WordPress Page Route
+    {
+        path: '/wordpress', name: 'wordpress',
+        component: () => import('@/views/wordpress.vue'),
+        meta: { title: 'WordPress | obkworks', description: { fa: 'صفحه وردپرس.', en: 'WordPress page.' } }
+    },
 ]
 
 const router = createRouter({

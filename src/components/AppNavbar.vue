@@ -26,7 +26,7 @@
         <!-- Search Input Container -->
         <div
           ref="searchContainer"
-          :class="['relative transition-all duration-200', searchExpanded ? 'flex-1 min-w-0 overflow-visible' : 'w-0 overflow-hidden sm:w-32 sm:overflow-visible md:w-40 lg:w-56']">
+          :class="['relative transition-all duration-200', searchExpanded ? 'flex-1 min-w-0 overflow-visible' : 'w-0 overflow-hidden sm:w-32 sm:overflow-visible md:w-40 lg:w-48']">
           <form @submit.prevent="submitSearch" role="search" :class="{ 'max-[639px]:hidden': !searchExpanded }" class="relative">
             <label for="navbar-search" class="sr-only">{{ $t("search.inputLabel") }}</label>
             <input
@@ -194,11 +194,11 @@
         </div>
       </div>
 
-      <!-- Nav links: collapses on mobile, inline on lg+ -->
+      <!-- Nav links -->
       <div
         id="mobile-menu"
         :class="[
-          'order-3 w-full lg:order-1 lg:w-auto lg:overflow-visible lg:max-h-none overflow-hidden transition-[max-height] duration-300 ease-in-out',
+          'order-3 w-full lg:order-1 lg:w-auto lg:overflow-visible lg:max-h-none overflow-hidden transition-[max-height] duration-300 ease-in-out text-base',
           mobileMenuOpen ? 'max-h-96 mt-4' : 'max-h-0',]">
         <ul
           class="flex flex-col gap-1 pb-3 lg:flex-row lg:items-center lg:gap-6 lg:pb-0">
@@ -216,8 +216,20 @@
           </li>
           <li
             class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 lg:px-0 lg:py-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent">
+            <router-link to="/wordpress" @click="mobileMenuOpen = false">{{
+              $t("nav.wordpress")
+            }}</router-link>
+          </li>
+          <li
+            class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 lg:px-0 lg:py-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent">
             <router-link to="/Articles" @click="mobileMenuOpen = false">{{
               $t("nav.articles")
+            }}</router-link>
+          </li>
+          <li
+            class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 lg:px-0 lg:py-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent">
+            <router-link to="/contact" @click="mobileMenuOpen = false">{{
+              $t("nav.contact")
             }}</router-link>
           </li>
         </ul>

@@ -20,6 +20,8 @@ const messages = {
             home: 'Home',
             articles: 'Articles',
             projects: 'Projects',
+            wordpress: 'WordPress',
+            contact: 'Contact Me',
             search: 'Search',
             searchPlaceholder: 'Search articles and projects',
             searchCompactPlaceholder: 'Search...',
@@ -227,6 +229,7 @@ const messages = {
                     copied: "Copied!",
                     attribution: "Data by:",
                     active: "active",
+                    notAvailable: "Not Available",
                 },
                 ipSubnetCalculator: {
                     title: "IP Subnet Calculator",
@@ -2055,6 +2058,106 @@ const messages = {
             title: "Map",
             attribution: "Powered by"
         },
+        // contact page en language
+         contact: {
+            title: "Get in Touch",
+            description:
+              "Have a question or want to get in touch? Choose your preferred contact method and send me a message.",
+            optional: "optional",
+            fields: {
+              name: "Name",
+              email: "Email Address",
+              telegram: "Telegram Username",
+              subject: "Subject",
+              message: "Message",
+            },
+            placeholders: {
+              name: "Your name",
+              email: "name{'@'}example.com",
+              telegram: "{'@'}username",
+              subject: "What is your message about?",
+              message: "Write your message here...",
+            },
+            email: {
+              title: "Contact via Email",
+              description: "Send a message directly to my email inbox.",
+              button: "Send Email",
+            },
+            telegram: {
+              title: "Contact via Telegram",
+              description: "Send a message through the Telegram bot.",
+              button: "Continue with Telegram",
+              usernameHint:
+                "A username alone does not allow the bot to start a conversation. You will need to open the bot and press Start to enable Telegram replies.",
+              openBot: "Continue in Telegram",
+            },
+            links: {
+              title: "Connect with me",
+              description: "Explore my profiles or get in touch through your preferred channel.",
+              github: "GitHub profile",
+              githubDescription: "Code & projects",
+              linkedin: "LinkedIn profile",
+              linkedinDescription: "My Profile",
+              telegram: "Telegram bot",
+              telegramDescription: "Chat with me",
+              email: "Send an email",
+              emailDescription: "Email me",
+            },
+            buttons: {
+              sending: "Please wait...",
+            },
+            validation: {
+              name: "Please enter a name between 2 and 100 characters.",
+              email: "Please enter a valid email address.",
+              subject: "Please enter a subject (maximum 150 characters).",
+              message: "Your message must contain between 5 and 5000 characters.",
+              telegram: "Please enter a valid Telegram username.",
+            },
+            status: {
+              emailReady:
+                "Validation passed. Email delivery will be connected in the next step.",
+              telegramReady:
+                "Validation passed. Telegram delivery will be connected in the next step.",
+            turnstileRequired: "Please complete the security verification and try again.",
+            emailSuccess: "Your message has been sent successfully.",
+            emailError: "We couldn't send your message. Please try again later.",
+            telegramSuccess: "Your request was received. Open the link below to connect with our Telegram bot.",
+            telegramError: "We couldn't process your Telegram request. Please try again later.",
+
+            },
+        },
+        // wordpressShowcase page en language
+        wordpressShowcase: {
+          title: "My WordPress Showcase",
+          description: "On this page, you can explore a collection of WordPress websites designed and developed by me, built using modern tools and industry standards.",
+          visitSite: "Visit Website",
+        sites: {
+          store: {
+            title: "Network Equipment Store",
+            desc: "E-commerce platform development with dynamic shopping cart, user panel, and checkout process simulation."
+          },
+          helpdesk: {
+            title: "Ticketing & Support System",
+            desc: "Smart CRM ticketing system equipped with authentication, ticket submission & tracking, and dedicated user panels."
+          },
+          company: {
+            title: "Network Infrastructure Engineering",
+            desc: "Providing specialized network engineering services, active & passive solutions, server virtualization, and infrastructure support."
+          },
+          downloads: {
+            title: "Tools & Resources Download Center",
+            desc: "Advanced structured platform for securely downloading a wide range of utility software, system files, and specialized tools."
+          },
+          automation: {
+            title: "Office & Enterprise Automation",
+            desc: "Introducing enterprise software products including comprehensive office automation, CRM, HR, accounting, and inventory solutions."
+          },
+          docs: {
+            title: "Network Knowledge Base & Docs",
+            desc: "Collection of specialized articles, step-by-step guides, and advanced configurations for network equipment as a technical base."
+          }
+        }
+    },
 
     },
     // fa language
@@ -2064,6 +2167,8 @@ const messages = {
             home: 'خانه',
             articles: 'مقالات',
             projects: 'پروژه‌ها',
+            wordpress: 'وردپرس',
+            contact: 'تماس با من',
             search: 'جست‌وجو',
             searchPlaceholder: 'جست‌وجوی مقالات و پروژه‌ها...',
             searchCompactPlaceholder: 'جست‌وجو...',
@@ -2278,6 +2383,7 @@ const messages = {
                     copied: "کپی شد!",
                     attribution: "منبع اطلاعات:",
                     active: "فعال",
+                    notAvailable: "در دسترس نیست",
                 },
                 ipSubnetCalculator: {
                     title: "محاسبه‌گر ساب‌نت IP",
@@ -4164,6 +4270,106 @@ const messages = {
             errorSearch: 'خطا در جستجو، دوباره تلاش کنید',
             title: "نقشه",
             attribution: "ارائه‌شده توسط"
+        },
+        // contact page fa language
+         contact: {
+            title: "تماس با من",
+            description:
+              "سؤالی دارید یا می‌خواهید با من در ارتباط باشید؟ روش ارتباطی موردنظرتان را انتخاب کنید و پیام خود را بفرستید.",
+            optional: "اختیاری",
+            fields: {
+              name: "نام",
+              email: "آدرس ایمیل",
+              telegram: "نام کاربری تلگرام",
+              subject: "موضوع",
+              message: "متن پیام",
+            },  
+            placeholders: {
+              name: "نام شما",
+              email: "name{'@'}example.com",
+              telegram: "{'@'}username",
+              subject: "موضوع پیام شما چیست؟",
+              message: "پیام خود را اینجا بنویسید...",
+            },        
+            email: {
+              title: "ارتباط از طریق ایمیل",
+              description: "پیام خود را مستقیماً به صندوق ایمیل من ارسال کنید.",
+              button: "ارسال ایمیل",
+            },        
+            telegram: {
+              title: "ارتباط از طریق تلگرام",
+              description: "از طریق ربات تلگرام پیام ارسال کنید.",
+              button: "ادامه از طریق تلگرام",
+              usernameHint:
+                "وارد کردن نام کاربری به‌تنهایی برای شروع مکالمه توسط ربات کافی نیست. برای فعال شدن امکان پاسخ‌گویی در تلگرام، باید ربات را باز کنید و دکمه Start را بزنید.",
+              openBot: "ادامه گفتگو در تلگرام",
+            },
+            links: {
+              title: "راه‌های ارتباطی دیگر",
+              description: "پروفایل‌های من را ببینید یا از راه دلخواهتان با من در ارتباط باشید.",
+              github: "پروفایل GitHub",
+              githubDescription: "پروژه‌ها و کدها",
+              linkedin: "پروفایل LinkedIn",
+              linkedinDescription: "ارتباط حرفه‌ای",
+              telegram: "ربات تلگرام",
+              telegramDescription: "گفتگو از طریق ربات",
+              email: "ارسال ایمیل",
+              emailDescription: "ارتباط مستقیم",
+            },       
+            buttons: {
+              sending: "لطفاً صبر کنید...",
+            },
+            validation: {
+              name: "نام باید بین 2 تا 100 کاراکتر باشد.",
+              email: "لطفاً یک آدرس ایمیل معتبر وارد کنید.",
+              subject: "لطفاً موضوع پیام را وارد کنید؛ حداکثر 150 کاراکتر.",
+              message: "متن پیام باید بین 5 تا 5000 کاراکتر باشد.",
+              telegram: "لطفاً یک نام کاربری معتبر تلگرام وارد کنید.",
+            },      
+            status: {
+              emailReady:
+                "اعتبارسنجی انجام شد. در مرحله بعد ارسال ایمیل را فعال می‌کنیم.",
+              telegramReady:
+                "اعتبارسنجی انجام شد. در مرحله بعد ارسال پیام از طریق تلگرام را فعال می‌کنیم.",
+                turnstileRequired: "لطفاً تأیید امنیتی را انجام دهید و دوباره تلاش کنید.",
+                emailSuccess: "پیام شما با موفقیت ارسال شد.",
+                emailError: "ارسال پیام انجام نشد. لطفاً کمی بعد دوباره تلاش کنید.",
+                telegramSuccess: "درخواست شما ثبت شد. برای اتصال به ربات تلگرام، لینک زیر را باز کنید.",
+                telegramError: "پردازش درخواست تلگرام انجام نشد. لطفاً کمی بعد دوباره تلاش کنید.",
+
+            },
+          },
+        // wordpressShowcase page fa language
+        wordpressShowcase: {
+          title: "نمونه کارهای وردپرس من",
+          description: "در این صفحه مجموعه‌ای از وب‌سایت‌های وردپرسی طراحی و پیاده‌سازی شده توسط من را مشاهده می‌کنید که با ابزارها و استانداردهای روز توسعه داده شده‌اند.",
+          visitSite: "مشاهده وب‌سایت",
+        sites: {
+          store: {
+            title: "فروشگاه تخصصی تجهیزات شبکه",
+            desc: "توسعه پلتفرم فروشگاهی با سبد خرید پویا، پنل کاربری و شبیه‌سازی فرآیند تسویه حساب."
+          },
+          helpdesk: {
+            title: "سامانه تیکتینگ و پشتیبانی",
+            desc: "سامانه هوشمند مدیریت ارتباط با مشتری مجهز به سیستم احراز هویت، ارسال و پیگیری تیکت و پنل اختصاصی کاربران."
+          },
+          company: {
+            title: "شرکت مهندسی زیرساخت شبکه",
+            desc: "ارائه خدمات تخصصی مهندسی شبکه، راه‌کارهای اکتیو و پسیو، مجازی‌سازی سرورها و پشتیبانی زیرساخت‌های سازمانی."
+          },
+          downloads: {
+            title: "مرجع دانلود ابزار و منابع تخصصی",
+            desc: "پلتفرمی پیشرفته و ساختاریافته برای دانلود امن طیف وسیعی از نرم‌افزارهای کاربردی، فایل‌های سیستمی و ابزارهای تخصصی."
+          },
+          automation: {
+            title: "اتوماسیون اداری و سازمانی",
+            desc: "معرفی محصولات نرم‌افزاری سازمانی شامل راهکارهای جامع مکاتبات اداری، CRM، منابع انسانی، حسابداری و انبارداری."
+          },
+          docs: {
+            title: "پایگاه دانش و مستندات شبکه",
+            desc: "مجموعه مقالات تخصصی، آموزش‌های گام‌به‌گام و کانفیگ‌های پیشرفته تجهیزات شبکه به عنوان پایگاه دانش فنی."
+          }
+        }
         },
 
     },

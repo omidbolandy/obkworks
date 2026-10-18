@@ -320,106 +320,174 @@
         {{ $t("home.contact.subtitle") }}
       </p>
 
-      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-
-        <!-- Gmail Button with Copy Action -->
-        <div class="inline-flex items-center rounded-lg border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 hover:border-blue-400/50 dark:hover:border-blue-500/50 transition-all">
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 mx-3">
+          <!-- GitHub -->
+          <a
+            href="https://github.com/omidbolandy"
+            target="_blank"
+            rel="noopener noreferrer"
+            :aria-label="$t('contact.links.github')"
+            class="group flex min-w-0 items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 transition duration-200 hover:-translate-y-0.5 hover:border-gray-900 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-800 dark:bg-gray-800 dark:hover:border-gray-700">
+            <span
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-gray-800 transition group-hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:group-hover:bg-gray-700"
+              aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-16">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.31-3.76-1.31-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.77 2.06 3.72 1.56.1-.72.39-1.22.7-1.5-2.47-.28-5.06-1.24-5.06-5.5 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.27-2.6 5.22-5.08 5.49.4.35.75 1.02.75 2.06v3.05c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/>
+              </svg>
+            </span>
+            <span class="min-w-0 flex-1">
+              <span class="block font-semibold text-gray-900 dark:text-white">
+                GitHub
+              </span>
+              <span class="mt-1 block truncate text-xs text-gray-500 dark:text-gray-400">
+                {{ $t("contact.links.githubDescription") }}
+              </span>
+            </span>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              class="h-4 w-4 shrink-0 text-gray-400 transition group-hover:text-blue-600 dark:group-hover:text-blue-400"
+              aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+        
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/omid-bolandy"
+            target="_blank"
+            rel="noopener noreferrer"
+            :aria-label="$t('contact.links.linkedin')"
+            class="group flex min-w-0 items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 transition duration-200 hover:-translate-y-0.5 hover:border-blue-900 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-800 dark:bg-gray-800 dark:hover:border-blue-900">
+            <span
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-300 dark:bg-blue-800 dark:text-blue-300 dark:group-hover:bg-blue-900"
+              aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+                <path
+                  d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.75H4.96V9.19h2.97v9.56ZM6.45 7.88a1.72 1.72 0 1 1 0-3.44 1.72 1.72 0 0 1 0 3.44Zm12.3 10.87h-2.96v-4.65c0-1.11-.02-2.53-1.54-2.53-1.55 0-1.79 1.2-1.79 2.45v4.73H9.5V9.19h2.84v1.3h.04c.4-.75 1.36-1.54 2.8-1.54 3 0 3.57 1.97 3.57 4.53v5.27Z"/>
+              </svg>
+            </span>
+            <span class="min-w-0 flex-1">
+              <span class="block font-semibold text-gray-900 dark:text-white">
+                LinkedIn
+              </span>
+              <span class="mt-1 block truncate text-xs text-gray-500 dark:text-gray-400">
+                {{ $t("contact.links.linkedinDescription") }}
+              </span>
+            </span>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              class="h-4 w-4 shrink-0 text-gray-400 transition group-hover:text-blue-600 dark:group-hover:text-blue-400"
+              aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+        
+          <!-- Telegram -->
+          <a
+            href="https://t.me/obkWorksBot"
+            target="_blank"
+            rel="noopener noreferrer"
+            :aria-label="$t('contact.links.telegram')"
+            class="group flex min-w-0 items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 transition duration-200 hover:-translate-y-0.5 hover:border-sky-900 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:border-gray-800 dark:bg-gray-800 dark:hover:border-sky-900">
+            <span
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-700 transition group-hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-300 dark:group-hover:bg-sky-900"
+              aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+                <path
+                  d="M21.8 3.2 18.6 20c-.24 1.18-.88 1.47-1.78.92l-4.92-3.63-2.37 2.28c-.26.26-.48.48-.98.48l.35-5.01 9.12-8.24c.4-.35-.09-.55-.62-.2L6.12 13.75 1.28 12.24c-1.05-.33-1.07-1.05.22-1.55L20.43 3.3c.87-.32 1.63.21 1.37 1.9Z"/>
+              </svg>
+            </span>
+            <span class="min-w-0 flex-1">
+              <span class="block font-semibold text-gray-900 dark:text-white">
+                Telegram
+              </span>
+              <span class="mt-1 block truncate text-xs text-gray-500 dark:text-gray-400">
+                {{ $t("contact.links.telegramDescription") }}
+              </span>
+            </span>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              class="h-4 w-4 shrink-0 text-gray-400 transition group-hover:text-sky-600 dark:group-hover:text-sky-400"
+              aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+        
+          <!-- Email with Copy Action -->
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=omidbolandy@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1.5 px-3 py-2 transition-colors">
-            <svg
-              class="w-4 h-4"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 24 24">
-              <path
-                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.4l-8 6-8-6V6h16Zm-16 12V8.9l7.4 5.55a1 1 0 0 0 1.2 0L20 8.9V18H4Z"/>
-            </svg>
-            <span>{{ $t("home.contact.gmail") }}</span>
-          </a>
-          <button
-            @click="copyEmail('omidbolandy@gmail.com')"
-            type="button"
-            class="relative p-1.5 me-1 rounded-md border border-transparent transition-all duration-200 cursor-pointer"
-            :class="
-              copied
-                ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 border-green-200 dark:border-green-700'
-                : 'text-gray-500 dark:text-gray-400 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 hover:text-blue-600 dark:hover:text-blue-400'"
-            :title="$t('home.contact.copyEmail') || 'Copy Email'">
-            <svg
-              v-if="copied"
-              class="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M5 13l4 4L19 7"/>
-            </svg>
-            <svg
-              v-else
-              class="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-              />
-            </svg>
+            title="omidbolandy@gmail.com"
+            class="group flex min-w-0 items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 transition duration-200 hover:-translate-y-0.5 hover:border-emerald-900 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:border-gray-800 dark:bg-gray-800 dark:hover:border-emerald-900 cursor-pointer relative">
+            <span
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 transition group-hover:bg-emerald-300 dark:bg-emerald-800 dark:text-emerald-300 dark:group-hover:bg-emerald-900"
+              aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                class="h-6 w-6">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+            </span>
+          
+            <span class="min-w-0 flex-1">
+              <span class="block font-semibold text-gray-900 dark:text-white">
+                Email
+              </span>
+              <span class="mt-1 block truncate text-xs text-gray-500 dark:text-gray-400">
+                {{ $t("contact.links.emailDescription") }}
+              </span>
+            </span>
+          
+            <button
+              type="button"
+              @click.stop.prevent="copyEmail('omidbolandy@gmail.com')"
+              class="p-1 rounded-md text-gray-400 transition hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/50"
+              title="Copy Email">
+              <svg
+                v-if="copied"
+                class="w-4 h-4 text-green-600 dark:text-green-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <svg
+                v-else
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </button>
+          
             <span
               v-if="copied"
-              class="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-gray-900 dark:bg-white px-2 py-1 text-[10px] font-semibold text-white dark:text-gray-900 shadow-lg">
+              class="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-gray-900 dark:bg-white px-2 py-1 text-[10px] font-semibold text-white dark:text-gray-900 shadow-lg z-10">
               {{ $t("home.contact.copied") || "Copied!" }}
             </span>
-          </button>
+          </a>
         </div>
-      
-        <!-- GitHub Button -->
-        <a
-          href="https://github.com/omidbolandy"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 hover:border-blue-400/50 dark:hover:border-blue-500/50 px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-          <svg
-            class="w-4 h-4"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 20 20">
-            <path
-              fill-rule="evenodd"
-              d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
-              clip-rule="evenodd"/>
-          </svg>
-          <span>{{ $t("home.contact.github") }}</span>
-        </a>
-      
-        <!-- LinkedIn Button -->
-        <a
-          href="https://www.linkedin.com/in/omid-bolandy"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/50 hover:border-blue-400/50 dark:hover:border-blue-500/50 px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-          <svg
-            class="w-4 h-4"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24">
-            <path
-              d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.87 0-2.16 1.46-2.16 2.95v5.67H9.31V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.61 0 4.28 2.38 4.28 5.48v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z"/>
-          </svg>
-          <span>{{ $t("home.contact.linkedin") }}</span>
-        </a>
-      </div>
     </footer>
   </main>
 </template>

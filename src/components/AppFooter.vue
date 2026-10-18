@@ -26,7 +26,9 @@
         </div>
 
         <!-- quickAccess -->
-        <div class="flex flex-col items-center text-center md:items-start md:text-start md:ms-20">
+        <div 
+          class="flex flex-col items-center text-center md:items-start md:text-start"
+          :class="$i18n.locale === 'fa' ? 'md:ml-12 md:mr-0' : 'md:mr-12 md:ml-0'">
           <h3 class="mb-2 md:mb-3 text-md font-bold text-gray-900 uppercase dark:text-white">
             {{ $t("footer.quickAccess") }}
           </h3>
@@ -38,7 +40,13 @@
               <router-link class="hover:underline" to="/Projects">{{ $t("nav.projects") }}</router-link>
             </li>
             <li class="mb-1.5 md:mb-2">
+              <router-link class="hover:underline" to="/Articles">{{ $t("nav.wordpress") }}</router-link>
+            </li>
+            <li class="mb-1.5 md:mb-2">
               <router-link class="hover:underline" to="/Articles">{{ $t("nav.articles") }}</router-link>
+            </li>
+            <li class="mb-1.5 md:mb-2">
+              <router-link class="hover:underline" to="/contact">{{ $t("nav.contact") }}</router-link>
             </li>
             <li class="mb-1.5 md:mb-2">
               <button 
@@ -60,6 +68,7 @@
           {{ $t("footer.copyright") }}
         </span>
         <div class="flex items-center mt-4 sm:justify-center sm:mt-0">
+          <!-- Gmail -->
           <a href="mailto:omidbolandy@gmail.com" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
               viewBox="0 0 24 24">
@@ -67,6 +76,8 @@
             </svg>
             <span class="sr-only">{{ $t("home.contact.gmail") }}</span>
           </a>
+
+          <!-- GitHub -->
           <a href="https://www.github.com/omidbolandy" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-7">
             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
               viewBox="0 0 20 20">
@@ -76,6 +87,17 @@
             </svg>
             <span class="sr-only">{{ $t("home.contact.github") }}</span>
           </a>
+
+          <!-- Telegram -->
+          <a href="https://t.me/obkWorksBot" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-7">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path d="M21.8 3.2 18.6 20c-.24 1.18-.88 1.47-1.78.92l-4.92-3.63-2.37 2.28c-.26.26-.48.48-.98.48l.35-5.01 9.12-8.24c.4-.35-.09-.55-.62-.2L6.12 13.75 1.28 12.24c-1.05-.33-1.07-1.05.22-1.55L20.43 3.3c.87-.32 1.63.21 1.37 1.9Z"/>
+            </svg>
+            <span class="sr-only">Telegram</span>
+          </a>
+
+          <!-- LinkedIn -->
           <a
             href="https://www.linkedin.com/in/omid-bolandy"
             target="_blank"
@@ -276,8 +298,7 @@
     <Transition name="toast">
       <div 
         v-if="toastMessage" 
-        class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs font-medium rounded-full shadow-lg flex items-center gap-2 border border-gray-700 dark:border-gray-300"
-      >
+        class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs font-medium rounded-full shadow-lg flex items-center gap-2 border border-gray-700 dark:border-gray-300">
         <span>✅</span>
         <span>{{ toastMessage }} {{ $t("donate.copiedToast") }}</span>
       </div>
@@ -392,4 +413,3 @@ export default {
   direction: ltr;
 }
 </style>
-

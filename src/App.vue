@@ -130,4 +130,25 @@ export default {
 .hidden {
   display: none;
 }
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #3b82f6 !important;
+  border-radius: 6px; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb !important;
+}
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #115dd7 #aeadad;
+}
+
 </style>
