@@ -43,6 +43,19 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
           </router-link>
+          <router-link
+            to="/wordpress"
+            class="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-gray-200/80 bg-white/60 px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:bg-blue-50/50 hover:text-blue-600 hover:shadow-md active:scale-[0.98] dark:border-gray-700/80 dark:bg-gray-800/60 dark:text-gray-200 dark:hover:border-blue-400/50 dark:hover:bg-blue-950/20 dark:hover:text-blue-400">
+            <span>{{ $t("nav.wordpress") }}</span>
+            <svg
+              class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 ltr:rotate-180 rtl:rotate-0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+          </router-link>
         </div>
       </div>
 
