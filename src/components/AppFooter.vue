@@ -1,6 +1,6 @@
 <template>
   <footer class="bg-gray-100 dark:bg-[#1a2030] rounded-2xl mx-4 relative">
-    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 sm:mx-8">
       <div class="md:flex md:justify-between mx-5 mb-8">
 
         <div class="mb-12 md:mb-0 md:max-w-xs">
@@ -40,7 +40,7 @@
               <router-link class="hover:underline" to="/Projects">{{ $t("nav.projects") }}</router-link>
             </li>
             <li class="mb-1.5 md:mb-2">
-              <router-link class="hover:underline" to="/Articles">{{ $t("nav.wordpress") }}</router-link>
+              <router-link class="hover:underline" to="/wordpress">{{ $t("nav.wordpress") }}</router-link>
             </li>
             <li class="mb-1.5 md:mb-2">
               <router-link class="hover:underline" to="/Articles">{{ $t("nav.articles") }}</router-link>
@@ -63,11 +63,11 @@
       <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
 
       <!-- copyright & contact -->
-      <div class="sm:flex sm:items-center sm:justify-between sm:mx-3 mx-3">
+      <div class="sm:flex sm:items-center sm:justify-between px-4 sm:px-8 md:px-10 text-center">
         <span class="text-sm max-[425px]:text-xs max-[375px]:text-[11px] text-gray-500 sm:text-center dark:text-gray-400">
           {{ $t("footer.copyright") }}
         </span>
-        <div class="flex items-center mt-4 sm:justify-center sm:mt-0">
+        <div class="flex items-center mt-4 sm:justify-center sm:mt-0 justify-center sm:px-3 md:px-3">
           <!-- Gmail -->
           <a href="mailto:omidbolandy@gmail.com" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"

@@ -12,6 +12,9 @@
     <!-- Footer -->
     <AppFooter />
 
+    <!-- AI Chat Widget -->
+    <ChatWidget />
+
     <!-- Scroll-To-Top -->
     <button
       @click="scrollToTop"
@@ -45,11 +48,12 @@
 <script>
 import AppNavbar from "./components/AppNavbar.vue";
 import AppFooter from "./components/AppFooter.vue";
+import ChatWidget from "./components/ChatWidget.vue";
 import { applyDirection } from "./i18n";
 import { updateSeo } from "./utils/seo";
 
 export default {
-  components: { AppNavbar, AppFooter },
+  components: { AppNavbar, AppFooter, ChatWidget },
   data() {
     return {
       showMenu: false,

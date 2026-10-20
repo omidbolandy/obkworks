@@ -1,17 +1,56 @@
 <template>
   <div class="min-h-screen my-12 mx-auto px-7 sm:px-6 lg:px-16 xl:px-36 max-w-7xl">
-      <!-- Link to return to projects -->
-      <router-link to="/Projects"
-        class="inline-flex items-center pb-6 gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
-        <svg class="h-4 w-4 transition-transform ltr:rotate-0 rtl:rotate-180" fill="none" stroke="currentColor"
-          viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        <span>{{ $t("projectsPage.backToProjects") }}</span>
-      </router-link>
+      <!-- Top Bar Box (  Link to return to projects & Copy link & Share Icons)-->
+      <div class="flex max-w-5xl mx-auto items-center justify-between rounded-2xl border border-gray-200 bg-white/90 p-3 shadow-md backdrop-blur dark:border-gray-700 dark:bg-gray-900/90 sm:p-4">
+        <router-link
+          to="/Projects"
+          class="group inline-flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-gray-700/80 bg-gray-50/80 dark:bg-gray-800/80 px-3 py-2 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800/60 transition-all duration-200 shadow-sm hover:shadow cursor-pointer">
+          <svg
+            class="h-4 w-4 stroke-current transition-transform duration-200 group-hover:-translate-x-1 ltr:rotate-0 rtl:rotate-180 rtl:group-hover:translate-x-1 shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.25"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span class="truncate">{{ $t("projectsPage.backToProjects") }}</span>
+        </router-link>
+        <div class="flex items-center gap-1 sm:gap-2 shrink-0">
+          <button
+            @click="copyLink"
+            type="button"
+            class="relative inline-flex items-center justify-center p-1.5 max-[425px]:p-1.5 min-[426px]:p-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/80 transition-all cursor-pointer"
+            :title="$t('projectsPage.copyLink')">
+            <svg class="w-4 h-4 min-[426px]:w-5 min-[426px]:h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            <transition name="fade">
+              <span 
+                v-if="copiedTopBarBox" 
+                class="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-gray-900 text-white text-[10px] px-2 py-1 shadow-lg dark:bg-gray-100 dark:text-gray-900 font-sans z-20">
+                {{ $t("projectsPage.copied") }} ✨
+              </span>
+            </transition>
+          </button>
+          <button
+            @click="shareProject"
+            type="button"
+            class="inline-flex items-center justify-center p-1.5 max-[425px]:p-1.5 min-[426px]:p-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/80 transition-all cursor-pointer"
+            :title="$t('projectsPage.share')">
+            <svg class="w-4 h-4 min-[426px]:w-5 min-[426px]:h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
 
-
-    <div class="space-y-8 relative rounded-3xl p-6 sm:p-8 border border-gray-200/80 dark:border-gray-900 bg-white dark:bg-gray-900 shadow-sm overflow-hidden transition-colors">
+    <div class="space-y-8 relative rounded-3xl mt-5 p-6 sm:p-8 border border-gray-200/80 dark:border-gray-900 bg-white dark:bg-gray-900 shadow-sm overflow-hidden transition-colors">
       <!-- 1. HEADER SECTION -->
       <header
         class="relative rounded-3xl p-6 sm:p-8 border border-gray-200/80 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm overflow-hidden transition-colors">
@@ -370,7 +409,8 @@ export default {
       },
       data() {
         return {
-          copied: false
+          copied: false,
+          copyTimeout: null
         };
       },
       methods: {
@@ -390,6 +430,9 @@ export default {
             this.copied = false;
           }, 2000);
         }
+      },
+      unmounted() {
+        if (this.copyTimeout) clearTimeout(this.copyTimeout);
       },
       render() {
         const isRtl = this.$i18n ? this.$i18n.locale === 'fa' : true;
@@ -427,7 +470,9 @@ export default {
   },
   data() {
     return {
-      activeTab: "all"
+      activeTab: "all",
+      copiedTopBarBox: false,
+      copyTimeout: null,
     };
   },
   computed: {
@@ -484,6 +529,77 @@ export default {
         `# 4. ${this.$t("networkingLabs.pages.dnsDhcpLab.steps.dnsSetup.psComments.step4")}\nSet-DnsServerForwarder -IPAddress "1.1.1.1", "8.8.8.8" -PassThru`
       ];
     }
+  },
+  methods: {
+    async copyLink() {
+      const url = window.location.href;
+
+      try {
+        if (!navigator.clipboard?.writeText) {
+          this.fallbackCopyText(url);
+          return;
+        }
+
+        await navigator.clipboard.writeText(url);
+        this.showCopiedToast();
+      } catch (err) {
+        this.fallbackCopyText(url);
+      }
+    },
+    fallbackCopyText(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+
+      try {
+        textArea.focus();
+        textArea.select();
+        if (document.execCommand("copy")) {
+          this.showCopiedToast();
+        } else {
+          console.error("Fallback copy failed: the browser did not copy the URL.");
+        }
+      } catch (err) {
+        console.error("Fallback copy failed:", err);
+      } finally {
+        document.body.removeChild(textArea);
+      }
+    },
+    showCopiedToast() {
+      this.copiedTopBarBox = true;
+      if (this.copyTimeout) clearTimeout(this.copyTimeout);
+
+      this.copyTimeout = setTimeout(() => {
+        this.copiedTopBarBox = false;
+      }, 2000);
+    },
+    async shareProject() {
+      const currentUrl = window.location.href;
+      const shareData = {
+        title: document.title || "Portfolio Tool",
+        text: "مشاهده این ابزار / پروژه در پورتفولیو",
+        url: currentUrl,
+      };
+
+      if (typeof navigator.share === "function") {
+        try {
+          if (typeof navigator.canShare !== "function" || navigator.canShare(shareData)) {
+            await navigator.share(shareData);
+            return;
+          }
+        } catch (err) {
+          if (err.name === "AbortError") return;
+          console.error("Share error:", err);
+        }
+      }
+
+      await this.copyLink();
+    },
+  },
+  unmounted() {
+    if (this.copyTimeout) clearTimeout(this.copyTimeout);
   }
 };
 </script>

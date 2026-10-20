@@ -83,11 +83,12 @@ The website features a responsive interface, Persian (RTL) and English (LTR) lan
 - **Maps & Geocoding:**
   - MapTiler API
   - Neshan Maps API
-  - Nominatim API (OpenStreetMap)
+  - geoapify API
 
 - **IP & Location:**
   - IPInfo API
   - IPWho API
+  - ipify API
 
 - **Financial & Utilities:**
   - OpenWeatherMap API

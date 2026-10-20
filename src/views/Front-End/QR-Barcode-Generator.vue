@@ -1,31 +1,63 @@
 <template>
-  <!-- Link to return to projects -->
-  <div class="max-w-3xl pt-8 mx-6 sm:mx-auto">
-    <router-link
-      to="/Projects"
-      class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
-      <svg
-        class="h-4 w-4 transition-transform ltr:rotate-0 rtl:rotate-180"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24">
-        <path
+  <!-- Top Bar Box (  Link to return to projects & Copy link & Share Icons)-->
+    <div class="flex max-w-3xl mt-16 mx-auto items-center justify-between rounded-2xl border border-gray-200 bg-white/90 p-3 shadow-md backdrop-blur dark:border-gray-700 dark:bg-gray-900/90 sm:p-4">
+      <router-link
+        to="/Projects"
+        class="group inline-flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-gray-700/80 bg-gray-50/80 dark:bg-gray-800/80 px-3 py-2 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800/60 transition-all duration-200 shadow-sm hover:shadow cursor-pointer">
+        <svg
+          class="h-4 w-4 stroke-current transition-transform duration-200 group-hover:-translate-x-1 ltr:rotate-0 rtl:rotate-180 rtl:group-hover:translate-x-1 shrink-0"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2.25"
           stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-      </svg>
-      <span>{{ $t("projectsPage.backToProjects") }}</span>
-    </router-link>
-  </div>
+          stroke-linejoin="round">
+          <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span class="truncate">{{ $t("projectsPage.backToProjects") }}</span>
+      </router-link>
+      <div class="flex items-center gap-1 sm:gap-2 shrink-0">
+        <button
+          @click="copyLink"
+          type="button"
+          class="relative inline-flex items-center justify-center p-1.5 max-[425px]:p-1.5 min-[426px]:p-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/80 transition-all cursor-pointer"
+          :title="$t('projectsPage.copyLink')">
+          <svg class="w-4 h-4 min-[426px]:w-5 min-[426px]:h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+          </svg>
+          <transition name="fade">
+            <span 
+              v-if="copied" 
+              class="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-gray-900 text-white text-[10px] px-2 py-1 shadow-lg dark:bg-gray-100 dark:text-gray-900 font-sans z-20">
+              {{ $t("projectsPage.copied") }} ✨
+            </span>
+          </transition>
+        </button>
+        <button
+          @click="shareProject"
+          type="button"
+          class="inline-flex items-center justify-center p-1.5 max-[425px]:p-1.5 min-[426px]:p-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/80 transition-all cursor-pointer"
+          :title="$t('projectsPage.share')">
+          <svg class="w-4 h-4 min-[426px]:w-5 min-[426px]:h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
 
   <div class="min-h-screen text-gray-900 dark:text-gray-100 px-4 py-8 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto space-y-10 mt-7">
-      <h1 class="text-2xl sm:text-3xl font-bold text-center text-gray-900 dark:text-gray-100">
+    <div class="max-w-3xl mx-auto space-y-10 ">
+      
+
+      <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl p-8 sm:p-12 space-y-10">
+<h1 class="text-2xl sm:text-3xl font-bold text-center text-gray-900 dark:text-gray-100">
         {{ i18n.global.t("qrBarcode.title") }}
       </h1>
 
-      <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl p-8 sm:p-12 space-y-10">
         <!-- QR CODE SECTION -->
         <section class="bg-white dark:bg-gray-800 rounded-2xl p-5 sm:p-6 shadow-lg space-y-4">
           <h2 class="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100">
@@ -202,11 +234,18 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, onUnmounted } from "vue";
 import QRCode from "qrcode";
 import JsBarcode from "jsbarcode";
 import i18n from "../../i18n.js";
 
+const copied = ref(false);
+const copyTimeout = ref(null);
+
+onUnmounted(() => {
+  if (copyTimeout.value) clearTimeout(copyTimeout.value);
+});
+  
 const isDark = () => document.documentElement.classList.contains("dark");
 const qrColors = () =>
   isDark()
@@ -436,4 +475,76 @@ watch(barcodeSize, () => {
   if (!barcodeGenerated.value) return;
   generateBarcode();
 });
+
+async function copyLink() {
+      const url = window.location.href;
+
+      if (!navigator?.clipboard?.writeText) {
+        fallbackCopyText(url);
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(url);
+        showCopiedToast();
+      } catch (err) {
+        fallbackCopyText(url);
+      }
+}
+
+function fallbackCopyText(text) {
+      try {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand("copy");
+        document.body.removeChild(textArea);
+        
+        if (successful) {
+          showCopiedToast();
+        }
+      } catch (err) {
+        console.error("Fallback copy failed:", err);
+      }
+}
+
+function showCopiedToast() {
+      copied.value = true;
+      if (copyTimeout.value) clearTimeout(copyTimeout.value);
+      
+      copyTimeout.value = setTimeout(() => {
+        copied.value = false;
+      }, 2000);
+}
+
+async function shareProject() {
+      const currentUrl = window.location.href;
+
+      if (!currentUrl.startsWith("http://") && !currentUrl.startsWith("https://")) {
+        return;
+      }
+
+      const shareData = {
+        title: document.title || "Portfolio Tool",
+        text: "مشاهده این ابزار / پروژه در پورتفولیو",
+        url: currentUrl,
+      };
+
+      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          if (err.name !== "AbortError") {
+            console.error("Share error:", err);
+          }
+        }
+      } else {
+        copyLink();
+      }
+}
+
 </script>

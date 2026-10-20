@@ -47,6 +47,9 @@ const messages = {
             title: 'Projects',
             description: 'Explore a curated selection of my front-end work, networking laboratories, and infrastructure utilities.',
             backToProjects: 'Back to Projects',
+            copyLink: "Copy page link",
+            copied: "Copied!",
+            share: "Share",
             frontEnd: {
                 title: 'Front-End Projects',
                 description: 'A collection of my front-end applications built with Vue.js, Tailwind CSS, and JavaScript.',
@@ -634,6 +637,8 @@ const messages = {
                 university: "Islamic Azad University",
                 location: "Ahvaz, Iran",
                 duration: "2021 — 2025",
+                masterDegree: "M.Sc. in Computer Engineering - Software",
+                masterDuration: "2026 – Present",
             }
         },
         // weather page en language
@@ -2201,6 +2206,9 @@ const messages = {
             title: 'پروژه‌ها',
             description: 'در این بخش می‌توانید نمونه‌هایی از کارهای فرانت‌اند، آزمایشگاه‌های شبکه و ابزارهای زیرساختی من را مشاهده کنید.',
             backToProjects: 'بازگشت به پروژه‌ها',
+            copyLink: "کپی لینک صفحه",
+            copied: "کپی شد!",
+            share: "اشتراک‌گذاری",
             frontEnd: {
                 title: 'پروژه‌های Front-End',
                 description: 'مجموعه‌ای از برنامه‌های فرانت‌اند من که با Vue.js، Tailwind CSS و JavaScript ساخته شده‌اند.',
@@ -2783,6 +2791,8 @@ const messages = {
                 university: "دانشگاه آزاد اسلامی",
                 location: "ایران, اهواز",
                 duration: "1400 — 1404",
+                masterDegree: "کارشناسی ارشد مهندسی کامپیوتر - نرم‌افزار",
+                masterDuration: "1405 – اکنون",
             },
         },
         // weather page fa language

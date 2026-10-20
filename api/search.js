@@ -6,16 +6,6 @@ const ratelimit = new Ratelimit({
   limiter: Ratelimit.slidingWindow(20, '1 m'),
 });
 
-function normalizeNeshan(data) {
-  if (!data.items) return [];
-  return data.items.map(item => ({
-    title: item.title,
-    address: item.address,
-    lat: item.location?.y,
-    lng: item.location?.x,
-  }));
-}
-
 export default async function handler(req, res) {
   const ip = req.headers['x-forwarded-for'] || 'anonymous';
   const { success } = await ratelimit.limit(ip);
@@ -23,41 +13,45 @@ export default async function handler(req, res) {
     return res.status(429).json({ error: 'Too many requests' });
   }
 
-  const country = req.headers['x-vercel-ip-country'] || 'UNKNOWN';
-  const { q, lat, lng } = req.query;
+  const { q } = req.query;
 
   if (!q) {
     return res.status(400).json({ error: 'Missing query' });
   }
 
   try {
-    let results;
+    const [neshanRes, geoapifyRes] = await Promise.all([
+  fetch(
+    `https://api.neshan.org/geocoding/v1?json=${encodeURIComponent(JSON.stringify({ address: q }))}`,
+    { headers: { 'Api-Key': process.env.NESHAN_SEARCH_KEY, 'Content-Type': 'application/json' } }
+  ),
+  fetch(
+    `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(q)}&limit=3&apiKey=${process.env.GEOAPIFY_KEY}`
+  )
+]);
 
-    if (country === 'IR') {
-      const centerLat = lat || '35.6892';
-      const centerLng = lng || '51.3890';
-      const response = await fetch(
-        `https://api.neshan.org/v1/search?term=${encodeURIComponent(q)}&lat=${centerLat}&lng=${centerLng}`,
-        { headers: { 'Api-Key': process.env.VITE_MAP_API_A } }
-      );
-      const data = await response.json();
-      results = normalizeNeshan(data);
-      } else {
-        const response = await fetch(
-          `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=5`,
-          { headers: { 'User-Agent': 'www.obkworks.tr' } }
-        );
-        const data = await response.json();
-        results = data.map(item => ({
-          title: item.display_name.split(',')[0],
-          address: item.display_name,
-          lat: parseFloat(item.lat),
-          lng: parseFloat(item.lon),
-        }));
-      }
+const neshanData = await neshanRes.json();
+const geoapifyData = await geoapifyRes.json();
 
-    res.status(200).json({ results, provider: country === 'IR' ? 'neshan' : 'maptiler' });
-    } catch (err) {
-      res.status(500).json({ error: 'Search failed' });
-    }
+const neshanResults = (neshanData.items || []).slice(0, 3).map(item => ({
+  title: item.neighbourhood || item.city || item.province || '',
+  address: [item.neighbourhood, item.city, item.province].filter(Boolean).join('، '),
+  lat: item.location?.latitude,
+  lng: item.location?.longitude,
+}));
+
+const geoapifyResults = (geoapifyData.features || []).map(item => ({
+  title: item.properties.name || item.properties.city || '',
+  address: [item.properties.name, item.properties.city, item.properties.country].filter(Boolean).join(', '),
+  lat: item.properties.lat,
+  lng: item.properties.lon,
+}));
+
+const results = [...neshanResults, ...geoapifyResults];
+
+  res.status(200).json({ results, provider: 'neshan+geoapify' });
+
+  } catch (err) {
+    res.status(500).json({ error: 'Search failed', detail: err.message });
+  }
 }

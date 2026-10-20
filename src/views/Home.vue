@@ -135,11 +135,31 @@
           {{ $t("home.education.sectionTitle") }}
         </h2>
       </div>
-      <div class="mt-6 border-s-2 border-blue-500/30 ps-3 dark:border-blue-400/30 sm:ps-6 [@media(max-width:320px)]:ps-2.5">
+      
+      <!-- Timeline Container -->
+      <div class="mt-6 border-s-2 border-blue-500/30 ps-3 dark:border-blue-400/30 sm:ps-6 [@media(max-width:320px)]:ps-2.5 space-y-8">
+        <!-- Master's Degree -->
         <div class="relative">
           <div class="absolute top-1.5 h-2.5 w-2.5 rounded-full border-2 border-white bg-blue-600 ltr:-left-[18px] rtl:-right-[18px] sm:h-3.5 sm:w-3.5 ltr:sm:-left-[32px] rtl:sm:-right-[32px] dark:border-gray-900 dark:bg-blue-400 [@media(max-width:320px)]:h-2 [@media(max-width:320px)]:w-2 ltr:[@media(max-width:320px)]:-left-[15px] rtl:[@media(max-width:320px)]:-right-[15px]">
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white sm:text-lg">
+            {{ $t("home.education.masterDegree") }}
+          </h3>
+          <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-blue-600 dark:text-blue-400">
+            <span>{{ $t("home.education.university") }}</span>
+            <span class="text-gray-400 dark:text-gray-600">•</span>
+            <span class="text-gray-500 dark:text-gray-400">{{ $t("home.education.location") }}</span>
+          </div>
+          <p class="mt-1 font-mono text-xs text-gray-600 dark:text-gray-300">
+            {{ $t("home.education.masterDuration") }}
+          </p>
+        </div>
+
+        <!-- Bachelor's Degree -->
+        <div class="relative">
+          <div class="absolute top-1.5 h-2.5 w-2.5 rounded-full border-2 border-white bg-blue-600 ltr:-left-[18px] rtl:-right-[18px] sm:h-3.5 sm:w-3.5 ltr:sm:-left-[32px] rtl:sm:-right-[32px] dark:border-gray-900 dark:bg-blue-400 [@media(max-width:320px)]:h-2 [@media(max-width:320px)]:w-2 ltr:[@media(max-width:320px)]:-left-[15px] rtl:[@media(max-width:320px)]:-right-[15px]">
+          </div>
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white sm:text-lg">
             {{ $t("home.education.degree") }}
           </h3>
           <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-blue-600 dark:text-blue-400">
@@ -147,7 +167,7 @@
             <span class="text-gray-400 dark:text-gray-600">•</span>
             <span class="text-gray-500 dark:text-gray-400">{{ $t("home.education.location") }}</span>
           </div>
-          <p class="mt-1 font-mono text-xs text-gray-400 dark:text-gray-500">
+          <p class="mt-1 font-mono text-xs text-gray-600 dark:text-gray-300">
             {{ $t("home.education.duration") }}
           </p>
         </div>
