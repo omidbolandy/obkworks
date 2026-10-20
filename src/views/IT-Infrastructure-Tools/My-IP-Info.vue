@@ -115,10 +115,10 @@
           <hr class="border-gray-200 dark:border-gray-800 mb-4" />
 
           <!-- IPv6 -->
-          <div dir="ltr">
+          <div :dir="ipv6 ? 'ltr' : (isRTL ? 'rtl' : 'ltr')">
             <p class="text-gray-500 dark:text-gray-400 text-xs mb-1">IPv6</p>
             <div class="flex items-start gap-2">
-              <p :dir="ipv6 ? 'ltr' : 'auto'" class="text-lg sm:text-xl font-mono font-black text-purple-500 dark:text-purple-400 tracking-tight break-all">
+              <p class="text-lg sm:text-xl font-mono font-black text-purple-500 dark:text-purple-400 tracking-tight break-all">
                 {{ ipv6 || $t("itInfrastructureTools.pages.ipLookup.notAvailable") }}
               </p>
               <button

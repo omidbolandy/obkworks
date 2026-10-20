@@ -70,7 +70,7 @@
 
         <!-- Top Image Representation -->
         <ImageLightbox
-        src="/assets/networking/assets/ospf.png"
+        src="/assets/networking/ospf.png"
         :title="$t('networkingLabs.pages.ospfSingleArea.imageAlt')"/>
 
         <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">

@@ -131,11 +131,10 @@
         </div>
       </div>
 
-      <!-- Button To Return To All Articles -->
-      <!-- Top Bar Box (  Link to return to projects & Copy link & Share Icons)-->
+      <!-- Top Bar Box (  Link to return to Articles & Copy link & Share Icons)-->
       <div class="flex max-w3xl mx-auto items-center justify-between rounded-2xl border border-gray-200 bg-white/90 p-3 shadow-md backdrop-blur dark:border-gray-700 dark:bg-gray-900/90 sm:p-4">
         <router-link
-          to="/Projects"
+          to="/Articles"
           class="group inline-flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-gray-700/80 bg-gray-50/80 dark:bg-gray-800/80 px-3 py-2 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800/60 transition-all duration-200 shadow-sm hover:shadow cursor-pointer">
           <svg
             class="h-4 w-4 stroke-current transition-transform duration-200 group-hover:-translate-x-1 ltr:rotate-0 rtl:rotate-180 rtl:group-hover:translate-x-1 shrink-0"

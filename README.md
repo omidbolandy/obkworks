@@ -1,6 +1,6 @@
 # 🌐 IT Portfolio Website
 
-A modern bilingual portfolio website built to showcase my IT skills, projects, and technical articles.
+A modern bilingual portfolio website built to showcase my IT skills, projects, technical articles, and WordPress websites.
 
 [![Vue.js](https://img.shields.io/badge/Vue.js-v3.x-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)

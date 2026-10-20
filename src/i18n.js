@@ -578,7 +578,7 @@ const messages = {
             },
             about: {
                 title: "About Me",
-                textPart1: "I am a Computer Engineering graduate with a strong foundation in network operations and system administration. My core expertise revolves around",
+                textPart1: "I am currently pursuing a Master of Science in Computer Engineering, with a strong foundation in network operations and system administration. My core expertise revolves around",
                 textPart2: "Routing & Switching, Windows Server infrastructure, and virtualization. To complement my infrastructure skills, I actively design and develop responsive web interfaces using",
                 textPart3: "and",
                 textPart4: ". I am deeply passionate about continuous learning, maintaining high system availability, and troubleshooting complex technical environments.",
@@ -798,7 +798,7 @@ const messages = {
         // aboutWebsite section in home page en language
         aboutWebsite: {
             title: "About This Website",
-            part1: "This website is designed as my personal portfolio, featuring network projects, front-end applications, technical articles, and IT infrastructure tools. Built with ",
+            part1: "This website is designed as my personal portfolio, featuring network projects, front-end applications, WordPress websites, technical articles, and IT infrastructure tools. Built with",
             vue: "Vue.js",
             part2: " and ",
             tailwind: "Tailwind CSS",
@@ -2732,7 +2732,7 @@ const messages = {
             },
             about: {
                 title: "درباره من",
-                textPart1: "فارغ‌التحصیل مهندسی کامپیوتر و کارشناس شبکه با پایه‌ای قوی در حوزه شبکه و مدیریت سیستم. تخصص اصلی من بر",
+                textPart1: "دانشجوی کارشناسی ارشد مهندسی کامپیوتر با پایه‌ای قوی در حوزه شبکه و مدیریت سیستم. تخصص اصلی من بر",
                 textPart2: "Routing & Switching، زیرساخت ویندوز سرور و مجازی‌سازی متمرکز است. در کنار تخصص‌های زیرساختی، با استفاده از",
                 textPart3: "و",
                 textPart4: "رابط‌ها و ابزارهای وب واکنش‌گرا توسعه می‌دهم. همواره به یادگیری مستمر، حفظ پایداری سیستم‌ها و عیب‌یابی محیط‌های فنی علاقه‌مند هستم."
@@ -2957,7 +2957,7 @@ const messages = {
         // aboutWebsite section in home page en language
         aboutWebsite: {
             title: "درباره این وب‌سایت",
-            part1: "این وب‌سایت به عنوان نمونه‌کار شخصی من طراحی شده است و شامل پروژه‌های شبکه، پروژه‌های فرانت‌اند و مقالات فنی و ابزارهای زیرساخت IT است. این سایت با ",
+            part1: "این وب‌سایت به عنوان نمونه‌کار شخصی من طراحی شده است و شامل پروژه‌های شبکه، پروژه‌های فرانت‌اند، وب‌سایت‌های وردپرسی، مقالات فنی و ابزارهای زیرساخت IT است. این سایت با",
             vue: "Vue.js",
             part2: " و ",
             tailwind: "Tailwind CSS",

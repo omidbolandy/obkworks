@@ -397,8 +397,6 @@ export default {
       retentionDays: 30,
       motionEnabled: false,
       motionPercent: 40,
-      copied: false,
-      copyTimeout: null,
     };
 
     return {
@@ -406,6 +404,8 @@ export default {
       form: { ...defaultForm },
       result: null,
       attemptedCalculate: false,
+      copied: false,
+      copyTimeout: null,
       resolutionBaseKbps: {
         r720p: 2048,
         r1080p: 4096,
