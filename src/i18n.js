@@ -543,7 +543,7 @@ const messages = {
         footer: {
             quickAccess: 'Quick access',
             functionalSites: 'Functional sites',
-            tagline: "Personal portfolio featuring networking projects, front-end applications, technical articles, and IT infrastructure tools, developed using Vue.js and Tailwind CSS, and hosted on Vercel.",
+            tagline: "Personal portfolio featuring networking projects, front-end applications, WordPress websites, technical articles, and IT infrastructure tools, developed using Vue.js and Tailwind CSS, and hosted on Vercel.",
             copyright: '© 2026 obk Portfolio. All rights reserved.',
         },
         // bmiCalculator page en language
@@ -2696,7 +2696,7 @@ const messages = {
         footer: {
             quickAccess: 'دسترسی سریع',
             functionalSites: 'ابزارها',
-            tagline: "نمونه‌کارهای شخصی شامل پروژه‌های شبکه، برنامه‌های فرانت‌اند، مقالات تخصصی و ابزارهای زیرساخت IT، توسعه‌یافته با Vue.js و Tailwind CSS و میزبانی‌شده روی Vercel.",
+            tagline: "نمونه‌کارهای شخصی شامل پروژه‌های شبکه، برنامه‌های فرانت‌اند، وب‌سایت‌های وردپرسی، مقالات تخصصی و ابزارهای زیرساخت IT، توسعه‌یافته با Vue.js و Tailwind CSS و میزبانی‌شده روی Vercel.",
             copyright: '© 2026  نمونه کار های  obk. تمامی حقوق محفوظ است.',
         },
         // bmiCalculator page fa language
