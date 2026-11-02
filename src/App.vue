@@ -16,32 +16,57 @@
     <ChatWidget />
 
     <!-- Scroll-To-Top -->
-    <button
-      @click="scrollToTop"
-      :class="[
-        scrollPosition >= 300 && !isModalOpen
-          ? 'opacity-100 translate-y-0 pointer-events-auto'
-          : 'opacity-0 translate-y-4 pointer-events-none'
-      ]"
-      class="fixed bottom-6 z-40 p-3 rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/30 transition-all duration-300 hover:bg-blue-700 hover:scale-110 active:scale-95 ltr:right-6 rtl:left-6"
-      aria-label="Scroll to top">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-        class="h-6 w-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"/>
-      </svg>
-    </button>
-    
-    <!-- Scroll Progress Bar -->
     <div
-      aria-hidden="true"
-      class="fixed top-0 start-0 h-1 bg-blue-500 z-50"
-      :style="{ width: scrollPercentage + '%' }"
-    ></div>
+      :class="[
+        isRtl ? 'left-[20px]' : 'right-[20px]',
+        scrollPosition >= 300 && !isModalOpen
+          ? 'visible opacity-100 pointer-events-auto'
+          : 'invisible opacity-0 pointer-events-none'
+      ]"
+      class="fixed bottom-[15px] z-[999] flex h-[65px] w-[65px] items-center justify-center transition-all duration-300">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 64 64"
+        class="absolute inset-0 h-full w-full -rotate-90">
+        <circle
+          cx="32"
+          cy="32"
+          r="29"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          class="text-slate-400/50"
+        />
+        <circle
+          cx="32"
+          cy="32"
+          r="29"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-dasharray="182.21"
+          :stroke-dashoffset="182.21 * (1 - scrollPercentage / 100)"
+          class="text-blue-700 transition-[stroke-dashoffset] duration-150"
+        />
+      </svg>
+      <button
+        @click="scrollToTop"
+        class="relative flex h-[55px] w-[55px] cursor-pointer items-center justify-center rounded-full border border-sky-800 bg-slate-900 text-sky-400 shadow-[0_4px_15px_rgba(0,0,0,0.4)] transition-all duration-300 active:scale-95"
+        aria-label="برو به بالای صفحه">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-7 w-7 transition-transform duration-200">
+          <path d="M18 15l-6-6-6 6"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </template>
 
