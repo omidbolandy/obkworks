@@ -267,6 +267,11 @@ const messages = {
                             reserved: "Reserved",
                         },
                     },
+                    relatedArticle: {
+                        label: 'Related Article: IPv4 Subnetting & CIDR Mastery',
+                        description: 'Read the comprehensive guide on IP addressing classes and subnet calculations.',
+                        button: 'Read Article',
+                    },
                 },
                 cctvStorageCalculator: {
                     title: "CCTV Storage Calculator",
@@ -377,7 +382,12 @@ const messages = {
                     validation: {
                         minDisksError: "{level} requires at least {min} disks.",
                         evenDisksError: "{level} requires an even number of disks."
-                    }
+                    },
+                    relatedArticle: {
+                        label: 'Related Article: Enterprise Storage Architecture & RAID',
+                        description: 'Explore fault tolerance, standard and advanced RAID levels (including 0, 1, 5, 6, 10, 50, 60, and 1E).',
+                        button: 'Read Article',
+                    },
                 },
                 vmResourceAllocator: {
                     title: "VM Resource Allocator",
@@ -492,6 +502,10 @@ const messages = {
             title: 'Calendar',
             holidays: 'Holidays',
             noHolidays: 'No holidays this month.',
+            holidayScope: {
+                iran: 'Iran',
+                global: 'Global',
+            },
             previousMonth: 'Go to previous month',
             nextMonth: 'Go to next month',
             currentMonth: 'Back to the current month',
@@ -597,7 +611,7 @@ const messages = {
                     },
                     web: {
                         title: "Web Development",
-                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, WordPress, SEO Fundamentals"
+                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, WordPress, SEO Fundamentals, Google Search Console"
                     },
                     tools: {
                         title: "Tools & Application Software",
@@ -2425,7 +2439,12 @@ const messages = {
                             multicast: "Multicast",
                             reserved: "رزرو شده"
                         }
-                    }
+                    },
+                    relatedArticle: {
+                        label: 'مقاله مرتبط: تسلط بر ساب‌نتینگ و CIDR در IPv4',
+                        description: 'مطالعه راهنمای جامع مفاهیم آدرس‌دهی شبکه، کلاس‌های IP و محاسبات ساب‌نت.',
+                        button: 'مطالعه مقاله',
+                    },
                 },
                 cctvStorageCalculator: {
                     title: "ماشین‌حساب ذخیره‌سازی CCTV",
@@ -2481,6 +2500,7 @@ const messages = {
                         description: 'مقاله جامع دوربین‌های IP، NVR، DVR و پروتکل‌های انتقال تصویر را مطالعه کنید.',
                         button: 'مطالعه مقاله',
                     },
+
                 },
                 raidCalculator: {
                     title: "ماشین‌حساب RAID",
@@ -2531,7 +2551,12 @@ const messages = {
                     validation: {
                         minDisksError: "{level} حداقل به {min} دیسک نیاز دارد.",
                         evenDisksError: "{level} به تعداد زوجی از دیسک‌ها نیاز دارد."
-                    }
+                    },
+                    relatedArticle: {
+                        label: 'مقاله مرتبط: معماری ذخیره‌سازی سازمانی و سطوح RAID',
+                        description: 'بررسی تخصصی پایداری خطا، سطوح استاندارد و پیشرفته RAID (شامل 0, 1, 5, 6, 10, 50، 60 و 1E).',
+                        button: 'مطالعه مقاله',
+                    },
                 },
                 vmResourceAllocator: {
                     title: "ماشین‌حساب تخصیص منابع ماشین مجازی",
@@ -2645,6 +2670,10 @@ const messages = {
             title: 'تقویم',
             holidays: 'تعطیلات',
             noHolidays: 'در این ماه تعطیلی وجود ندارد.',
+            holidayScope: {
+                iran: 'ایران',
+                global: 'جهانی',
+            },
             previousMonth: 'رفتن به ماه قبل',
             nextMonth: 'رفتن به ماه بعد',
             currentMonth: 'بازگشت به ماه جاری',
@@ -2751,7 +2780,7 @@ const messages = {
                     },
                     web: {
                         title: "توسعه وب",
-                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, WordPress, SEO Fundamentals"
+                        text: "Vue.js, JavaScript, Tailwind CSS, HTML & CSS, WordPress, SEO Fundamentals, Google Search Console"
                     },
                     tools: {
                         title: "ابزارها و نرم‌افزارهای کاربردی",

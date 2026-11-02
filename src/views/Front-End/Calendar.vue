@@ -124,13 +124,19 @@
               :key="`${day.year}-${day.month}-${day.date}`"
               class="p-[2px] sm:p-1 dark:text-white text-gray-800">
               <div
-                class="w-full aspect-square flex items-center justify-center text-sm sm:text-base font-semibold rounded-md transition dark:text-white text-gray-800"
+                class="relative w-full aspect-square flex items-center justify-center text-sm sm:text-base font-semibold rounded-md transition dark:text-white text-gray-800"
                 :class="[
                   dayStateClass(day),
                   { 'cal-day-hoverable cursor-pointer': isCurrentMonth(day) },
                 ]"
                 @click="toggleSelect(day)">
                 {{ isCurrentMonth(day) ? formatDisplayNumber(day.date) : "" }}
+                <span
+                  v-if="isCurrentMonth(day) && isGlobalHoliday(day)"
+                  class="absolute bottom-1 h-1 w-1 rounded-full bg-amber-400 ring-1 ring-white/80"
+                  :title="getHolidayName(globalHolidayForDay(day))"
+                  :aria-label="getHolidayName(globalHolidayForDay(day))">
+                </span>
               </div>
             </td>
           </tr>
@@ -213,6 +219,10 @@
               <span class="font-bold text-blue-600 dark:text-blue-400">{{
                 holiday.name
               }}</span>
+              <span
+                class="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-medium text-blue-700 dark:bg-blue-900/50 dark:text-blue-200">
+                {{ $t(`calendar.holidayScope.${holiday.scope}`) }}
+              </span>
             </div>
             <div class="mt-1 text-sm text-gray-700 dark:text-gray-300">
               <span class="font-semibold dark:text-gray-300">{{
@@ -318,6 +328,46 @@
 import holidays from "@/assets/holidays.json";
 import dayjs from "dayjs";
 
+const persianDateFormatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+  year: "numeric",
+  month: "numeric",
+  day: "numeric",
+  timeZone: "UTC",
+});
+const islamicDateFormatter = new Intl.DateTimeFormat(
+  "en-u-ca-islamic-umalqura-nu-latn",
+  {
+    month: "numeric",
+    day: "numeric",
+    timeZone: "UTC",
+  }
+);
+const holidayCalendarCache = new Map();
+
+function formatGregorianDateKey(date) {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+function parseOfficialGregorianDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    throw new TypeError(`Invalid official Gregorian date: ${value}`);
+  }
+
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    throw new RangeError(`Invalid official Gregorian date: ${value}`);
+  }
+  return date;
+}
+
 export default {
   name: "Calendar-1",
   data() {
@@ -344,10 +394,152 @@ export default {
         : this.calculateGregorianWeeks(this.currentDate);
     },
     holidaysList() {
-      return this.holidays
-        .map((holiday) => this.normalizeHoliday(holiday))
-        .filter((holiday) => holiday.displayMonth === this.displayMonthValue)
-        .filter((holiday) => holiday.displayYear === this.displayYearValue);
+      return this.holidayCalendarData.list.filter(
+        (holiday) =>
+          holiday.displayMonth === this.displayMonthValue &&
+          holiday.displayYear === this.displayYearValue
+      );
+    },
+    holidayCalendarData() {
+      const year = this.isPersianLocale
+        ? this.getPersianParts(this.currentDate).year
+        : this.currentDate.getFullYear();
+      const locale = this.$i18n ? String(this.$i18n.locale) : "en";
+      const cacheKey = `${locale}-${year}`;
+      if (holidayCalendarCache.has(cacheKey)) {
+        return holidayCalendarCache.get(cacheKey);
+      }
+
+      const { startDate, endDate } = this.getHolidayYearBounds();
+      const holidayIndexes = {
+        gregorian: new Map(),
+        jalali: new Map(),
+        islamic: new Map(),
+      };
+
+      for (const holiday of this.holidays) {
+        const [month, day] = holiday.date.split("-").map(Number);
+        const key = `${month}-${day}`;
+        const calendarIndex = holidayIndexes[holiday.calendar];
+        if (!calendarIndex) continue;
+        const matchingHolidays = calendarIndex.get(key) || [];
+        matchingHolidays.push(holiday);
+        calendarIndex.set(key, matchingHolidays);
+      }
+
+      const byDate = new Map();
+      const list = [];
+      const officialHolidayIndex = new Map();
+      const eventYearDates = new Map();
+      const persianYears = new Set([
+        this.getPersianParts(startDate).year,
+        this.getPersianParts(new Date(endDate.getTime() - 86400000)).year,
+      ]);
+
+      for (const persianYear of persianYears) {
+        const eventDates = new Map();
+        for (const holiday of this.holidays) {
+          if (holiday.calendar !== "islamic" || holiday.scope !== "iran") {
+            continue;
+          }
+          const officialDate = holiday.officialDates?.[persianYear];
+          if (!officialDate) continue;
+
+          const resolvedDate = parseOfficialGregorianDate(officialDate);
+          eventDates.set(holiday.name, resolvedDate);
+          const dateKey = this.getHolidayDateKey(resolvedDate);
+          const matchingHolidays = officialHolidayIndex.get(dateKey) || [];
+          matchingHolidays.push(holiday);
+          officialHolidayIndex.set(dateKey, matchingHolidays);
+        }
+        eventYearDates.set(persianYear, eventDates);
+      }
+
+      for (
+        let date = new Date(startDate);
+        date < endDate;
+        date.setDate(date.getDate() + 1)
+      ) {
+        const occurrenceDate = new Date(date);
+        const persian = this.getPersianParts(occurrenceDate);
+        const islamic = this.getIslamicParts(occurrenceDate);
+        const calendarKeys = {
+          gregorian: `${occurrenceDate.getMonth() + 1}-${occurrenceDate.getDate()}`,
+          jalali: `${persian.month}-${persian.day}`,
+          islamic: `${islamic.month}-${islamic.day}`,
+        };
+        const dateKey = this.getHolidayDateKey(occurrenceDate);
+        const occurrences = [];
+
+        for (const [calendar, key] of Object.entries(calendarKeys)) {
+          const matchingHolidays = holidayIndexes[calendar].get(key) || [];
+          for (const holiday of matchingHolidays) {
+            if (
+              holiday.calendar === "islamic" &&
+              holiday.scope === "iran" &&
+              eventYearDates.get(persian.year)?.has(holiday.name)
+            ) {
+              continue;
+            }
+            const occurrence = {
+              ...holiday,
+              name: this.getHolidayName(holiday),
+              reason: this.getHolidayReason(holiday),
+              displayDate: this.isPersianLocale
+                ? `${this.formatDisplayNumber(persian.day)} ${
+                    this.persianMonthNames[persian.month - 1]
+                  }`
+                : `${String(occurrenceDate.getMonth() + 1).padStart(
+                    2,
+                    "0"
+                  )}-${String(occurrenceDate.getDate()).padStart(2, "0")}`,
+              displayMonth: this.isPersianLocale
+                ? persian.month
+                : occurrenceDate.getMonth() + 1,
+              displayYear: this.isPersianLocale
+                ? persian.year
+                : occurrenceDate.getFullYear(),
+              gregorianDate: occurrenceDate,
+            };
+            occurrences.push(occurrence);
+            list.push(occurrence);
+          }
+        }
+
+        for (const holiday of officialHolidayIndex.get(dateKey) || []) {
+          const occurrence = {
+            ...holiday,
+            name: this.getHolidayName(holiday),
+            reason: this.getHolidayReason(holiday),
+            displayDate: this.isPersianLocale
+              ? `${this.formatDisplayNumber(persian.day)} ${
+                  this.persianMonthNames[persian.month - 1]
+                }`
+              : `${String(occurrenceDate.getMonth() + 1).padStart(
+                  2,
+                  "0"
+                )}-${String(occurrenceDate.getDate()).padStart(2, "0")}`,
+            displayMonth: this.isPersianLocale
+              ? persian.month
+              : occurrenceDate.getMonth() + 1,
+            displayYear: this.isPersianLocale
+              ? persian.year
+              : occurrenceDate.getFullYear(),
+            gregorianDate: occurrenceDate,
+          };
+          occurrences.push(occurrence);
+          list.push(occurrence);
+        }
+
+        if (occurrences.length) byDate.set(dateKey, occurrences);
+      }
+
+      const result = { byDate, list };
+      if (holidayCalendarCache.size >= 8) {
+        holidayCalendarCache.delete(holidayCalendarCache.keys().next().value);
+      }
+      holidayCalendarCache.set(cacheKey, result);
+      return result;
     },
     calcDir() {
       try {
@@ -793,7 +985,7 @@ export default {
     dayStateClass(day) {
       if (this.isSelected(day)) return "bg-blue-500 text-white";
       if (this.isToday(day)) return "bg-black text-white";
-      if (this.isHoliday(day) && this.isCurrentMonth(day)) return "bg-red-500 text-white";
+      if (this.isIranHoliday(day) && this.isCurrentMonth(day)) return "bg-red-500 text-white";
       return "";
     },
     previousMonth() {
@@ -835,30 +1027,25 @@ export default {
     goToCurrentMonth() {
       this.currentDate = new Date();
     },
-    isHoliday(day) {
-      if (this.isPersianLocale) {
-        if (day.day === 5) return true;
-        return this.holidays.some((holiday) => {
-          const gregorianDate = new Date(
-            this.currentDate.getFullYear(),
-            Number(holiday.date.split("-")[0]) - 1,
-            Number(holiday.date.split("-")[1])
-          );
-          const persianHoliday = this.getPersianParts(gregorianDate);
-          return (
-            persianHoliday.year === day.year &&
-            persianHoliday.month === day.month &&
-            persianHoliday.day === day.date
-          );
-        });
-      }
-      const dateString = `${String(day.month + 1).padStart(2, "0")}-${String(
-        day.date
-      ).padStart(2, "0")}`;
-      return (
-        this.holidays.some((holiday) => holiday.date === dateString) ||
-        day.day === 0
-      );
+    isIranHoliday(day) {
+      const gregorianDate =
+        day.gregorianDate || new Date(day.year, day.month, day.date);
+      const dayOfWeek = gregorianDate.getDay();
+      if (this.isPersianLocale ? dayOfWeek === 5 : dayOfWeek === 0) return true;
+
+      return (this.holidayCalendarData.byDate.get(
+        this.getHolidayDateKey(gregorianDate)
+      ) || []).some((holiday) => holiday.scope === "iran");
+    },
+    isGlobalHoliday(day) {
+      return Boolean(this.globalHolidayForDay(day));
+    },
+    globalHolidayForDay(day) {
+      const gregorianDate =
+        day.gregorianDate || new Date(day.year, day.month, day.date);
+      return (this.holidayCalendarData.byDate.get(
+        this.getHolidayDateKey(gregorianDate)
+      ) || []).find((holiday) => holiday.scope === "global");
     },
     toggleSelect(day) {
       if (!this.isCurrentMonth(day)) return;
@@ -875,39 +1062,39 @@ export default {
       if (!day.isCurrentMonth) return false;
       return `${day.year}-${day.month}-${day.date}` === this.selectedDate;
     },
-    normalizeHoliday(holiday) {
-      const [month, day] = holiday.date.split("-").map(Number);
-      const gregorianDate = new Date(
-        this.currentDate.getFullYear(),
-        month - 1,
-        day
-      );
+    getHolidayYearBounds() {
       if (this.isPersianLocale) {
-        const persian = this.getPersianParts(gregorianDate);
+        const persianYear = this.getPersianParts(this.currentDate).year;
         return {
-          ...holiday,
-          name: this.getHolidayName(holiday),
-          reason: this.getHolidayReason(holiday),
-          displayDate: `${this.formatDisplayNumber(persian.day)} ${
-            this.persianMonthNames[persian.month - 1]
-          }`,
-          displayMonth: persian.month,
-          displayYear: persian.year,
+          startDate: this.findGregorianDateForPersian(persianYear, 1, 1),
+          endDate: this.findGregorianDateForPersian(persianYear + 1, 1, 1),
         };
       }
+      const year = this.currentDate.getFullYear();
       return {
-        ...holiday,
-        name: holiday.name,
-        reason: holiday.reason,
-        displayDate: `${String(month).padStart(2, "0")}-${String(day).padStart(
-          2,
-          "0"
-        )}`,
-        displayMonth: month,
-        displayYear: this.currentDate.getFullYear(),
+        startDate: new Date(year, 0, 1),
+        endDate: new Date(year + 1, 0, 1),
       };
     },
+    getIslamicParts(date) {
+      const calendarDate = this.toCalendarDate(date);
+      const values = Object.fromEntries(
+        islamicDateFormatter
+          .formatToParts(calendarDate)
+          .map(({ type, value }) => [type, value])
+      );
+      return { month: Number(values.month), day: Number(values.day) };
+    },
+    getHolidayDateKey(date) {
+      return formatGregorianDateKey(date);
+    },
+    toCalendarDate(date) {
+      return new Date(
+        Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 12)
+      );
+    },
     getHolidayName(holiday) {
+      if (this.isPersianLocale && holiday.nameFa) return holiday.nameFa;
       const aliases = {
         "New Year's Day": "calendar.holidayNames.newYear",
         "Christmas Day": "calendar.holidayNames.christmas",
@@ -932,6 +1119,7 @@ export default {
       return this.isPersianLocale ? this.$t(translationKey) : holiday.name;
     },
     getHolidayReason(holiday) {
+      if (this.isPersianLocale && holiday.reasonFa) return holiday.reasonFa;
       const aliases = {
         "New Year's Day": "calendar.holidayReasons.newYear",
         "Christmas Day": "calendar.holidayReasons.christmas",
@@ -967,12 +1155,8 @@ export default {
       );
     },
     getPersianParts(date) {
-      const formatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
-        year: "numeric",
-        month: "numeric",
-        day: "numeric",
-      });
-      const parts = formatter.formatToParts(date);
+      const calendarDate = this.toCalendarDate(date);
+      const parts = persianDateFormatter.formatToParts(calendarDate);
       const values = Object.fromEntries(
         parts.map(({ type, value }) => [type, value])
       );
