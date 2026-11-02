@@ -75,3 +75,7 @@ body {
 .dark footer {
   @apply bg-gray-900;
 }
+
+.w-full {
+    width: 99%;
+}

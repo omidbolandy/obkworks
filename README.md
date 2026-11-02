@@ -98,6 +98,9 @@ The website features a responsive interface, Persian (RTL) and English (LTR) lan
   - Telegram Bot API
   - Resend Email API
 
+- **AI & Chatbot:**
+  - Google Gemini API
+
 ---
 
 ## 📂 Project Categories
