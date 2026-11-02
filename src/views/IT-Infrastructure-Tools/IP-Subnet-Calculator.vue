@@ -301,6 +301,28 @@
           </p>
         </div>
       </div>
+
+      <hr class="my-10 border-gray-200 dark:border-gray-600" />
+
+      <!-- Related Article -->
+      <div class="mt-6 rounded-2xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30 p-3 flex items-center justify-between gap-2 min-[425px]:p-4 min-[425px]:gap-4">
+        <div>
+          <p class="text-[10px] font-semibold text-blue-700 dark:text-blue-300 leading-snug min-[375px]:text-[11px] min-[425px]:text-[13px]">
+            {{ $t('itInfrastructureTools.pages.ipSubnetCalculator.relatedArticle.label') }}
+          </p>
+          <p class="text-[9px] text-blue-600 dark:text-blue-400 mt-0.5 leading-snug min-[375px]:text-[10px] min-[425px]:text-[11px]">
+            {{ $t('itInfrastructureTools.pages.ipSubnetCalculator.relatedArticle.description') }}
+          </p>
+        </div>
+        <router-link
+          to="/Articles/ipv4-subnetting-cidr-network-addressing-guide"
+          class="shrink-0 inline-flex items-center gap-1 rounded-xl bg-blue-600 hover:bg-blue-700 px-2.5 py-1.5 text-[10px] font-semibold text-white transition-colors min-[375px]:px-3 min-[375px]:py-2 min-[375px]:text-[11px] min-[425px]:gap-2 min-[425px]:px-4 min-[425px]:py-2 min-[425px]:text-sm">
+          {{ $t('itInfrastructureTools.pages.ipSubnetCalculator.relatedArticle.button') }}
+          <svg class="w-3 h-3 rtl:rotate-180 min-[425px]:w-4 min-[425px]:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </router-link>
+      </div>
     </div>
   </section>
 </template>

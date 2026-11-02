@@ -35,9 +35,9 @@
     <!-- Articles  -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
       <div v-for="article in filteredArticles" :key="article.id"
-        class="flex h-full flex-col rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg dark:border dark:border-gray-800 dark:border-transparent dark:bg-gray-900 dark:shadow-gray-950/50 sm:p-6">
+        class="flex h-full flex-col rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg dark:border dark:border-gray-800 dark:border-transparent dark:bg-gray-900 dark:shadow-gray-950/50 sm:p-5">
         <img :src="article.image" :alt="articleTitle(article)"
-          class="mb-2 h-auto w-auto rounded-md object-cover sm:mb-3 sm:h-40 md:h-auto" />
+          class="mb-2 h-auto w-auto rounded-md aspect-video sm:mb-3 sm:h-40 md:h-auto" />
 
         <h2 class="mb-2 text-lg font-semibold text-gray-800 dark:text-gray-100 sm:text-xl">
           {{ articleTitle(article) }}

@@ -1,3 +1,6 @@
+import IPSubnetImage from '../assets/Articles/IP-Subnet-Calculator.webp'
+import RAIDImage from '../assets/Articles/RAID-Calculator.webp'
+// ******
 import PortSecurity from '../assets/Articles/Port Security.webp'
 import PortSecurityDiagram from '../assets/Articles/Port Security Diagram.png'
 // ******
@@ -1276,6 +1279,224 @@ errdisable recovery interval 300`
         tags: ['CCNA'],
     },
 
-    // --- article #12 ---
+    // --- article #12 (IP Subnet Calculator) ---
+    {
+        id: 12,
+        slug: 'ipv4-subnetting-cidr-network-addressing-guide',
+        title: {
+            en: 'Mastering Subnetting and CIDR in IPv4: Network Addressing Concepts',
+            fa: 'تسلط بر ساب‌نتینگ و CIDR در IPv4: مفاهیم آدرس‌دهی شبکه',
+        },
+        excerpt: {
+            en: 'A comprehensive technical guide to IPv4 subnetting, netmasks, CIDR notation, and network broadcasting calculations essential for network engineers.',
+            fa: 'راهنمای جامع تخصصی ساب‌نتینگ IPv4، ماسک‌های شبکه، نوت‌یشن CIDR و محاسبات دامنه Broadcast مناسب مهندسین شبکه.',
+        },
+        content: [
+            {
+                type: 'text',
+                en: 'Subnetting is one of the most fundamental skills in IP network engineering. As networks scale, flat layer 2 domains lead to excessive broadcast traffic, degraded performance, and severe security risks. Subnetting enables administrators to partition a single Classful IPv4 network into smaller, logical subnets using Variable Length Subnet Masking (VLSM) and Classless Inter-Domain Routing (CIDR). This optimizes IP address allocation and enforces strict security boundaries between departments.',
+                fa: 'ساب‌نتینگ (Subnetting) یکی از بنیادی‌ترین مهارت‌ها در مهندسی شبکه‌های IP است. با بزرگ‌تر شدن شبکه‌ها، ساختارهای یکپارچه لایه ۲ منجر به ایجاد طوفان‌های Broadcast، کاهش شدید کارایی و مخاطرات امنیتی می‌شوند. ساب‌نتینگ به مدیران شبکه اجازه می‌دهد با استفاده از ماسک‌های طول متغیر (VLSM) و روش CIDR، یک شبکه بزرگ را به زیرشبکه‌های منطقی و کوچک‌تر تقسیم کنند؛ اقدامی که علاوه بر بهینه‌سازی تخصیص IP، مرزهای امنیتی مجزایی بین واحدهای سازمان ایجاد می‌کند.',
+            },
+            {
+                type: 'text',
+                en: 'Classful IP Addressing (Classes A, B, C, D, E):\nIn the early days of the internet, IPv4 addresses were categorized into fixed classes based on their first octet, each with a predefined default subnet mask:',
+                fa: 'آدرس‌دهی کلاس‌بندی شده سنتی (Classful Addressing - کلاس‌های A تا E):\nدر سال‌های اولیه پیدایش اینترنت، آدرس‌های IPv4 بر اساس اکتیت اول به کلاس‌های ثابتی تقسیم می‌شدند که هر کدام ماسک پیش‌فرض مشخصی داشتند:',
+            },
+            {
+                type: 'table',
+                headers: {
+                    en: ['Class', 'IP Address Range', 'Default Netmask / Prefix', 'Primary Application'],
+                    fa: ['کلاس شبکه', 'بازه آدرس IP', 'ماسک پیش‌فرض / CIDR', 'کاربرد و حوزه استفاده']
+                },
+                rows: {
+                    en: [
+                        ['Class A', '1.0.0.0 to 126.0.0.0', '255.0.0.0 (/8)', 'Massive national & enterprise networks'],
+                        ['Class B', '128.0.0.0 to 191.255.0.0', '255.255.0.0 (/16)', 'Medium to large organization networks'],
+                        ['Class C', '192.0.0.0 to 223.255.255.0', '255.255.255.0 (/24)', 'Small local area networks (LANs)'],
+                        ['Class D', '224.0.0.0 to 239.255.255.255', 'N/A (Multicast)', 'Multicast traffic streaming'],
+                        ['Class E', '240.0.0.0 to 255.255.255.255', 'N/A (Experimental)', 'Research & experimental purposes']
+                    ],
+                    fa: [
+                        ['کلاس A', '1.0.0.0 تا 126.0.0.0', '255.0.0.0 (/8)', 'شبکه‌های بسیار بزرگ ملی و سازمانی'],
+                        ['کلاس B', '128.0.0.0 تا 191.255.0.0', '255.255.0.0 (/16)', 'سازمان‌های متوسط و بزرگ'],
+                        ['کلاس C', '192.0.0.0 تا 223.255.255.0', '255.255.255.0 (/24)', 'شبکه‌های محلی کوچک (LAN)'],
+                        ['کلاس D', '224.0.0.0 تا 239.255.255.255', 'تعریف نشده (مالتی‌کست)', 'ارسال‌های گروهی و مالتی‌کست'],
+                        ['کلاس E', '240.0.0.0 تا 255.255.255.255', 'تعریف نشده (ازمایشی)', 'اهداف تحقیقاتی و آزمایشی']
+                    ]
+                }
+            },
+            {
+                type: 'text',
+                en: 'Special & Reserved IP Addresses:\nCertain IP ranges and specific addresses serve dedicated administrative or diagnostic functions within TCP/IP networks:',
+                fa: 'آدرس‌های خاص و رزروشده (Special & Reserved IP Addresses):\nبرخی از محدوده‌ها و آدرس‌های IP در شبکه به صورت استاندارد کارکردهای ویژه‌ای دارند:',
+            },
+            {
+                type: 'table',
+                headers: {
+                    en: ['Address Type', 'IP Range / Block', 'Operational Description & Purpose'],
+                    fa: ['نوع آدرس', 'محدوده IP / بلوک آدرس', 'شرح کارکرد و هدف عملیاتی']
+                },
+                rows: {
+                    en: [
+                        ['Private IPs (RFC 1918)', '10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16', 'Non-routable internal LAN addresses'],
+                        ['Loopback Address', '127.0.0.0/8 (e.g., 127.0.0.1)', 'Local host software testing & diagnostics'],
+                        ['APIPA Range', '169.254.0.0/16', 'Auto-assigned IP when DHCP server is unreachable'],
+                        ['Network ID', 'First IP of Subnet', 'Identifies the subnet boundary'],
+                        ['Broadcast ID', 'Last IP of Subnet', 'Targets all hosts in the subnet simultaneously']
+                    ],
+                    fa: [
+                        ['آدرس‌های خصوصی (RFC 1918)', '10.0.0.0/8 | 172.16.0.0/12 | 192.168.0.0/16', 'آدرس‌های غیرقابل مسیریابی در اینترنت جهت استفاده در شبکه‌های داخلی'],
+                        ['آدرس لوک‌پک (Loopback)', '127.0.0.0/8 (به‌ویژه 127.0.0.1)', 'تست‌های داخلی نرم‌افزار، عیب‌یابی پشته TCP/IP و کارت شبکه روی خود سیستم'],
+                        ['آدرس‌های APIPA', '169.254.0.0/16', 'تخصیص خودکار توسط سیستم‌عامل در صورت عدم دسترسی به سرور DHCP'],
+                        ['آدرس شبکه (Network ID)', 'اولین آدرس IP در ساب‌نت', 'شناسه اصلی و شناساگر محدوده ساب‌نت'],
+                        ['آدرس Broadcast', 'آخرین آدرس IP در ساب‌نت', 'آدرس ارسال هم‌زمان بسته به تمام سیستم‌های موجود در ساب‌نت']
+                    ]
+                }
+            },
+            {
+                type: 'text',
+                en: '1. Classful vs. Classless Addressing (CIDR & Netmasks):\nHistorically, IPv4 used Classful addressing (Class A, B, and C) with fixed default subnet masks (/8, /16, /24). This resulted in massive IP address waste. Classless Inter-Domain Routing (CIDR) replaced classful networks by appending a prefix length (e.g., /26) directly to the IP address, allowing arbitrary subnet mask lengths that match exact host count requirements.',
+                fa: '۱. مقایسه آدرس‌دهی Classful و Classless (مفهوم CIDR و ماسک شبکه):\nدر گذشته، IPv4 از آدرس‌دهی کلاس‌بندی شده (کلاس‌های A و B و C) با ماسک‌های ثابت (/8, /16, /24) استفاده می‌کرد که باعث هدررفت شدید آدرس‌ها می‌شد. معماری CIDR با حذف کلاس‌ها و اضافه کردن طول پیشوند (مثل /26) به آدرس IP، امکان تفکیک شبکه دقیقاً متناسب با تعداد دستگاه‌های مورد نیاز را فراهم کرد.',
+            },
+            {
+                type: 'table',
+                headers: {
+                    en: ['CIDR Prefix', 'Subnet Mask', 'Total IPs', 'Usable Hosts'],
+                    fa: ['پیشوند CIDR', 'ساب‌نت ماسک (Subnet Mask)', 'کل آدرس‌ها', 'هاست‌های قابل استفاده']
+                },
+                rows: {
+                    en: [
+                        ['/24', '255.255.255.0', '256', '254'],
+                        ['/25', '255.255.255.128', '128', '126'],
+                        ['/26', '255.255.255.192', '64', '62'],
+                        ['/27', '255.255.255.224', '32', '30'],
+                        ['/28', '255.255.255.240', '16', '14'],
+                        ['/29', '255.255.255.248', '8', '6'],
+                        ['/30', '255.255.255.252', '4', '2 (P2P Links)'],
+                        ['/32', '255.255.255.255', '1', '1 (Host Route / Loopback)']
+                    ],
+                    fa: [
+                        ['/24', '255.255.255.0', '۲۵۶', '۲۵۴'],
+                        ['/25', '255.255.255.128', '۱۲۸', '۱۲۶'],
+                        ['/26', '255.255.255.192', '۶۴', '۶۲'],
+                        ['/27', '255.255.255.224', '۳۲', '۳۰'],
+                        ['/28', '255.255.255.240', '۱۶', '۱۴'],
+                        ['/29', '255.255.255.248', '۸', '۶'],
+                        ['/30', '255.255.255.252', '۴', '۲ (لینک‌های Point-to-Point)'],
+                        ['/32', '255.255.255.255', '۱', '۱ (آدرس اختصاصی / Loopback)']
+                    ]
+                }
+            },
+            {
+                type: 'text',
+                en: '2. Core Formulas for Subnet Calculation:\nWhen calculating subnet parameters manually or programmatically, engineers rely on binary logic and powers of 2:\n• Total IPs = 2^(32 - Prefix)\n• Usable Hosts = (2^(32 - Prefix)) - 2  [Subtracting Network ID and Broadcast ID]\n• Subnet Block Size = 256 - Octet Value',
+                fa: '۲. فرمول‌های اصلی محاسبات ساب‌نت:\nبرای محاسبه دستی یا برنامه‌نویسی پارامترهای زیرشبکه، از مبنای دو و فرمول‌های زیر استفاده می‌شود:\n• کل آدرس‌های شبکه = ۲ به توان (پیشوند - ۳۲)\n• آدرس‌های قابل استفاده هاست = [۲ به توان (پیشوند - ۳۲)] منهای ۲ (کسر کردن آدرس شبکه و آدرس Broadcast)\n• اندازه بلوک ساب‌نت = ۲۵۶ منهای مقدار اکتیت مربوطه',
+            },
+            {
+                type: 'code',
+                language: 'JavaScript Subnet Calculation Snippet',
+                code: `// Calculate total and usable hosts from CIDR prefix
+function getHostCounts(cidr) {
+  const hostBits = 32 - cidr;
+  const totalIPs = Math.pow(2, hostBits);
+  const usableHosts = cidr >= 31 ? (cidr === 31 ? 2 : 1) : totalIPs - 2;
+  return { totalIPs, usableHosts };
+}
+
+console.log(getHostCounts(26)); // { totalIPs: 64, usableHosts: 62 }`
+            },
+            {
+                type: 'text',
+                en: 'Engineering Takeaway & Operational Considerations:\nAlways reserve a minimum of 20-30% growth capacity when choosing subnet sizes for subnets hosting dynamic DHCP clients. For point-to-point links between enterprise routers or firewalls, standardized on RFC 3021 /31 prefixes or traditional /30 networks to prevent IP depletion. Utilize dedicated subnetting tools to eliminate human calculation errors during IP scheme design.',
+                fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nدر زمان طراحی ساب‌نت‌ها برای کاربران DHCP، همواره حداقل ۲۰ الی ۳۰ درصد ظرفیت اضافه برای توسعه آتی در نظر بگیرید. برای لینک‌های Point-to-Point بین روترها یا فایروال‌ها، از پیشوندهای /30 یا استاندارد /31 (مطابق RFC 3021) استفاده کنید تا از اتلاف IP جلوگیری شود. استفاده از ماشین‌حساب‌های ساب‌نت احتمال خطای انسانی در محاسبه آدرس‌ها را به صفر می‌رساند.',
+            }
+        ],
+        relatedTool: {
+            path: '/Projects/IT-Infrastructure-Tools/ip-subnet-calculator',
+            label: { en: 'IP Subnet Calculator', fa: 'ماشین حساب ساب‌نت IP' }
+        },
+        author: 'obk',
+        date: '2026-11-02',
+        image: IPSubnetImage,
+        tags: ['Network Plus'],
+    },
+
+    // --- article #13 (RAID Calculator) ---
+    {
+        id: 13,
+        slug: 'enterprise-storage-raid-levels-fault-tolerance-calculator',
+        title: {
+            en: 'Enterprise Storage Architecture: RAID Levels and Storage Calculator',
+            fa: 'معماری ذخیره‌سازی سازمانی: سطوح RAID و ماشین‌حساب استوریج',
+        },
+        excerpt: {
+            en: 'A technical breakdown of RAID levels (0, 1, 5, 6, 10, 50, 60, 1E), disk fault tolerance calculations, and storage capacity planning for enterprise servers.',
+            fa: 'بررسی تخصصی سطوح RAID (شامل 0, 1, 5, 6, 10, 50, 60, 1E)، محاسبات تحمل خطا و برنامه‌ریزی فضای ذخیره‌سازی برای سرورهای سازمانی.',
+        },
+        content: [
+            {
+                type: 'text',
+                en: 'Redundant Array of Independent Disks (RAID) is a foundational technology in enterprise data center architecture. It combines multiple physical hard drives or SSDs into a single logical storage unit to achieve performance aggregation, fault tolerance, or a balance of both. Choosing the wrong RAID configuration can cause severe I/O bottlenecks or result in catastrophic data loss during disk rebuilding phases.',
+                fa: 'تکنولوژی RAID (آرایه مازاد دیسک‌های مستقل) شالوده اصلی سیستم‌های ذخیره‌سازی در دیتاسنترها و سرورهای سازمانی است. این فناوری با ترکیب چند دیسک فیزیکی (HDD یا SSD) در قالب یک واحد منطقی، باعث افزایش سرعت خواندن/نوشتن، ایجاد پایداری در برابر سوختن دیسک‌ها یا ترکیبی از هر دو می‌شود. انتخاب نادرست سطح RAID می‌تواند منجر به گلوی‌گاه (Bottleneck) در سرعت یا از دست رفتن کل اطلاعات سازمان در زمان بازسازی (Rebuild) دیسک‌ها شود.',
+            },
+            {
+                type: 'text',
+                en: '1. Standard RAID Levels Breakdown:\n• RAID 0 (Striping): Distributes data across disks without parity or redundancy. Provides maximum performance and 100% usable capacity, but a single disk failure destroys all data.\n• RAID 1 (Mirroring): Duplicates data identically across drive pairs. Provides high fault tolerance and read performance with 50% storage overhead.\n• RAID 5 (Striping with Single Distributed Parity): Requires at least 3 disks. Can survive a single drive failure. Usable capacity equals (N - 1) * Disk Size.\n• RAID 6 (Striping with Dual Distributed Parity): Requires at least 4 disks. Employs dual parity calculation to survive up to 2 simultaneous disk failures. Usable capacity equals (N - 2) * Disk Size.',
+                fa: '۱. بررسی سطوح استاندارد RAID:\n• سطح RAID 0 (تکه‌تکه‌سازی):\nتوزیع داده‌ها روی دیسک‌ها بدون داده همزادی (Parity). حداکثر سرعت و ۱۰۰٪ ظرفیت مفید، اما با سوختن یک دیسک کل اطلاعات نابود می‌شود.\n\n• سطح RAID 1 (آینه‌سازی):\nکپی دقیق اطلاعات روی دو دیسک. پایداری بسیار بالا با افت ۵۰ درصدی ظرفیت ذخیره‌سازی.\n\n• سطح RAID 5 (پاریتی توزیع‌شده تکی):\nنیازمند حداقل ۳ دیسک. تحمل سوختن ۱ دیسک هم‌زمان. ظرفیت مفید برابر است با (N - 1) ضرب‌در حجم دیسک.\n\n• سطح RAID 6 (پاریتی توزیع‌شده دوگانه):\nنیازمند حداقل ۴ دیسک. استفاده از دو پاریتی مجزا برای تحمل سوختن ۲ دیسک هم‌زمان. ظرفیت مفید برابر است با (N - 2) ضرب‌در حجم دیسک.',
+            },
+            {
+                type: 'text',
+                en: '2. Nested & Advanced RAID Configurations (RAID 10, 50, 60 & 1E):\n• RAID 10 (1+0 - Striped Mirrors): Combines RAID 1 mirroring with RAID 0 striping. Requires a minimum of 4 disks. Delivers extreme IOPS and rapid rebuild times.\n• RAID 50 (5+0 - Striped RAID 5 Sets): Bundles multiple RAID 5 groups into a single RAID 0 stripe. Requires at least 6 disks. Offers superior write performance and faster rebuilds for high-capacity drives compared to standalone RAID 5.\n• RAID 60 (6+0 - Striped RAID 6 Sets): Bundles multiple RAID 6 groups across a RAID 0 stripe. Requires at least 8 disks. Tolerates up to 2 disk failures per sub-array, making it ideal for massive enterprise storage arrays.\n• RAID 1E (Enhanced Mirroring): An advanced variant of RAID 1 that allows mirroring across an odd number of disks (minimum 3 disks) by striping mirrored data blocks diagonally across all drives.\n\n',
+                fa: '۲. سطوح ترکیبی و پیشرفته (RAID 10, 50, 60 و 1E):\n• سطح RAID 10 (ترکیب 1+0):\nترکیب آینه‌سازی RAID 1 با سرعت RAID 0. نیازمند حداقل ۴ دیسک. ارائه حداکثر IOPS و بازسازی بسیار سریع دیسک‌های آسیب‌دیده.\n\n• سطح RAID 50 (ترکیب 5+0):\nترکیب چند آرایه RAID 5 در قالب یک RAID 0. نیازمند حداقل ۶ دیسک. ارائه سرعت نوشتن بالاتر و بازسازی سریع‌تر نسبت به RAID 5 در دیسک‌های حجیم.\n\n• سطح RAID 60 (ترکیب 6+0):\nترکیب چند آرایه RAID 6 در قالب یک RAID 0. نیازمند حداقل ۸ دیسک. تحمل سوختن حداکثر ۲ دیسک در هر زیرمجموعه؛ گزینه‌ای عالی برای استوریج‌های بسیار بزرگ سازمانی.\n\n• سطح RAID 1E (آینه‌سازی پیشرفته):\nنسخه پیشرفته RAID 1 که امکان آینه‌سازی روی تعداد دیسک‌های فرد (حداقل ۳ دیسک) را با توزیع مورب بلاک‌ها فراهم می‌سازد.\n\n',
+            },
+            {
+                type: 'table',
+                headers: {
+                    en: ['RAID Level', 'Min Disks', 'Usable Capacity Formula', 'Fault Tolerance (Max Failed Disks)'],
+                    fa: ['سطح RAID', 'حداقل دیسک', 'فرمول ظرفیت مفید', 'تحمل خطا (حداکثر دیسک آسیب‌دیده)']
+                },
+                rows: {
+                    en: [
+                        ['RAID 0', '2', 'N * Disk Size', '0 Disks (No Fault Tolerance)'],
+                        ['RAID 1', '2', '1 * Disk Size', '1 Disk'],
+                        ['RAID 5', '3', '(N - 1) * Disk Size', '1 Disk'],
+                        ['RAID 6', '4', '(N - 2) * Disk Size', '2 Disks'],
+                        ['RAID 10', '4', '(N / 2) * Disk Size', '1 Disk per mirror pair (Up to N/2 total)'],
+                        ['RAID 50', '6', '(N - Sets) * Disk Size', '1 Disk per RAID 5 set'],
+                        ['RAID 60', '8', '(N - (2 * Sets)) * Disk Size', '2 Disks per RAID 6 set'],
+                        ['RAID 1E', '3', '(N / 2) * Disk Size', '1 Disk (or up to N/2 non-adjacent disks)']
+                    ],
+                    fa: [
+                        ['RAID 0', '۲', 'N * حجم دیسک', '۰ دیسک (بدون تحمل خطا)'],
+                        ['RAID 1', '۲', '۱ * حجم دیسک', '۱ دیسک'],
+                        ['RAID 5', '۳', '(N - 1) * حجم دیسک', '۱ دیسک'],
+                        ['RAID 6', '۴', '(N - 2) * حجم دیسک', '۲ دیسک'],
+                        ['RAID 10', '۴', '(N / 2) * حجم دیسک', '۱ دیسک در هر جفت آینه‌ای'],
+                        ['RAID 50', '۶', '(N - تعداد ست‌ها) * حجم دیسک', '۱ دیسک در هر مجموعه RAID 5'],
+                        ['RAID 60', '۸', '(N - (۲ * تعداد ست‌ها)) * حجم دیسک', '۲ دیسک در هر مجموعه RAID 6'],
+                        ['RAID 1E', '۳', '(N / 2) * حجم دیسک', '۱ دیسک (یا تا ۵۰٪ دیسک‌های غیرمجاور)']
+                    ]
+                }
+            },
+            {
+                type: 'text',
+                en: 'Engineering Takeaway & Operational Considerations:\nWhen deploying high-capacity mechanical drives (HDDs >= 8TB) in enterprise servers, avoid RAID 5 due to the long rebuild times and high probability of an Unrecoverable Read Error (URE) during reconstruction. Prefer RAID 6 or RAID 10 for critical database workloads and hypervisors. Always configure a dedicated "Hot Spare" drive to allow immediate, automated array reconstruction upon disk failure.',
+                fa: 'جمع‌بندی مهندسی و نکات عملیاتی:\nهنگام استفاده از دیسک‌های مکانیکی پرظرفیت (HDDs بالای ۸ ترابایت) در سرورهای سازمانی، به دلیل زمان بسیار طولانی بازسازی (Rebuild) و احتمال بالای وقوع خطای خواندن (URE)، از RAID 5 اجتناب کنید. برای دیتابیس‌های حساس و سرورهای مجازی‌سازی، RAID 10 یا RAID 6 بهترین گزینه هستند. همچنین همواره یک دیسک جایگزین آماده (Hot Spare) تنظیم کنید تا در صورت خرابی دیسک، بازسازی آرایه بلافاصله به‌صورت خودکار آغاز شود.',
+            }
+        ],
+        references: [
+            { url: 'https://www.snia.org', label: { en: 'SNIA Technical Standards', fa: 'استانداردهای فنی SNIA' } },
+        ],
+        relatedTool: {
+            path: '/Projects/IT-Infrastructure-Tools/raid-calculator',
+            label: { en: 'RAID Storage Calculator', fa: 'ماشین حساب ذخیره‌سازی RAID' }
+        },
+        author: 'obk',
+        date: '2026-11-02',
+        image: RAIDImage,
+        tags: ['Virtualization'],
+    },
+
+    // --- article #14 ---
 
 ]
