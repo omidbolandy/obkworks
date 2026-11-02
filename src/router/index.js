@@ -93,16 +93,32 @@ const routes = [
     },
     // Networking Labs
     {
-        path: '/Projects/Networking/VLAN-Lab', name: 'VLANLab',
-        alias: ['/Projects/Networking/VLAN-lab'],
+        path: '/Projects/Networking/VLAN-Lab',
+        name: 'VLANLab',
+        sensitive: true,
         component: () => import('../views/networking/VLANLab.vue'),
-        meta: { title: 'VLAN Lab | obkworks', description: { fa: 'پیکربندی عملی VLAN، Inter-VLAN Routing و تنظیم Trunk Port در سوئیچ های سیسکو.', en: 'Hands-on VLAN segmentation, Inter-VLAN routing, and Cisco trunk port configuration lab.' } }
+        meta: {
+            title: 'VLAN Lab | obkworks',
+            description: {
+                fa: 'پیکربندی عملی VLAN، Inter-VLAN Routing و تنظیم Trunk Port در سوئیچ های سیسکو.',
+                en: 'Hands-on VLAN segmentation, Inter-VLAN routing, and Cisco trunk port configuration lab.'
+            }
+        }
+    },
+    {
+        path: '/Projects/Networking/VLAN-lab',
+        redirect: { name: 'VLANLab' },
+        sensitive: true
     },
     {
         path: '/Projects/Networking/OSPF-Lab', name: 'OSPFLab',
-        alias: ['/Projects/Networking/OSPF-lab'],
         component: () => import('../views/networking/OSPFLab.vue'),
         meta: { title: 'OSPF Lab | obkworks', description: { fa: 'آموزش پیکربندی پروتکل مسیریابی OSPF نسخه ۲ در روترهای سیسکو با تنظیم Area و Router ID.', en: 'OSPFv2 dynamic routing protocol configuration lab on Cisco routers with area and router ID setup.' } }
+    },
+    {
+        path: '/Projects/Networking/OSPF-lab',
+        redirect: { name: 'OSPFLab' },
+        sensitive: true
     },
     {
         path: '/Projects/Networking/EigrpLab', name: 'EigrpLab',

@@ -536,14 +536,21 @@ export default {
     const schema = {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://www.obkworks.tr/#person",
       name: "Omid Bolandy Natag",
       alternateName: ["امید بلندی نتاج", "obkworks"],
       image: `https://www.obkworks.tr${logoImg}`,
       url: "https://www.obkworks.tr",
-      email: "omidbolandy@gmail.com",
       sameAs: [
         "https://github.com/omidbolandy",
-        "https://www.linkedin.com/in/omid-bolandy"
+        "https://www.linkedin.com/in/omid-bolandy",
+        "https://t.me/obkWorksBot",
+        "https://automation.obkworks.tr",
+        "https://docs.obkworks.tr",
+        "https://downloads.obkworks.tr",
+        "https://company.obkworks.tr",
+        "https://store.obkworks.tr",
+        "https://helpdesk.obkworks.tr",
       ],
       jobTitle: "Network Specialist & Frontend Developer",
       knowsAbout: [

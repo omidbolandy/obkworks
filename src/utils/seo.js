@@ -1,8 +1,6 @@
-import logoUrl from '../assets/obk-Logo.webp';
-
 const SITE_URL = 'https://www.obkworks.tr';
 const SITE_NAME = 'obkworks';
-const DEFAULT_IMAGE = new URL(logoUrl, window.location.origin).href;
+const DEFAULT_IMAGE = 'https://www.obkworks.tr/assets/obkworks_og_banner.png';
 
 const defaultDescriptions = {
     en: 'Personal portfolio of obkworks featuring web development tools, Cisco and Windows Server networking labs, IT infrastructure calculators, and technical articles.',
@@ -46,10 +44,6 @@ function upsertJsonLd(id, value) {
         document.head.appendChild(script);
     }
     script.textContent = JSON.stringify(value);
-}
-
-function removeJsonLd(id) {
-    document.head.querySelector(`script[data-seo-schema="${id}"]`)?.remove();
 }
 
 function localizedValue(value, locale, fallback = '') {
@@ -119,6 +113,13 @@ export function updateSeo(route, locale = 'en', options = {}) {
         sameAs: [
             'https://github.com/omidbolandy',
             'https://www.linkedin.com/in/omid-bolandy',
+            'https://t.me/obkWorksBot',
+            'https://automation.obkworks.tr',
+            'https://docs.obkworks.tr',
+            'https://downloads.obkworks.tr',
+            'https://company.obkworks.tr',
+            'https://store.obkworks.tr',
+            'https://helpdesk.obkworks.tr',
         ],
         knowsAbout: [
             'Cisco Networking',
